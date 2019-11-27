@@ -1,3 +1,4 @@
+import firebase from "firebase/app";
 import TitleScene from '../src/scenes/TitleScene'
 import BootScene from '../src/scenes/BootScene'
 import GameScene from '../src/scenes/GameScene'
@@ -21,6 +22,19 @@ let config = {
     }
 
 } 
+var firebaseConfig = {
+    apiKey: "AIzaSyDCEZUmGZolpVypl1qYw7ck_KMI6-VFtzQ",
+    authDomain: "afkinghts.firebaseapp.com",
+    databaseURL: "https://afkinghts.firebaseio.com",
+    projectId: "afkinghts",
+    storageBucket: "afkinghts.appspot.com",
+    messagingSenderId: "60348582192",
+    appId: "1:60348582192:web:5fe50eeb81377dc62360f5",
+    measurementId: "G-BDQ8PKPBLX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+ // firebase.analytics(); 
 
 let game = new Phaser.Game(config);
 game.scene.add('TitleScene',titleScene);
