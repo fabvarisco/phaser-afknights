@@ -9,7 +9,7 @@
         "background"
     ],
 
-    "sprites":{
+    "prefabs":{
         "background":{
             "type":"background",
             "position": {

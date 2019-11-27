@@ -11,14 +11,20 @@ let loadingScene = new LoadingScene();
 
 let config = {
     type: Phaser.AUTO,
-    width:800,
-    height: 600
+    width: 380,
+    height: 740,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: {y: 0}
+        }
+    }
 
 } 
 
 let game = new Phaser.Game(config);
 game.scene.add('TitleScene',titleScene);
+game.scene.add('GameScene',gameScene);
 game.scene.add('BootScene',bootScene);
 game.scene.add('LoadingScene',loadingScene);
-game.scene.add('GameScene',gameScene);
 game.scene.start('BootScene', {scene:'title'});
