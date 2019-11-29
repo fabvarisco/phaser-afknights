@@ -1,3 +1,4 @@
+import 'phaser';
 import firebase from "firebase/app";
 import TitleScene from '../src/scenes/TitleScene'
 import BootScene from '../src/scenes/BootScene'
@@ -9,17 +10,20 @@ let bootScene = new BootScene();
 let gameScene = new GameScene();
 let loadingScene = new LoadingScene();
 
-
 let config = {
     type: Phaser.AUTO,
-    width: 380,
-    height: 740,
+    width: 320,
+    height: 670,
     physics: {
         default: 'arcade',
         arcade: {
             gravity: {y: 0}
         }
-    }
+    },
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    },
 
 } 
 var firebaseConfig = {

@@ -15,6 +15,7 @@ class TitleScene extends JSONLevelScene {
 
         
     }
+
     update(){
 
         if(this.input.activePointer.isDown){

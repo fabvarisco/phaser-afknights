@@ -6,20 +6,19 @@ class Menu extends Prefab {
         
         this.menu_items = [];
         for (let menu_item_name in properties.menu_items) {
-            let new_item = this.scene.create_prefab(menu_item_name, properties.menu_items[menu_item_name]);
+            var new_item = this.scene.create_prefab(menu_item_name, properties.menu_items[menu_item_name]);
             this.menu_items.push(new_item);
         }
-        
+
         this.enable(false);
     }
     
     enable (enable) {
-        this.menu_items.forEach(function (menu_item) {
+        this.menu_items.forEach(function(menu_item) {
             menu_item.setInteractive(enable);
             menu_item.setVisible(enable);
         }, this);
     }
-    
 }
  
 export default Menu;

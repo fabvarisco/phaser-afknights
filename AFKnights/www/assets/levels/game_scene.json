@@ -12,6 +12,7 @@
     },
     "groups": [
         "background",
+        "attacks",
         "player_units",
         "enemy_units",
         "hud"
@@ -65,8 +66,8 @@
                 "scale": {"x":1.2, "y": 1.2},
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
-                    "idle": {"frames": [0, 1], "fps": 2},
-                    "attack1": {"frames": [0,1], "fps": 2},
+                    "idle": {"frames": [0], "fps": 2},
+                    "attack1": {"frames": [4,5], "fps": 2},
                     "attack2": {"frames": [0,1], "fps": 2},
                     "hit": {"frames": [0, 1], "fps": 2}
                 },
@@ -74,7 +75,7 @@
                     "attack": 20,
                     "magic_attack": 5,
                     "defense": 5,
-                    "health": 100,
+                    "health": 10,
                     "mana": 100,
                     "speed": 15
                 },
@@ -89,8 +90,8 @@
                 "group": "hud",
                 "menu_items": {
                     "attack": {
-                        "type": "menu_item",
-                        "position": {"x": 210, "y": 360},
+                        "type": "physical_attack_menu_item",
+                        "position": {"x": 80, "y": 400},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
@@ -100,7 +101,7 @@
                     },
                     "magic": {
                         "type": "menu_item",
-                        "position": {"x": 250, "y": 360},
+                        "position": {"x": 120, "y": 400},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
@@ -110,7 +111,7 @@
                     },
                     "item": {
                         "type": "menu_item",
-                        "position": {"x": 290, "y": 360},
+                        "position": {"x": 160, "y": 400},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
@@ -120,7 +121,7 @@
                     },
                     "run": {
                         "type": "menu_item",
-                        "position": {"x": 330, "y": 360},
+                        "position": {"x": 200, "y": 400},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
@@ -137,24 +138,15 @@
             "properties": {
                 "group": "hud",
                 "menu_items": {
-                    "snake1_item": {
-                        "type": "menu_item",
+                    "enemy1_item": {
+                        "type": "enemy_menu_item",
                         "position": {"x": 10, "y": 350},
                         "properties": {
                             "group": "hud",
-                            "texture": "snake_face_image",
+                            "texture": "bandit_face_image",
                             "scale": {"x": 0.5, "y": 0.5},
-                            "anchor": {"x": 0, "y": 0}
-                        }
-                    },
-                    "snake2_item": {
-                        "type": "menu_item",
-                        "position": {"x": 60, "y": 350},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "snake_face_image",
-                            "scale": {"x": 0.5, "y": 0.5},
-                            "anchor": {"x": 0, "y": 0}
+                            "anchor": {"x": 0, "y": 0},
+                            "enemy_name": "enemy1"
                         }
                     }
                 }

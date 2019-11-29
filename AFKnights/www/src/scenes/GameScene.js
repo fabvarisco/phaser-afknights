@@ -2,23 +2,29 @@ import Prefab from '../prefabs/Prefab';
 import JSONLevelScene from "./JSONLevelScene";
 import Unit from '../prefabs/Unit';
 import MenuItem from '../prefabs/MenuItem'
+import PhysicalAttackMenuItem from '../prefabs/PhysicalAttackMenuItem'
 import Menu from '../prefabs/Menu'
 
 import PriorityQueue from '../../priority-queue.min.js';
+import PlayerUnit from '../prefabs/PlayerUnit';
+import EnemyUnit from '../prefabs/EnemyUnit';
+import EnemyMenuItem from '../prefabs/EnemyMenuItem';
 class GameScene extends JSONLevelScene {
 
     constructor(){
         super('GameScene');
 
-        this.prefab_classes ={
+        this.prefab_classes = {
             background: Prefab.prototype.constructor,
-            player_unit: Unit.prototype.constructor,
-            enemy_unit: Unit.prototype.constructor,
+            player_unit: PlayerUnit.prototype.constructor,
+            enemy_unit: EnemyUnit.prototype.constructor,
             menu_item: MenuItem.prototype.constructor,
-            menu: Menu.prototype.constructor
+            menu: Menu.prototype.constructor,
+            enemy_menu_item: EnemyMenuItem.prototype.constructor,
+            physical_attack_menu_item: PhysicalAttackMenuItem.prototype.constructor
         }
+        
         this.rnd = new Phaser.Math.RandomDataGenerator();
-
     }
 
     create () {
@@ -40,7 +46,7 @@ class GameScene extends JSONLevelScene {
         
         console.log(this.units);
         
-        this.prefabs.actions_menu.enable(true);
+        
         
         this.next_turn();
     }
