@@ -32,13 +32,13 @@ class GameScene extends JSONLevelScene {
         }
         this.rnd = new Phaser.Math.RandomDataGenerator();
         this.AUTO = false;
-        this.CURRENT_UNIT = undefined;
     }
-
+    preload(){
+        this.enemy_stats =  this.load.json('bandit','assets/enemy_encounters/bandit.json');
+    }
 
     create () {
         super.create();
-
 
         for(let player_unit_name in this.cache.game.party_data){
             let unit_data = this.cache.game.party_data[player_unit_name];
@@ -51,34 +51,15 @@ class GameScene extends JSONLevelScene {
             
         }
 
-   
-
-       this.units = new PriorityQueue({comparator: function (unit_a, unit_b) {
-            return unit_a.act_turn - unit_b.act_turn;
-        }});
-        
-        this.groups.player_units.children.each(function (unit) {
-            unit.calculate_act_turn(0);
-            this.units.queue(unit);
-        }, this);
-        
-        this.groups.enemy_units.children.each(function (unit) {
-            unit.calculate_act_turn(0);
-            this.units.queue(unit);
-        }, this);
-        
-        console.log(this.units);
-        
-        
-        
-        this.next_turn();
+        this.batte();
+       
     }
     
     next_turn () {
 
         if (this.groups.enemy_units.countActive() === 0) {
-            this.end_battle();
-            return;
+            
+            return this.batte();
         }
         
         if (this.groups.player_units.countActive() === 0) {
@@ -97,14 +78,22 @@ class GameScene extends JSONLevelScene {
     }
  
     create_new_enemy () {
-        
+
+        for (let enemy_unit_name in this.game.cache.json.get('bandit').enemy_data) {
+            this.create_prefab(enemy_unit_name, this.game.cache.json.get('bandit').enemy_data[enemy_unit_name]);
+            console.log(this.prefabs[enemy_unit_name].stats);
+
+            if(this.prefabs[enemy_unit_name].stats != undefined){
+                this.prefabs[enemy_unit_name].stats.health = 30;
+            }
+        }
     }
 
     game_over () {
         this.scene.start('BootScene', {scene: 'title'});
     }
     
-    end_battle () {
+    rewards () {
         //let received_experience = this.encounter.reward.experience;
         
         /*this.groups.player_units.children.each(function (player_unit) {
@@ -115,9 +104,30 @@ class GameScene extends JSONLevelScene {
             this.cache.game.party_data[player_unit.name].current_level = player_unit.current_level;
         }, this);*/
         
-        this.create_new_enemy();
+        
+
     }
 
+
+    batte(){
+        this.create_new_enemy();
+
+       this.units = new PriorityQueue({comparator: function (unit_a, unit_b) {
+            return unit_a.act_turn - unit_b.act_turn;
+        }});
+        
+        this.groups.player_units.children.each(function (unit) {
+            unit.calculate_act_turn(0);
+            this.units.queue(unit);
+        }, this);
+        
+        this.groups.enemy_units.children.each(function (unit) {
+            unit.calculate_act_turn(0);
+            this.units.queue(unit);
+        }, this);
+
+        this.next_turn();
+    }
 
 }
  
