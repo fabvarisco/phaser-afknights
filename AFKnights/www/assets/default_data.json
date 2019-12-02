@@ -1,0 +1,33 @@
+
+{
+    "party1": {
+        "stats": {
+            "attack": 20,
+            "magic_attack": 5,
+            "defense": 5,
+            "health": 100,
+            "mana": 100,
+            "speed": 15
+        }
+    },
+    "party2": {
+        "stats": {
+            "attack": 20,
+            "magic_attack": 5,
+            "defense": 5,
+            "health": 100,
+            "mana": 100,
+            "speed": 15
+        }
+    },
+    "party3": {
+        "stats": {
+            "attack": 20,
+            "magic_attack": 5,
+            "defense": 5,
+            "health": 100,
+            "mana": 100,
+            "speed": 15
+        }
+    }
+}

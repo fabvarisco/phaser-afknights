@@ -1,4 +1,4 @@
-import Prefab from './Prefab';
+import Prefab from '../Prefab';
 
 class Unit extends Prefab {
     constructor(scene, name, position, properties) {
@@ -58,7 +58,6 @@ class Unit extends Prefab {
         this.stats.health -= damage;
         this.anims.play(this.name + "_hit");
         if (this.stats.health <= 0) {
-            console.log("moorreu");
             this.stats.health = 0;
             this.destroy();
         }

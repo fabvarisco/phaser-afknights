@@ -2,13 +2,26 @@
     "assets":{
         "background_battle":{
             "type": "image",
-            "source": "assets/Background/game.png"
+            "source": "assets/images/background/game.png"
         },
-        "paladin_spritesheet": {"type": "spritesheet", "source": "assets/images/players/paladin_spritesheet.png", "frame_width": 96, "frame_height": 68},
-        "bandit_spritesheet": {"type": "spritesheet", "source": "assets/images/enemies/bandit_spritesheet.png", "frame_width": 74, "frame_height": 74},
+        "paladin_spritesheet": {"type": "spritesheet", "source": "assets/images/players/paladin_spritesheet.png", "frame_width": 98, "frame_height": 66},
+        "bandit_spritesheet": {"type": "spritesheet", "source": "assets/images/enemies/bandit_spritesheet.png", "frame_width": 82, "frame_height": 82},
 
-        "bandit_face_image": {"type": "image", "source": "assets/images/face/bandit_face.png", "frame_width": 20, "frame_height": 20},
-        "icons_spritesheet": {"type": "spritesheet", "source": "assets/images/icon_sheet.png", "frame_width": 40, "frame_height": 40}
+        "fireknight_spritesheet": {"type": "spritesheet", "source": "assets/images/players/fireknight_spritesheet.png", "frame_width": 98, "frame_height": 66},
+        "executor_spritesheet": {"type": "spritesheet", "source": "assets/images/players/executor_spritesheet.png", "frame_width": 98, "frame_height": 66},
+
+
+        "hitbox_enemy": {"type": "image", "source": "assets/images/face/hitbox_enemy.png", "frame_width": 80, "frame_height": 80},
+        "icons_spritesheet": {"type": "spritesheet", "source": "assets/images/HUD/icon_sheet.png", "frame_width": 40, "frame_height": 40},
+    
+
+        "paladin_face_image": {"type": "image", "source": "assets/images/face/paladin_face.png"},
+        "fireknight_face_image": {"type": "image", "source": "assets/images/face/fireknight_face.png"},
+        "executor_face_image": {"type": "image", "source": "assets/images/face/executor_face.png"},
+
+        "healthbar_image": {"type": "image", "source": "assets/images/hud/healthbar.png"},
+        "manabar_image": {"type": "image", "source": "assets/images/hud/manabar.png"}
+    
     },
     "groups": [
         "background",
@@ -32,19 +45,28 @@
             }
 
         },
+        "show_player_unit": {
+            "type": "show_player_unit",
+            "position": {"x": 10, "y": 467},
+            "properties": {
+                "group": "hud",
+                "prefab": "party1",
+                "face_texture": "paladin_face_image"
+            }
+        },
         "party1": {
             "type": "player_unit",
-            "position": {"x": 60, "y": 400},
+            "position": {"x": 100, "y": 400},
             "properties": {
                 "texture": "paladin_spritesheet",
                 "group": "player_units",
-                "scale": {"x":-1.2, "y": 1.2},
+                "scale": {"x":-1, "y": 1},
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
-                        "idle": {"frames": [0], "fps":2},
-                        "attack1": {"frames": [9,10,11], "fps": 2},
-                        "attack2": {"frames": [0,1], "fps": 2},
-                        "hit": {"frames": [0, 1], "fps": 2}
+                    "idle": {"frames": [3,4,5], "fps": 6},
+                        "attack1": {"frames": [0,1,2], "fps": 6},
+                        "attack2": {"frames": [0,1,2], "fps": 6},
+                        "hit": {"frames": [1], "fps": 6}
                 },
                 "stats": {
                     "attack": 20,
@@ -54,28 +76,85 @@
                     "mana": 100,
                     "speed": 15
                 },
-                "target_units": "enemy_units"
+                "target_units": "enemy_units",
+                "face_texture": "paladin_face_image"
+
+            }
+        },
+        "party2": {
+            "type": "player_unit",
+            "position": {"x": 50, "y": 370},
+            "properties": {
+                "texture": "fireknight_spritesheet",
+                "group": "player_units",
+                "scale": {"x":-1, "y": 1},
+                "anchor": {"x": 0.5, "y": 0.5},
+                "animations": {
+                        "idle": {"frames": [3,4,5], "fps": 2},
+                        "attack1": {"frames": [0,1,2], "fps": 6},
+                        "attack2": {"frames": [0,1,2], "fps": 6},
+                        "hit": {"frames": [1], "fps": 6}
+                },
+                "stats": {
+                    "attack": 20,
+                    "magic_attack": 5,
+                    "defense": 5,
+                    "health": 100,
+                    "mana": 100,
+                    "speed": 15
+                },
+                "target_units": "enemy_units",
+                "face_texture": "fireknight_face_image"
+
+            }
+        },
+
+        "party3": {
+            "type": "player_unit",
+            "position": {"x": 50, "y": 430},
+            "properties": {
+                "texture": "executor_spritesheet",
+                "group": "player_units",
+                "scale": {"x":-1, "y": 1},
+                "anchor": {"x": 0.5, "y": 0.5},
+                "animations": {
+                        "idle": {"frames": [7,8,9], "fps": 6},
+                        "attack1": {"frames": [0,1,2], "fps": 6},
+                        "attack2": {"frames": [0,1,2], "fps": 6},
+                        "hit": {"frames": [1], "fps": 6}
+                },
+                "stats": {
+                    "attack": 20,
+                    "magic_attack": 5,
+                    "defense": 5,
+                    "health": 100,
+                    "mana": 100,
+                    "speed": 15
+                },
+                "target_units": "enemy_units",
+                "face_texture": "executor_face_image"
+
             }
         },
         "enemy1": {
             "type": "enemy_unit",
-            "position": {"x": 269, "y": 400},
+            "position": {"x": 240, "y": 380},
             "properties": {
                 "texture": "bandit_spritesheet",
                 "group": "enemy_units",
                 "scale": {"x":1.2, "y": 1.2},
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
-                    "idle": {"frames": [0], "fps": 2},
-                    "attack1": {"frames": [4,5], "fps": 2},
-                    "attack2": {"frames": [0,1], "fps": 2},
-                    "hit": {"frames": [0, 1], "fps": 2}
+                    "idle": {"frames":  [0,0,0], "fps": 2},
+                        "attack1": {"frames": [0,1,2], "fps": 2},
+                        "attack2": {"frames": [0,1,2], "fps": 2},
+                        "hit": {"frames":  [0,0,0], "fps": 2}
                 },
                 "stats": {
                     "attack": 20,
                     "magic_attack": 5,
                     "defense": 5,
-                    "health": 10,
+                    "health": 50,
                     "mana": 100,
                     "speed": 15
                 },
@@ -83,7 +162,36 @@
                 
             }
             
-        },"actions_menu": {
+        },
+        "enemy2": {
+            "type": "enemy_unit",
+            "position": {"x": 300, "y": 400},
+            "properties": {
+                "texture": "bandit_spritesheet",
+                "group": "enemy_units",
+                "scale": {"x":1.2, "y": 1.2},
+                "anchor": {"x": 0.5, "y": 0.5},
+                "animations": {
+                    "idle": {"frames":  [0,0,0], "fps": 2},
+                        "attack1": {"frames": [0,1,2], "fps": 2},
+                        "attack2": {"frames": [0,1,2], "fps": 2},
+                        "hit": {"frames": [0,0,0], "fps": 2}
+                },
+                "stats": {
+                    "attack": 20,
+                    "magic_attack": 5,
+                    "defense": 5,
+                    "health": 50,
+                    "mana": 100,
+                    "speed": 15
+                },
+                "target_units": "player_units"
+                
+            }
+            
+        },
+        
+        "actions_menu": {
             "type": "menu",
             "position": {"x": 202, "y": 300},
             "properties": {
@@ -91,7 +199,7 @@
                 "menu_items": {
                     "attack": {
                         "type": "physical_attack_menu_item",
-                        "position": {"x": 80, "y": 400},
+                        "position": {"x": 227, "y": 457},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
@@ -99,9 +207,9 @@
                             "anchor": {"x": 0, "y": 0}
                         }
                     },
-                    "magic": {
-                        "type": "menu_item",
-                        "position": {"x": 120, "y": 400},
+                    "magic1": {
+                        "type": "magical_attack_menu_item",
+                        "position": {"x": 267, "y": 457},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
@@ -109,9 +217,9 @@
                             "anchor": {"x": 0, "y": 0}
                         }
                     },
-                    "item": {
-                        "type": "menu_item",
-                        "position": {"x": 160, "y": 400},
+                    "magic2": {
+                        "type": "magical_attack_menu_item",
+                        "position": {"x": 227, "y": 497},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
@@ -119,13 +227,13 @@
                             "anchor": {"x": 0, "y": 0}
                         }
                     },
-                    "run": {
-                        "type": "menu_item",
-                        "position": {"x": 200, "y": 400},
+                    "magic3": {
+                        "type": "magical_attack_menu_item",
+                        "position": {"x": 267, "y": 497},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
-                            "frame": 11,
+                            "frame": 15,
                             "anchor": {"x": 0, "y": 0}
                         }
                     }
@@ -140,13 +248,24 @@
                 "menu_items": {
                     "enemy1_item": {
                         "type": "enemy_menu_item",
-                        "position": {"x": 10, "y": 350},
+                        "position": {"x": 240, "y": 380},
                         "properties": {
                             "group": "hud",
-                            "texture": "bandit_face_image",
-                            "scale": {"x": 0.5, "y": 0.5},
-                            "anchor": {"x": 0, "y": 0},
+                            "texture": "hitbox_enemy",
+                            "scale": {"x": 1.2, "y": 1.2},
+                            "anchor": {"x": 0.5, "y":  0.5},
                             "enemy_name": "enemy1"
+                        }
+                    },
+                    "enemy2_item": {
+                        "type": "enemy_menu_item",
+                        "position": {"x": 300, "y": 400},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "hitbox_enemy",
+                            "scale": {"x": 1.2, "y": 1.2},
+                            "anchor": {"x": 0.5, "y":  0.5},
+                            "enemy_name": "enemy2"
                         }
                     }
                 }

@@ -1,5 +1,5 @@
-import Prefab from './Prefab';
-import Attack from './Attack';
+import Prefab from '../Prefab';
+import PhysicalAttack from '../Attacks/PhysicalAttack';
 import Unit from './Unit';
 
 class EnemyUnit extends Unit {
@@ -8,7 +8,7 @@ class EnemyUnit extends Unit {
  
         this.target_units = properties.target_units;
  
-        this.attack = new Attack(this.scene, this.name + "_attack", {x: 0, y: 0}, {group: "attacks", owner: this});
+        this.attack = new PhysicalAttack(this.scene, this.name + "_attack", {x: 0, y: 0}, {group: "attacks", owner: this});
     }
  
     choose_target () {
@@ -27,9 +27,19 @@ class EnemyUnit extends Unit {
     }
  
     act () {
+        this.scene.prefabs.show_player_unit.show(false);
+
         let target = this.choose_target();
     
         this.attack.hit(target);
+    }
+
+    destroy(){
+        if(this.active){
+            let menu_item = this.scene.prefabs[this.name + '_item'];
+            menu_item.destroy();
+            super.destroy();
+        }
     }
  
 }

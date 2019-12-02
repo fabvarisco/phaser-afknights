@@ -1,0 +1,52 @@
+{
+    "enemy_data":{
+
+        "bandit": {
+            "type": "enemy_unit",
+            "position": {"x": 269, "y": 400},
+            "properties": {
+                "texture": "bandit_spritesheet",
+                "group": "enemy_units",
+                "scale": {"x":1.2, "y": 1.2},
+                "anchor": {"x": 0.5, "y": 0.5},
+                "animations": {
+                    "idle": {"frames": [0], "fps": 2},
+                    "attack1": {"frames": [4,5], "fps": 2},
+                    "attack2": {"frames": [0,1], "fps": 2},
+                    "hit": {"frames": [0, 1], "fps": 2}
+                },
+                "stats": {
+                    "attack": 20,
+                    "magic_attack": 5,
+                    "defense": 5,
+                    "health": 10,
+                    "mana": 100,
+                    "speed": 15
+                },
+                "target_units": "player_units"
+                
+            }
+            
+        },
+        "enemy_units_menu": {
+            "type": "menu",
+            "position": {"x": 10, "y": 350},
+            "properties": {
+                "group": "hud",
+                "menu_items": {
+                    "enemy1_item": {
+                        "type": "enemy_menu_item",
+                        "position": {"x": 10, "y": 350},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "bandit_face_image",
+                            "scale": {"x": 0.5, "y": 0.5},
+                            "anchor": {"x": 0, "y": 0},
+                            "enemy_name": "bandit"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

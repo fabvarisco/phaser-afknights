@@ -15,7 +15,16 @@ class TitleScene extends JSONLevelScene {
 
         
     }
+    preload(){
+        this.load.json('default_data','assets/default_data.json');
 
+    }
+
+    create(){
+        super.create();
+
+        this.cache.game.party_data = this.cache.json.get('default_data');
+    }
     update(){
 
         if(this.input.activePointer.isDown){

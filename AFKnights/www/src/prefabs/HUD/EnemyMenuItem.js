@@ -1,5 +1,5 @@
-import Prefab from './Prefab';
-import MenuItem from './MenuItem';
+import Prefab from '../Prefab';
+import MenuItem from '../HUD/MenuItem';
  
 class EnemyMenuItem extends MenuItem {
     constructor(scene, name, position, properties) {
@@ -8,9 +8,11 @@ class EnemyMenuItem extends MenuItem {
     }
     
     select () {
+        this.scene.prefabs.enemy_units_menu.enable(false);
+        
         this.scene.current_attack.hit(this.enemy);
         
-        this.scene.prefabs.enemy_units_menu.enable(false);
+
     }
 }
  

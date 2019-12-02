@@ -1,4 +1,4 @@
-import Prefab from './Prefab';
+import Prefab from '../Prefab';
  
 class MenuItem extends Prefab {
     constructor(scene, name, position, properties) {

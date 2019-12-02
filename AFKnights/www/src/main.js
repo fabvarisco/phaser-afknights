@@ -1,14 +1,16 @@
 import 'phaser';
 import firebase from "firebase/app";
-import TitleScene from '../src/scenes/TitleScene'
-import BootScene from '../src/scenes/BootScene'
-import GameScene from '../src/scenes/GameScene'
-import LoadingScene from '../src/scenes/LoadingScene'
+import TitleScene from '../src/scenes/TitleScene';
+import BootScene from '../src/scenes/BootScene';
+import GameScene from '../src/scenes/GameScene';
+import LoadingScene from '../src/scenes/LoadingScene';
+
 
 let titleScene = new TitleScene();
 let bootScene = new BootScene();
 let gameScene = new GameScene();
 let loadingScene = new LoadingScene();
+
 
 let config = {
     type: Phaser.AUTO,

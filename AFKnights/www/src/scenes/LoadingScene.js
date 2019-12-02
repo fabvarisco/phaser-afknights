@@ -20,7 +20,12 @@ class LoadingScene extends Phaser.Scene {
                 case 'spritesheet':
                     this.load.spritesheet(asset_key, asset.source, {frameWidth: asset.frame_width, frameHeight: asset.frame_height, frames: asset.frames, margin: asset.margin, spacing: asset.spacing});
                     break;
+                case 'text':
+                    sprite = this.add.text(sprite_data.position.x, sprite_data.position.y,
+                        sprite_data.text, sprite_data.style);
+                    break;
 
+                    
             }
         }
         
@@ -28,7 +33,8 @@ class LoadingScene extends Phaser.Scene {
     }
     
     create (data) {
-        this.scene.start(data.scene, {level_data: this.level_data});
+        this.scene.start(data.scene, {level_data: this.level_data,
+            extra_parameters: data.extra_parameters});
     }
 }
 

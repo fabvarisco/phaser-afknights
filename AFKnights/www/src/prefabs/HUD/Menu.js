@@ -1,4 +1,4 @@
-import Prefab from './Prefab';
+import Prefab from '../Prefab';
  
 class Menu extends Prefab {
     constructor(scene, name, position, properties) {
@@ -14,9 +14,12 @@ class Menu extends Prefab {
     }
     
     enable (enable) {
+        
         this.menu_items.forEach(function(menu_item) {
-            menu_item.setInteractive(enable);
-            menu_item.setVisible(enable);
+            if(menu_item.active){
+                menu_item.setInteractive(enable);
+                menu_item.setVisible(enable);
+            }
         }, this);
     }
 }
