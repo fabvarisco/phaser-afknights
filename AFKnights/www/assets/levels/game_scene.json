@@ -236,6 +236,16 @@
                             "frame": 15,
                             "anchor": {"x": 0, "y": 0}
                         }
+                    },
+                    "autobattle": {
+                        "type": "autobattle_menu_item",
+                        "position": {"x": 267, "y": 520},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 17,
+                            "anchor": {"x": 0, "y": 0}
+                        }
                     }
                 }
             }

@@ -11,6 +11,7 @@ import PlayerUnit from '../prefabs/Unit/PlayerUnit';
 import EnemyUnit from '../prefabs/Unit/EnemyUnit';
 import EnemyMenuItem from '../prefabs/HUD/EnemyMenuItem';
 import ShowPlayerUnit from '../prefabs/HUD/ShowPlayerUnit';
+import AutobattleMenuItem from '../prefabs/HUD/AutobattleMenuItem';
 
 class GameScene extends JSONLevelScene {
 
@@ -23,23 +24,21 @@ class GameScene extends JSONLevelScene {
             menu_item: MenuItem.prototype.constructor,
             physical_attack_menu_item: PhysicalAttackMenuItem.prototype.constructor,
             magical_attack_menu_item: MagicalAttackMenuItem.prototype.constructor,
+            autobattle_menu_item: AutobattleMenuItem.prototype.constructor,
             enemy_menu_item: EnemyMenuItem.prototype.constructor,
             menu: Menu.prototype.constructor,
             player_unit: PlayerUnit.prototype.constructor,
             show_player_unit: ShowPlayerUnit.prototype.constructor
-     
-            
         }
-        
-        
         this.rnd = new Phaser.Math.RandomDataGenerator();
+        this.AUTO = false;
+        this.CURRENT_UNIT = undefined;
     }
 
 
     create () {
         super.create();
 
-        
 
         for(let player_unit_name in this.cache.game.party_data){
             let unit_data = this.cache.game.party_data[player_unit_name];
@@ -51,8 +50,8 @@ class GameScene extends JSONLevelScene {
             }
             
         }
-      
-        
+
+   
 
        this.units = new PriorityQueue({comparator: function (unit_a, unit_b) {
             return unit_a.act_turn - unit_b.act_turn;

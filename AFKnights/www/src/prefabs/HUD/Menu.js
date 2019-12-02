@@ -22,6 +22,8 @@ class Menu extends Prefab {
             }
         }, this);
     }
+
+    
 }
  
 export default Menu;
