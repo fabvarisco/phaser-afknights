@@ -42,6 +42,21 @@ class PlayerUnit extends Unit {
         }, this);
         return target;
     }
+
+    receive_experience (experience) {
+        this.experience += experience;
+        console.log('received experience ' + experience);
+        let next_level_data = this.scene.experience_table[this.current_level];
+        if (this.experience >= next_level_data.required_exp) {
+            this.current_level += 1;
+            this.experience = 0;
+            for (let stat in next_level_data.stats_increase) {
+                if (next_level_data.stats_increase.hasOwnProperty(stat)) {
+                    this.stats[stat] += next_level_data.stats_increase[stat];
+                }
+            }
+        }
+    }
 }
 
 export default PlayerUnit;

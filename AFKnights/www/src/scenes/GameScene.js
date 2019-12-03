@@ -34,11 +34,17 @@ class GameScene extends JSONLevelScene {
         this.AUTO = false;
     }
     preload(){
+        //Expirience 
+        this.load.json('experience_table', 'assets/levels/experience_table.json');
+
+
+
         this.enemy_stats =  this.load.json('bandit','assets/enemy_encounters/bandit.json');
     }
 
     create () {
         super.create();
+        this.experience_table = this.cache.json.get('experience_table');
 
         for(let player_unit_name in this.cache.game.party_data){
             let unit_data = this.cache.game.party_data[player_unit_name];
@@ -48,7 +54,8 @@ class GameScene extends JSONLevelScene {
                 this.prefabs[player_unit_name].stats[stats_name] =
                 unit_data.stats[stats_name];
             }
-            
+            this.prefabs[player_unit_name].experience = unit_data.experience;
+            this.prefabs[player_unit_name].current_level = unit_data.current_level;
         }
 
         this.batte();
@@ -59,7 +66,7 @@ class GameScene extends JSONLevelScene {
 
         if (this.groups.enemy_units.countActive() === 0) {
             
-            return this.batte();
+            return this.rewards();
         }
         
         if (this.groups.player_units.countActive() === 0) {
@@ -95,17 +102,19 @@ class GameScene extends JSONLevelScene {
     
     rewards () {
         //let received_experience = this.encounter.reward.experience;
+        let received_experience = this.game.cache.json.get('bandit').reward.experience;
         
-        /*this.groups.player_units.children.each(function (player_unit) {
+        this.groups.player_units.children.each(function (player_unit) {
             player_unit.receive_experience(received_experience / this.groups.player_units.children.size);
             
             this.cache.game.party_data[player_unit.name].stats = player_unit.stats;
             this.cache.game.party_data[player_unit.name].experience = player_unit.experience;
             this.cache.game.party_data[player_unit.name].current_level = player_unit.current_level;
-        }, this);*/
+            console.log(this.cache.game.party_data[player_unit.name].experience = player_unit.experience);
+        }, this);
         
         
-
+        this.batte();
     }
 
 

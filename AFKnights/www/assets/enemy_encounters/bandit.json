@@ -143,5 +143,8 @@
                 }
             }
         }
+    },
+    "reward": {
+        "experience": 50
     }
 }
