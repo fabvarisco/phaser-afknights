@@ -2,7 +2,7 @@
   "name": "afknights",
   "version": "1.1.0",
   "description": "",
-  "author": "niklas berg <me@niklasberg.se>",
+  "author": "Fabricio e Andre",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode=development",

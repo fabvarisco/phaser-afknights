@@ -10,7 +10,6 @@ class MagicalAttackMenuItem extends MenuItem {
     }
     
     select () {
-        
         if (this.scene.current_unit.stats.mana >= this.MANA_COST) {
             this.scene.current_attack = new MagicalAttack(this.scene, this.scene.current_unit.name + '_attack', {x: 0, y: 0}, {group: 'attacks', owner: this.scene.current_unit, mana_cost: this.MANA_COST});
  

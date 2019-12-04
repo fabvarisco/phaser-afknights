@@ -53,65 +53,6 @@
                 "target_units": "player_units"   
             }   
         },
-        "actions_menu": {
-            "type": "menu",
-            "position": {"x": 202, "y": 300},
-            "properties": {
-                "group": "hud",
-                "menu_items": {
-                    "attack": {
-                        "type": "physical_attack_menu_item",
-                        "position": {"x": 227, "y": 457},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "icons_spritesheet",
-                            "frame": 13,
-                            "anchor": {"x": 0, "y": 0}
-                        }
-                    },
-                    "magic1": {
-                        "type": "magical_attack_menu_item",
-                        "position": {"x": 267, "y": 457},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "icons_spritesheet",
-                            "frame": 10,
-                            "anchor": {"x": 0, "y": 0}
-                        }
-                    },
-                    "magic2": {
-                        "type": "magical_attack_menu_item",
-                        "position": {"x": 227, "y": 497},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "icons_spritesheet",
-                            "frame": 12,
-                            "anchor": {"x": 0, "y": 0}
-                        }
-                    },
-                    "magic3": {
-                        "type": "magical_attack_menu_item",
-                        "position": {"x": 267, "y": 497},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "icons_spritesheet",
-                            "frame": 15,
-                            "anchor": {"x": 0, "y": 0}
-                        }
-                    },
-                    "autobattle": {
-                        "type": "autobattle_menu_item",
-                        "position": {"x": 267, "y": 520},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "icons_spritesheet",
-                            "frame": 17,
-                            "anchor": {"x": 0, "y": 0}
-                        }
-                    }
-                }
-            }
-        },
         "enemy_units_menu": {
             "type": "menu",
             "position": {"x": 10, "y": 350},
@@ -145,6 +86,8 @@
         }
     },
     "reward": {
-        "experience": 50
+        "experience": 50,
+        "items": [{"type": "potion", "properties": {"group": "items"}}]
+        
     }
 }

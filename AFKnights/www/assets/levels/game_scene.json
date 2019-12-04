@@ -26,6 +26,7 @@
     "groups": [
         "background",
         "attacks",
+        "items",
         "player_units",
         "enemy_units",
         "hud"
@@ -134,6 +135,65 @@
                 "target_units": "enemy_units",
                 "face_texture": "executor_face_image"
 
+            }
+        },
+        "actions_menu": {
+            "type": "menu",
+            "position": {"x": 202, "y": 300},
+            "properties": {
+                "group": "hud",
+                "menu_items": {
+                    "attack": {
+                        "type": "physical_attack_menu_item",
+                        "position": {"x": 227, "y": 457},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 13,
+                            "anchor": {"x": 0, "y": 0}
+                        }
+                    },
+                    "magic1": {
+                        "type": "magical_attack_menu_item",
+                        "position": {"x": 267, "y": 457},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 10,
+                            "anchor": {"x": 0, "y": 0}
+                        }
+                    },
+                    "magic2": {
+                        "type": "magical_attack_menu_item",
+                        "position": {"x": 227, "y": 497},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 16,
+                            "anchor": {"x": 0, "y": 0}
+                        }
+                    },
+                    "item": {
+                        "type": "inventory_menu_item",
+                        "position": {"x": 267, "y": 497},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 12,
+                            "anchor": {"x": 0, "y": 0}
+                        }
+                    },
+                    "autobattle": {
+                        "type": "autobattle_menu_item",
+                        "position": {"x": 267, "y": 520},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 17,
+                            "anchor": {"x": 0, "y": 0}
+                        }
+                    }
+                }
             }
         }
     }

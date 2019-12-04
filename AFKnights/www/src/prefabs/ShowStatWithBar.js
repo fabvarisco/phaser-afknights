@@ -9,7 +9,10 @@ class ShowStatWithBar extends TextPrefab {
         this.stat = properties.stat;
         
         this.bar_sprite = this.scene.add.sprite(this.x, this.y + 20, properties.bar_texture);
-        this.bar_sprite.setOrigin(0);
+        this.bar_sprite.setOrigin(0);     
+        
+
+
     }
     
     update () {
@@ -20,7 +23,10 @@ class ShowStatWithBar extends TextPrefab {
     
     show (show) {
         this.setVisible(show);
+        
         this.bar_sprite.setVisible(show);
+
+
     }
     
 }

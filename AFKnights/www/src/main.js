@@ -4,6 +4,7 @@ import TitleScene from '../src/scenes/TitleScene';
 import BootScene from '../src/scenes/BootScene';
 import GameScene from '../src/scenes/GameScene';
 import LoadingScene from '../src/scenes/LoadingScene';
+import Inventory from './inventory/Inventory';
 
 
 let titleScene = new TitleScene();
@@ -43,6 +44,7 @@ var firebaseConfig = {
  // firebase.analytics(); 
 
 let game = new Phaser.Game(config);
+game.inventory = new Inventory();
 game.scene.add('TitleScene',titleScene);
 game.scene.add('GameScene',gameScene);
 game.scene.add('BootScene',bootScene);
