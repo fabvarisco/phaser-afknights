@@ -1,0 +1,43 @@
+
+{
+
+    "party_data":{
+    "party1": {
+        "stats": {
+            "attack": 20,
+            "magic_attack": 5,
+            "defense": 5,
+            "health": 100,
+            "mana": 100,
+            "speed": 15
+        },
+        "experience": 0,
+        "current_level": 0
+    },
+    "party2": {
+        "stats": {
+            "attack": 20,
+            "magic_attack": 5,
+            "defense": 5,
+            "health": 100,
+            "mana": 100,
+            "speed": 15
+        },
+        "experience": 0,
+        "current_level": 0
+    },
+
+    "party3": {
+        "stats": {
+            "attack": 20,
+            "magic_attack": 5,
+            "defense": 5,
+            "health": 100,
+            "mana": 100,
+            "speed": 15
+        },
+        "experience": 0,
+        "current_level": 0
+    }
+}
+}
