@@ -1,0 +1,30 @@
+{
+    "assets":{
+        "background_image":{
+            "type": "image",
+            "source": "src/assets/images/background/titleScreen.png"
+        }
+    },
+    "groups": [
+        "background"
+    ],
+
+    "prefabs":{
+        "background":{
+            "type":"background",
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "properties": {
+                "texture":"background_image",
+                "group": "background",
+                "anchor": {"x": 0, "y": 0},
+                "scale":{"x":1,"y":1}
+            }
+
+        }
+
+    }
+
+}
