@@ -16,7 +16,7 @@ let loadingScene = new LoadingScene();
 let config = {
     type: Phaser.AUTO,
     width: 320,
-    height: 670,
+    height: 630,
     physics: {
         default: 'arcade',
         arcade: {

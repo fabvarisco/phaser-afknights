@@ -4,11 +4,11 @@
             "type": "image",
             "source": "src/assets/images/background/game.png"
         },
-        "paladin_spritesheet": {"type": "spritesheet", "source": "src/assets/images/players/paladin_spritesheet.png", "frame_width": 98, "frame_height": 66},
-        "bandit_spritesheet": {"type": "spritesheet", "source": "src/assets/images/enemies/bandit_spritesheet.png", "frame_width": 82, "frame_height": 82},
+        "paladin_spritesheet": {"type": "spritesheet", "source": "src/assets/images/players/paladin_spritesheet.png", "frame_width": 96, "frame_height": 64},
+        "bandit_spritesheet": {"type": "spritesheet", "source": "src/assets/images/enemies/bandit_spritesheet.png", "frame_width": 80, "frame_height": 80},
 
-        "fireknight_spritesheet": {"type": "spritesheet", "source": "src/assets/images/players/fireknight_spritesheet.png", "frame_width": 84, "frame_height": 66},
-        "executor_spritesheet": {"type": "spritesheet", "source": "src/assets/images/players/executor_spritesheet.png", "frame_width": 98, "frame_height": 66},
+        "fireknight_spritesheet": {"type": "spritesheet", "source": "src/assets/images/players/fireknight_spritesheet.png", "frame_width": 96, "frame_height": 64},
+        "executor_spritesheet": {"type": "spritesheet", "source": "src/assets/images/players/executor_spritesheet.png", "frame_width": 96, "frame_height": 64},
 
 
         "hitbox_enemy": {"type": "image", "source": "src/assets/images/face/hitbox_enemy.png", "frame_width": 80, "frame_height": 80},
@@ -19,8 +19,8 @@
         "fireknight_face_image": {"type": "image", "source": "src/assets/images/face/fireknight_face.png"},
         "executor_face_image": {"type": "image", "source": "src/assets/images/face/executor_face.png"},
 
-        "healthbar_image": {"type": "image", "source": "src/assets/images/hud/healthbar.png"},
-        "manabar_image": {"type": "image", "source": "src/assets/images/hud/manabar.png"}
+        "healthbar_image": {"type": "image", "source": "src/assets/images/HUD/healthbar.png"},
+        "manabar_image": {"type": "image", "source": "src/assets/images/HUD/manabar.png"}
     
     },
     "groups": [
@@ -64,10 +64,10 @@
                 "scale": {"x":-1, "y": 1},
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
-                    "idle": {"frames": [3,4,5], "fps": 6},
+                    "idle": {"frames": [4], "fps": 3},
                         "attack1": {"frames": [0,1,2], "fps": 6},
                         "attack2": {"frames": [0,1,2], "fps": 6},
-                        "hit": {"frames": [1], "fps": 6}
+                        "hit": {"frames": [3,3,3], "fps": 6}
                 },
                 "stats": {
                     "attack": 20,
@@ -91,10 +91,10 @@
                 "scale": {"x":-1, "y": 1},
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
-                        "idle": {"frames": [3,4,5], "fps": 2},
-                        "attack1": {"frames": [0,1,2], "fps": 6},
-                        "attack2": {"frames": [0,1,2], "fps": 6},
-                        "hit": {"frames": [1], "fps": 6}
+                        "idle": {"frames": [0], "fps": 2},
+                        "attack1": {"frames": [3,4,5], "fps": 6},
+                        "attack2": {"frames": [3,4,5], "fps": 6},
+                        "hit": {"frames": [6], "fps": 6}
                 },
                 "stats": {
                     "attack": 20,
@@ -119,10 +119,10 @@
                 "scale": {"x":-1, "y": 1},
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
-                        "idle": {"frames": [7,8,9], "fps": 6},
-                        "attack1": {"frames": [0,1,2], "fps": 6},
-                        "attack2": {"frames": [0,1,2], "fps": 6},
-                        "hit": {"frames": [1], "fps": 6}
+                        "idle": {"frames": [0], "fps": 4},
+                        "attack1": {"frames": [4,5,6], "fps": 4},
+                        "attack2": {"frames": [4,5,6], "fps": 4},
+                        "hit": {"frames": [6,6,6], "fps": 4}
                 },
                 "stats": {
                     "attack": 20,
@@ -163,13 +163,13 @@
                             "anchor": {"x": 0, "y": 0}
                         }
                     },
-                    "magic2": {
-                        "type": "magical_attack_menu_item",
+                    "autobattle": {
+                        "type": "autobattle_menu_item",
                         "position": {"x": 227, "y": 497},
                         "properties": {
                             "group": "hud",
                             "texture": "icons_spritesheet",
-                            "frame": 16,
+                            "frame": 34,
                             "anchor": {"x": 0, "y": 0}
                         }
                     },
@@ -182,17 +182,8 @@
                             "frame": 12,
                             "anchor": {"x": 0, "y": 0}
                         }
-                    },
-                    "autobattle": {
-                        "type": "autobattle_menu_item",
-                        "position": {"x": 267, "y": 520},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "icons_spritesheet",
-                            "frame": 17,
-                            "anchor": {"x": 0, "y": 0}
-                        }
                     }
+
                 }
             }
         }

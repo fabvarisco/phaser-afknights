@@ -11,9 +11,9 @@
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
                     "idle": {"frames":  [0,0,0], "fps": 2},
-                        "attack1": {"frames": [0,1,2], "fps": 2},
-                        "attack2": {"frames": [0,1,2], "fps": 2},
-                        "hit": {"frames":  [0,0,0], "fps": 2}
+                        "attack1": {"frames": [1,2,3], "fps": 2},
+                        "attack2": {"frames": [1,2,3], "fps": 2},
+                        "hit": {"frames":  [4,4,4], "fps": 2}
                 },
                 "stats": {
                     "attack": 20,
@@ -38,9 +38,9 @@
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
                     "idle": {"frames":  [0,0,0], "fps": 2},
-                        "attack1": {"frames": [0,1,2], "fps": 2},
-                        "attack2": {"frames": [0,1,2], "fps": 2},
-                        "hit": {"frames": [0,0,0], "fps": 2}
+                        "attack1": {"frames": [1,2,3], "fps": 2},
+                        "attack2": {"frames": [1,2,3], "fps": 2},
+                        "hit": {"frames":  [4,4,4], "fps": 2}
                 },
                 "stats": {
                     "attack": 20,
