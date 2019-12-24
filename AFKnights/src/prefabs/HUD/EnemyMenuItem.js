@@ -8,12 +8,9 @@ class EnemyMenuItem extends MenuItem {
     }
     
     select () {
-
+        this.scene.prefabs.actions_menu.enableBack(false);
         this.scene.prefabs.enemy_units_menu.enable(false);
-        
         this.scene.current_attack.hit(this.enemy);
-        
-
     }
 }
  

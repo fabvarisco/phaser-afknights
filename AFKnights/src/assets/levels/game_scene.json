@@ -12,16 +12,18 @@
 
 
         "hitbox_enemy": {"type": "image", "source": "src/assets/images/face/hitbox_enemy.png", "frame_width": 80, "frame_height": 80},
-        "icons_spritesheet": {"type": "spritesheet", "source": "src/assets/images/HUD/icon_sheet.png", "frame_width": 40, "frame_height": 40},
+        "icons_spritesheet": {"type": "spritesheet", "source": "src/assets/images/hud/icon_sheet.png", "frame_width": 40, "frame_height": 40},
     
 
         "paladin_face_image": {"type": "image", "source": "src/assets/images/face/paladin_face.png"},
         "fireknight_face_image": {"type": "image", "source": "src/assets/images/face/fireknight_face.png"},
         "executor_face_image": {"type": "image", "source": "src/assets/images/face/executor_face.png"},
 
-        "healthbar_image": {"type": "image", "source": "src/assets/images/HUD/healthbar.png"},
-        "manabar_image": {"type": "image", "source": "src/assets/images/HUD/manabar.png"}
+        "healthbar_image": {"type": "image", "source": "src/assets/images/hud/healthbar.png"},
+        "manabar_image": {"type": "image", "source": "src/assets/images/hud/manabar.png"},
     
+        "potion_image": {"type": "image", "source": "src/assets/images/hud/health_potion.png"}
+
     },
     "groups": [
         "background",
@@ -29,7 +31,8 @@
         "items",
         "player_units",
         "enemy_units",
-        "hud"
+        "hud",
+        "player_hud"
     ],
 
     "prefabs":{
@@ -53,6 +56,18 @@
                 "group": "hud",
                 "prefab": "party1",
                 "face_texture": "paladin_face_image"
+            }
+        },
+        "player_data":{
+            "type":"player",
+
+            "position": {"x": 0, "y": 0},
+            "properties":{
+                "group":"player_hud",
+                "gold":0,
+                "user":"",
+                "level":1,
+                "score":0
             }
         },
         "party1": {
@@ -150,7 +165,8 @@
                             "group": "hud",
                             "texture": "icons_spritesheet",
                             "frame": 13,
-                            "anchor": {"x": 0, "y": 0}
+                            "anchor": {"x": 0, "y": 0},
+                            "style": {"fill": "#000000"}
                         }
                     },
                     "magic1": {
@@ -160,7 +176,8 @@
                             "group": "hud",
                             "texture": "icons_spritesheet",
                             "frame": 10,
-                            "anchor": {"x": 0, "y": 0}
+                            "anchor": {"x": 0, "y": 0},
+                            "style": {"fill": "#000000"}
                         }
                     },
                     "autobattle": {
@@ -170,7 +187,8 @@
                             "group": "hud",
                             "texture": "icons_spritesheet",
                             "frame": 34,
-                            "anchor": {"x": 0, "y": 0}
+                            "anchor": {"x": 0, "y": 0},
+                            "style": {"fill": "#ff99ff"}
                         }
                     },
                     "item": {
@@ -180,10 +198,34 @@
                             "group": "hud",
                             "texture": "icons_spritesheet",
                             "frame": 12,
-                            "anchor": {"x": 0, "y": 0}
+                            "anchor": {"x": 0, "y": 0},
+                            "style": {"fill": "#000000"}
+                        }
+                    },
+                    "back": {
+                        "type": "back_menu_item",
+                        "position": {"x": 267, "y": 300},
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 27,
+                            "anchor": {"x": 0, "y": 0},
+                            "style": {"fill": "#000000"}
                         }
                     }
-
+                }
+            }
+        },
+        "items_menu": {
+            "type": "menu",
+            "position": {
+                "x": 200, 
+                "y": 220
+            },
+            "properties": {
+                "group": "hud",
+                "menu_items": {
+                    
                 }
             }
         }

@@ -20,9 +20,24 @@ class Menu extends Prefab {
                     menu_item.setInteractive(enable);
                     menu_item.setVisible(enable);
                 }
+                if(menu_item.name == "back"){
+                    menu_item.setInteractive(false);
+                    menu_item.setVisible(false);
+                }
+                
             }, this);
         
     }
+
+    enableBack(show){
+        this.menu_items.forEach(function(menu_item) {
+            if(menu_item.name == "back"){
+                menu_item.setInteractive(show);
+                menu_item.setVisible(show);
+            }
+        }, this);
+    }
+    
 
     autoBattleEnable(){
         this.menu_items.forEach(function(menu_item) {

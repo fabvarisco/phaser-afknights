@@ -12,6 +12,8 @@ class PhysicalAttackMenuItem extends MenuItem {
  
         this.scene.prefabs.actions_menu.enable(false);
         this.scene.prefabs.enemy_units_menu.enable(true);
+        this.scene.prefabs.actions_menu.enableBack(true);
+        
     }
 }
  
