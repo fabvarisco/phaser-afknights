@@ -13,8 +13,11 @@ import EnemyMenuItem from '../prefabs/HUD/EnemyMenuItem';
 import InventoryMenuItem from '../prefabs/HUD/InventoryMenuItem';
 import ShowPlayerUnit from '../prefabs/HUD/ShowPlayerUnit';
 import AutobattleMenuItem from '../prefabs/HUD/AutobattleMenuItem';
+import ItemMenuItem from '../prefabs/HUD/ItemMenuItem.js';
 import firebase from "firebase/app";
 import database from "firebase/database";
+import PlayerData from '../prefabs/playerData';
+import BackMenuItem from '../prefabs/HUD/backMenuItem';
 
 class GameScene extends JSONLevelScene {
 
@@ -32,11 +35,16 @@ class GameScene extends JSONLevelScene {
             enemy_menu_item: EnemyMenuItem.prototype.constructor,
             menu: Menu.prototype.constructor,
             player_unit: PlayerUnit.prototype.constructor,
-            show_player_unit: ShowPlayerUnit.prototype.constructor
+            show_player_unit: ShowPlayerUnit.prototype.constructor,
+            item_menu_item: ItemMenuItem.prototype.constructor,
+            player: PlayerData.prototype.constructor,
+            back_menu_item: BackMenuItem.prototype.constructor
+
         }
         this.rnd = new Phaser.Math.RandomDataGenerator();
         this.AUTO = false;
-        console.log("A");
+
+
     }
     preload(){
         //Carrega o json da tabela de xp 
@@ -44,6 +52,8 @@ class GameScene extends JSONLevelScene {
 
         //Carrega o json dos inimigos
         this.enemy_stats =  this.load.json('bandit','src/assets/enemy_encounters/bandit.json');
+        console.log(this.groups);
+
     }
 
     create () {
@@ -58,8 +68,8 @@ class GameScene extends JSONLevelScene {
 
 
         //Carrega a pt do jogador
-        for(let player_unit_name in this.cache.game.party_data){
-            let unit_data = this.cache.game.party_data[player_unit_name];
+        for(let player_unit_name in this.cache.game.player_data.party_data){
+            let unit_data = this.cache.game.player_data.party_data[player_unit_name];
             this.prefabs[player_unit_name].stats = {};
 
             for(let stats_name in unit_data.stats){
@@ -69,7 +79,9 @@ class GameScene extends JSONLevelScene {
             this.prefabs[player_unit_name].experience = unit_data.experience;
             this.prefabs[player_unit_name].current_level = unit_data.current_level;
         }
+        this.cache.game.inventory.collect_item(this, {"type": "potion", "properties": {"group": "items", "item_texture": "potion_image", "health_power": 50}});
         
+        this.cache.game.inventory.create_menu(this, this.prefabs.items_menu);
         //Inicia combate
         this.batte();
        
@@ -116,24 +128,35 @@ class GameScene extends JSONLevelScene {
     rewards () {
         //XP
         let received_experience = this.cache.game.encounters_data.reward.experience;
+        let recieved_gold = this.cache.game.encounters_data.reward.gold;
+        let recieved_score = this.cache.game.encounters_data.reward.score;
+
         this.groups.player_units.children.each(function (player_unit) {
             player_unit.receive_experience(received_experience / this.groups.player_units.children.size);
-            this.cache.game.party_data[player_unit.name].stats = player_unit.stats;
-            this.cache.game.party_data[player_unit.name].experience = player_unit.experience;
-            this.cache.game.party_data[player_unit.name].current_level = player_unit.current_level;
-        
+            this.cache.game.player_data.party_data[player_unit.name].stats = player_unit.stats;
+            this.cache.game.player_data.party_data[player_unit.name].experience = player_unit.experience;
+            this.cache.game.player_data.party_data[player_unit.name].current_level = player_unit.current_level;
         }, this);
+
+
+        this.groups.player_hud.children.each(function(hud){
+            hud.updateText(recieved_score,recieved_gold);
+        },this);
+
+        //gold
+        this.cache.game.player_data.gold += recieved_gold;
+        
+        //score
+        this.cache.game.player_data.score += recieved_score;
 
         //Items
         this.cache.game.encounters_data.reward.items.forEach(function(item_object){
+            console.log(this.cache.game.encounters_data.reward.items);
             this.cache.game.inventory.collect_item(this,item_object);
         },this);
         
-
-
         //Recomeça a batalha
-
-        firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/party_data').set(this.cache.game.party_data).then(this.batte.bind(this));
+        firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.batte.bind(this));
     }
 
 

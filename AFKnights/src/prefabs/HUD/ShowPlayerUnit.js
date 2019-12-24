@@ -18,16 +18,16 @@ class ShowPlayerUnit extends Prefab {
         this.player_unit_mana = new ShowStatWithBar(this.scene, this.name + '_mana', {x: this.x, y: this.y + 30}, {group: 'hud', anchor: {x: 0, y: 0}, text: 'MP', style: properties.text_style, prefab: properties.prefab, stat: "mana", bar_texture: 'manabar_image'});
     
     
-        let level = this.scene.cache.game.party_data[properties.prefab].current_level + 1;
+        let level = this.scene.cache.game.player_data.party_data[properties.prefab].current_level;
         this.level_text = this.scene.add.text(this.x + 130, this.y + 100, "Level: " + level, properties.text_style);
         this.level_text.setOrigin(0);
 
-        let experience = this.scene.cache.game.party_data[properties.prefab].experience;
+        let experience = this.scene.cache.game.player_data.party_data[properties.prefab].experience;
         this.experience_text = this.scene.add.text(this.x + 50, this.y + 100, "XP: " + experience, properties.text_style);
         this.experience_text.setOrigin(0);
 
    
-    }
+    }   
 
     
     change_current_unit (new_prefab, new_face_texture) {

@@ -86,8 +86,9 @@
         }
     },
     "reward": {
-        "experience": 50,
-        "items": [{"type": "potion", "properties": {"group": "items"}}]
-        
+        "experience": 0,
+        "items": [{"type": "potion", "properties": {"group": "items", "item_texture": "potion_image", "health_power": 50}}],
+        "gold":1.4,
+        "score":3
     }
 }

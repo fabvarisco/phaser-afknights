@@ -52,12 +52,12 @@ class TitleScene extends JSONLevelScene {
     retrieve_data (snapshot) {
         let user_data = snapshot.val();
         if (!user_data) {
-            this.cache.game.party_data = this.default_data.party_data;
-            firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/party_data').set(this.cache.game.party_data).then(this.start_game.bind(this));
+            this.cache.game.player_data = this.default_data.player_data;
+            firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.start_game.bind(this));
         } else {
-            this.cache.game.party_data = user_data.party_data || this.default_data.party_data;
-            //let items = user_data.items || this.default_data.items;
-            /*for (let item_key in items) {
+            this.cache.game.player_data = user_data.player_data || this.default_data.player_data;
+            /*let items = user_data.items || this.default_data.items;
+            for (let item_key in items) {
                 this.cache.game.inventory.collect_item(this, items[item_key], item_key);
             }*/
             this.start_game();
