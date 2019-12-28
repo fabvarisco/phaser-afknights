@@ -7,7 +7,18 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "build": "webpack --config webpack/prod.js ",
+    "build": "webpack --display-modules",
+    "buildlog": "webpack --json --profile > webpack.build-log.json",
+    "buildsprite": "webpack --config webpack.config-sprite.js --display-modules",
+    "buildspritelog": "webpack --config webpack.config-sprite.js --json --profile > webpack.build-sprite-log.json",
+    "buildboth": "webpack --config webpack.config-both.js --display-modules",
+    "buildbothlog": "webpack --config webpack.config-both.js --json --profile > webpack.build-both-log.json",
+    "buildspritesmall": "webpack --config webpack.config-sprite-small-loader.js --display-modules",
+    "buildspritesmalllog": "webpack --config webpack.config-sprite-small-loader.js --json --profile > webpack.build-sprite-small-loader-log.json",
+    "buildfull": "webpack --config webpack.config-full.js --display-modules",
+    "buildfulllog": "webpack --config webpack.config-full.js --json --profile > webpack.build-full-log.json",
+    "buildcore": "webpack --config webpack.config-core.js --display-modules",
+    "buildcorelog": "webpack --config webpack.config-core.js --json --profile > webpack.build-core-log.json",
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
   "devDependencies": {
