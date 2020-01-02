@@ -18,14 +18,21 @@ class ShowPlayerUnit extends Prefab {
         this.player_unit_mana = new ShowStatWithBar(this.scene, this.name + '_mana', {x: this.x, y: this.y + 30}, {group: 'hud', anchor: {x: 0, y: 0}, text: 'MP', style: properties.text_style, prefab: properties.prefab, stat: "mana", bar_texture: 'manabar_image'});
     
     
-        let level = this.scene.cache.game.player_data.party_data[properties.prefab].current_level;
-        this.level_text = this.scene.add.text(this.x + 130, this.y + 100, "Level: " + level, properties.text_style);
-        this.level_text.setOrigin(0);
+        this.levelValue = this.scene.cache.game.player_data.party_data[properties.prefab].current_level;
 
-        let experience = this.scene.cache.game.player_data.party_data[properties.prefab].experience;
-        this.experience_text = this.scene.add.text(this.x + 50, this.y + 100, "XP: " + experience, properties.text_style);
-        this.experience_text.setOrigin(0);
+        this.experienceValue = this.scene.cache.game.player_data.party_data[properties.prefab].experience;
 
+        this.level = this.scene.add.text(this.x + 100,this.y+ 110, this.levelValue, {
+            font: "65px Arial",
+            fill: "#ff0044",
+            align: "center"
+        });
+
+        this.experience = this.scene.add.text(this.x + 100,this.y+ 110, this.experienceValue, {
+            font: "65px Arial",
+            fill: "#ff0044",
+            align: "center"
+        });
    
     }   
 
@@ -34,8 +41,9 @@ class ShowPlayerUnit extends Prefab {
         this.unit_data = new_prefab;
         this.player_unit_health.unit_data = this.unit_data;
         this.player_unit_mana.unit_data = this.unit_data;
-        
         this.face_sprite.setTexture(new_face_texture);
+
+        this.experience.setText(this.experienceValue);
     }
     
     
@@ -44,8 +52,8 @@ class ShowPlayerUnit extends Prefab {
         this.player_unit_mana.show(show);
         this.face_sprite.setVisible(show);
 
-        this.level_text.setVisible(show);
-        this.experience_text.setVisible(show);
+        this.level.setVisible(show);
+        this.experience.setVisible(show);
     }
     
 }
