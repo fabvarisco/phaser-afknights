@@ -81,7 +81,6 @@ class GameScene extends JSONLevelScene {
         }
         this.cache.game.inventory.collect_item(this, {"type": "potion", "properties": {"group": "items", "item_texture": "potion_image", "health_power": 50}});
         
-        this.cache.game.inventory.create_menu(this, this.prefabs.items_menu);
         //Inicia combate
         this.batte();
        
@@ -161,6 +160,8 @@ class GameScene extends JSONLevelScene {
 
 
     batte(){
+        this.cache.game.inventory.create_menu(this, this.prefabs.items_menu);
+
         //Cria novo inimigo
         this.create_new_enemy();
 
