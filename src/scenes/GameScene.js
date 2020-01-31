@@ -155,7 +155,8 @@ class GameScene extends JSONLevelScene {
         },this);
         
         //Recomeça a batalha
-        firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.batte.bind(this));
+        //firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.batte.bind(this));
+        this.batte();
     }
 
 

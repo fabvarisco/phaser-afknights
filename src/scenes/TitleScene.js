@@ -25,8 +25,12 @@ class TitleScene extends JSONLevelScene {
         
         this.default_data = this.cache.json.get('default_data');
 
+
+        this.cache.game.player_data = this.default_data.player_data;
+
         this.input.on('pointerdown', function (pointer) {
-           this.login();
+           //this.login();
+           this.start_game();
         }, this);
     }
     
