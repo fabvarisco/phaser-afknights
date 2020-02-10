@@ -1,7 +1,9 @@
 {
-  "name": "client",
+  "name": "afknights",
   "version": "1.0.0",
-  "description": "Client side code for zenva mmorpg",
+  "engines": {
+    "node": "12.13.0"
+  },
   "main": "src/index.js",
   "scripts": {
     "build": "npx webpack --mode production",
