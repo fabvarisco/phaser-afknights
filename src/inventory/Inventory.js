@@ -1,6 +1,6 @@
 
 import Item from '../prefabs/items/Item'
-import Potion from '../Inventory/Potion';
+import Potion from '../Inventory/potion';
 import ItemMenuItem from '../prefabs/HUD/ItemMenuItem';
 import firebase from 'firebase/app';
 import auth from 'firebase/auth';
