@@ -22,7 +22,7 @@
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
   "devDependencies": {
-    "serialize-javascript": ">=2.1.1",
+    "serialize-javascript": ">=3.1.0",
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "babel-loader": "^8.0.6",
