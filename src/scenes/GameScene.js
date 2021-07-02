@@ -21,7 +21,7 @@ import BackMenuItem from '../prefabs/HUD/backMenuItem';
 
 class GameScene extends JSONLevelScene {
 
-    constructor(){
+    constructor() {
         super('GameScene');
 
         this.prefab_classes = {
@@ -43,24 +43,38 @@ class GameScene extends JSONLevelScene {
         }
         this.rnd = new Phaser.Math.RandomDataGenerator();
         this.AUTO = false;
-
+        this.enemy_data_array_stats = []; 
 
     }
-    preload(){
+    preload() {
         //Carrega o json da tabela de xp 
         this.load.json('experience_table', 'src/assets/levels/experience_table.json');
 
         //Carrega o json dos inimigos
+        //this.enemy_stats = this.load.json('bandit', 'src/assets/enemy_encounters/bandit.json');
+        //this.enemy_stats = this.load.json('bandit', 'src/assets/enemy_encounters/bandit.json');
+
+
+
+        //Carrega o json dos inimigos
+        //this.enemy_data_array_stats.push(this.load.json('bandit', 'src/assets/enemy_encounters/bandit.json'));
+        //this.enemy_data_array_stats.push(this.load.json('archer', 'src/assets/enemy_encounters/archer.json'));
+
+
         this.enemy_stats =  this.load.json('bandit','src/assets/enemy_encounters/bandit.json');
+
+
         console.log(this.groups);
 
     }
 
-    create () {
+    create() {
         super.create();
 
         //Carrega inimigos
         this.cache.game.encounters_data =this.cache.json.get('bandit');
+
+        //this.GenerateEnemy();
 
 
         //carrega tabela de xp
@@ -68,37 +82,37 @@ class GameScene extends JSONLevelScene {
 
 
         //Carrega a pt do jogador
-        for(let player_unit_name in this.cache.game.player_data.party_data){
+        for (let player_unit_name in this.cache.game.player_data.party_data) {
             let unit_data = this.cache.game.player_data.party_data[player_unit_name];
             this.prefabs[player_unit_name].stats = {};
 
-            for(let stats_name in unit_data.stats){
+            for (let stats_name in unit_data.stats) {
                 this.prefabs[player_unit_name].stats[stats_name] =
-                unit_data.stats[stats_name];
+                    unit_data.stats[stats_name];
             }
             this.prefabs[player_unit_name].experience = unit_data.experience;
             this.prefabs[player_unit_name].current_level = unit_data.current_level;
         }
-        this.cache.game.inventory.collect_item(this, {"type": "potion", "properties": {"group": "items", "item_texture": "potion_image", "health_power": 50}});
-        
+        this.cache.game.inventory.collect_item(this, { "type": "potion", "properties": { "group": "items", "item_texture": "potion_image", "health_power": 50 } });
+
         //Inicia combate
-        this.batte();
-       
+        this.battle();
+
     }
-    
-    next_turn () {
+
+    next_turn() {
 
         if (this.groups.enemy_units.countActive() === 0) {
-            
+
             return this.rewards();
         }
-        
+
         if (this.groups.player_units.countActive() === 0) {
             this.game_over();
             return;
         }
 
-        
+
         this.current_unit = this.units.dequeue();
         if (this.current_unit.active) {
             this.current_unit.act();
@@ -108,23 +122,23 @@ class GameScene extends JSONLevelScene {
             this.next_turn();
         }
     }
- 
-    create_new_enemy () {
+
+    create_new_enemy() {
 
         for (let enemy_unit_name in this.cache.game.encounters_data.enemy_data) {
             this.create_prefab(enemy_unit_name, this.cache.game.encounters_data.enemy_data[enemy_unit_name]);
 
-            if(this.prefabs[enemy_unit_name].stats != undefined){
+            if (this.prefabs[enemy_unit_name].stats != undefined) {
                 this.prefabs[enemy_unit_name].stats.health = 30;
             }
         }
     }
 
-    game_over () {
-        this.scene.start('BootScene', {scene: 'title'});
+    game_over() {
+        this.scene.start('BootScene', { scene: 'title' });
     }
-    
-    rewards () {
+
+    rewards() {
         //XP
         let received_experience = this.cache.game.encounters_data.reward.experience;
         let recieved_gold = this.cache.game.encounters_data.reward.gold;
@@ -138,51 +152,72 @@ class GameScene extends JSONLevelScene {
         }, this);
 
 
-        this.groups.player_hud.children.each(function(hud){
-            hud.updateText(recieved_score,recieved_gold);
-        },this);
+        this.groups.player_hud.children.each(function (hud) {
+            hud.updateText(recieved_score, recieved_gold);
+        }, this);
 
         //gold
         this.cache.game.player_data.gold += recieved_gold;
-        
+
         //score
         this.cache.game.player_data.score += recieved_score;
 
         //Items
-        this.cache.game.encounters_data.reward.items.forEach(function(item_object){
+        this.cache.game.encounters_data.reward.items.forEach(function (item_object) {
             console.log(this.cache.game.encounters_data.reward.items);
-            this.cache.game.inventory.collect_item(this,item_object);
-        },this);
-        
+            this.cache.game.inventory.collect_item(this, item_object);
+        }, this);
+
         //Recomeça a batalha
-        firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.batte.bind(this));
+        firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.battle.bind(this));
     }
 
 
-    batte(){
+    battle() {
         this.cache.game.inventory.create_menu(this, this.prefabs.items_menu);
 
         //Cria novo inimigo
+
         this.create_new_enemy();
 
+
         //Logica do combate
-       this.units = new PriorityQueue({comparator: function (unit_a, unit_b) {
-            return unit_a.act_turn - unit_b.act_turn;
-        }});
-        
+        this.units = new PriorityQueue({
+            comparator: function (unit_a, unit_b) {
+                return unit_a.act_turn - unit_b.act_turn;
+            }
+        });
+
         this.groups.player_units.children.each(function (unit) {
             unit.calculate_act_turn(0);
             this.units.queue(unit);
         }, this);
-        
+
         this.groups.enemy_units.children.each(function (unit) {
-            unit.calculate_act_turn(0);
+            console.log(this.groups.player_units.children.size)
+            unit.calculate_act_turn(this.groups.player_units.children.size);
             this.units.queue(unit);
         }, this);
+
+
 
         this.next_turn();
     }
 
+    GenerateEnemy() {
+        let enemy_data_array = []; 
+
+
+
+        enemy_data_array.push(this.cache.json.get('bandit'));
+        enemy_data_array.push(this.cache.json.get('archer'));
+        
+
+        this.enemy_stats = this.enemy_data_array_stats[0];
+
+        this.cache.game.encounters_data = enemy_data_array;
+        debugger
+    }
 }
- 
+
 export default GameScene;
