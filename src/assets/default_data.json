@@ -13,7 +13,8 @@
                     "speed": 15
                 },
                 "experience": 0,
-                "current_level": 1
+                "current_level": 1,
+                "face":"paladin_face_image"
             },
             "party2": {
                 "stats": {
@@ -25,7 +26,8 @@
                     "speed": 15
                 },
                 "experience": 0,
-                "current_level": 1
+                "current_level": 1,
+                "face": "fireknight_face_image"
             },
 
             "party3": {
@@ -38,7 +40,8 @@
                     "speed": 15
                 },
                 "experience": 0,
-                "current_level": 1
+                "current_level": 1,
+                "face": "executor_face_image"
             }
         },
         "gold":0,

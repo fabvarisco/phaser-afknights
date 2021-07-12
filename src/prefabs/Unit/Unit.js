@@ -17,7 +17,7 @@ class Unit extends Prefab {
             this.scene.anims.create({
                 key: name + '_attack1', 
                 frames: this.scene.anims.generateFrameNumbers(this.texture.key, {frames: properties.animations.attack1.frames}),
-                frameRate: properties.animations.idle.fps
+                frameRate: properties.animations.attack1.fps
             });
         }
         
@@ -25,7 +25,7 @@ class Unit extends Prefab {
             this.scene.anims.create({
                 key: name + '_attack2', 
                 frames: this.scene.anims.generateFrameNumbers(this.texture.key, {frames: properties.animations.attack2.frames}),
-                frameRate: properties.animations.idle.fps
+                frameRate: properties.animations.attack2.fps
             });
         }
         
@@ -33,7 +33,7 @@ class Unit extends Prefab {
             this.scene.anims.create({
                 key: name + '_hit', 
                 frames: this.scene.anims.generateFrameNumbers(this.texture.key, {frames: properties.animations.hit.frames}),
-                frameRate: properties.animations.idle.fps
+                frameRate: properties.animations.hit.fps
             });
         }
  

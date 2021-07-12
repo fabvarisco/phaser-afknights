@@ -23,7 +23,7 @@ class GameScene extends JSONLevelScene {
 
     constructor() {
         super('GameScene');
-
+        
         this.prefab_classes = {
             background: Prefab.prototype.constructor,
             enemy_unit: EnemyUnit.prototype.constructor,
@@ -43,7 +43,7 @@ class GameScene extends JSONLevelScene {
         }
         this.rnd = new Phaser.Math.RandomDataGenerator();
         this.AUTO = false;
-        this.enemy_data_array_stats = []; 
+        this.enemy_data_array_stats = [];
 
     }
     preload() {
@@ -61,10 +61,11 @@ class GameScene extends JSONLevelScene {
         //this.enemy_data_array_stats.push(this.load.json('archer', 'src/assets/enemy_encounters/archer.json'));
 
 
-        this.enemy_stats =  this.load.json('bandit','src/assets/enemy_encounters/bandit.json');
+        this.enemy_stats = this.load.json('bandit', 'src/assets/enemy_encounters/bandit.json');
 
 
         console.log(this.groups);
+
 
     }
 
@@ -72,7 +73,7 @@ class GameScene extends JSONLevelScene {
         super.create();
 
         //Carrega inimigos
-        this.cache.game.encounters_data =this.cache.json.get('bandit');
+        this.cache.game.encounters_data = this.cache.json.get('bandit');
 
         //this.GenerateEnemy();
 
@@ -87,16 +88,19 @@ class GameScene extends JSONLevelScene {
             this.prefabs[player_unit_name].stats = {};
 
             for (let stats_name in unit_data.stats) {
-                this.prefabs[player_unit_name].stats[stats_name] =
-                    unit_data.stats[stats_name];
+                this.prefabs[player_unit_name].stats[stats_name] = unit_data.stats[stats_name];
+                
             }
             this.prefabs[player_unit_name].experience = unit_data.experience;
             this.prefabs[player_unit_name].current_level = unit_data.current_level;
+
+
         }
         this.cache.game.inventory.collect_item(this, { "type": "potion", "properties": { "group": "items", "item_texture": "potion_image", "health_power": 50 } });
 
         //Inicia combate
         this.battle();
+
 
     }
 
@@ -143,6 +147,8 @@ class GameScene extends JSONLevelScene {
         let received_experience = this.cache.game.encounters_data.reward.experience;
         let recieved_gold = this.cache.game.encounters_data.reward.gold;
         let recieved_score = this.cache.game.encounters_data.reward.score;
+        let received_player_experience = this.cache.game.player_data.level;
+        received_player_experience++;
 
         this.groups.player_units.children.each(function (player_unit) {
             player_unit.receive_experience(received_experience / this.groups.player_units.children.size);
@@ -153,7 +159,7 @@ class GameScene extends JSONLevelScene {
 
 
         this.groups.player_hud.children.each(function (hud) {
-            hud.updateText(recieved_score, recieved_gold);
+            hud.updateText(recieved_score, recieved_gold, received_player_experience);
         }, this);
 
         //gold
@@ -161,6 +167,10 @@ class GameScene extends JSONLevelScene {
 
         //score
         this.cache.game.player_data.score += recieved_score;
+
+        //player Experience
+        this.cache.game.player_data.level = received_player_experience;
+
 
         //Items
         this.cache.game.encounters_data.reward.items.forEach(function (item_object) {
@@ -171,6 +181,8 @@ class GameScene extends JSONLevelScene {
         //Recomeça a batalha
         firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.battle.bind(this));
     }
+
+
 
 
     battle() {
@@ -205,18 +217,19 @@ class GameScene extends JSONLevelScene {
     }
 
     GenerateEnemy() {
-        let enemy_data_array = []; 
+        let enemy_data_array = [];
 
 
 
         enemy_data_array.push(this.cache.json.get('bandit'));
         enemy_data_array.push(this.cache.json.get('archer'));
-        
+
 
         this.enemy_stats = this.enemy_data_array_stats[0];
 
         this.cache.game.encounters_data = enemy_data_array;
-        debugger
+        
+        
     }
 }
 

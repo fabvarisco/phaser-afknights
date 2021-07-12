@@ -16,9 +16,9 @@ class ShowStatWithBar extends TextPrefab {
     }
     
     update () {
-        this.current_stat = this.unit_data.stats[this.stat];
+        //this.current_stat = this.unit_data.stats[this.stat];
         
-        this.bar_sprite.setScale(this.current_stat / 100, 1.0);
+        //this.bar_sprite.setScale(this.current_stat / 100, 1.0);
     }
     
     show (show) {
