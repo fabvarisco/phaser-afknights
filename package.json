@@ -22,19 +22,29 @@
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
   "devDependencies": {
-    "serialize-javascript": ">=3.1.0",
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
+    "@firebase/util": "^0.3.4",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "file-loader": "^4.2.0",
+    "grpc": "^1.24.4",
     "html-webpack-plugin": "^3.2.0",
+    "ini": "^1.3.6",
+    "kind-of": "^6.0.3",
+    "minimist": "^1.2.3",
+    "node-fetch": "^2.6.1",
+    "node-forge": "^0.10.0",
     "raw-loader": "^3.1.0",
+    "serialize-javascript": ">=3.1.0",
+    "sockjs": "^0.3.20",
+    "ssri": "^7.1.1",
     "terser-webpack-plugin": "^2.2.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "yargs-parser": "^13.1.2"
   },
   "dependencies": {
     "firebase": "^7.5.1",
