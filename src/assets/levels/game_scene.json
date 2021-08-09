@@ -63,6 +63,10 @@
         "potion_image": {
             "type": "image",
             "source": "src/assets/images/hud/health_potion.png"
+        },
+        "party_bar": {
+            "type": "image",
+            "source": "src/assets/images/hud/party_bar.png"
         }
     },
     "groups": [

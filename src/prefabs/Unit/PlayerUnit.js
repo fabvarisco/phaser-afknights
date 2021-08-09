@@ -18,7 +18,8 @@ class PlayerUnit extends Unit {
         //this.scene.prefabs.show_player_unit.show(true);
         
         this.scene.prefabs.show_player_unit.change_current_unit(this);
-        
+        this.scene.prefabs.show_player_unit.update_stats();
+
         if(this.scene.AUTO){
             let target = this.choose_target();
             this.attack.hit(target);
