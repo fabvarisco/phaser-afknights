@@ -5,7 +5,6 @@ import MenuItem from '../prefabs/HUD/MenuItem'
 import PhysicalAttackMenuItem from '../prefabs/HUD/PhysicalAttackMenuItem'
 import MagicalAttackMenuItem from '../prefabs/HUD/MagicalAttackMenuItem'
 import Menu from '../prefabs/HUD/Menu'
-
 import PriorityQueue from '../priority-queue.min.js';
 import PlayerUnit from '../prefabs/Unit/PlayerUnit';
 import EnemyUnit from '../prefabs/Unit/EnemyUnit';
@@ -22,7 +21,6 @@ class GameScene extends JSONLevelScene {
 
     constructor() {
         super('GameScene');
-        
         this.prefab_classes = {
             background: Prefab.prototype.constructor,
             enemy_unit: EnemyUnit.prototype.constructor,
@@ -127,11 +125,11 @@ class GameScene extends JSONLevelScene {
     }
 
     create_new_enemy() {
-
+        debugger
         for (let enemy_unit_name in this.cache.game.encounters_data.enemy_data) {
             this.create_prefab(enemy_unit_name, this.cache.game.encounters_data.enemy_data[enemy_unit_name]);
 
-            if (this.prefabs[enemy_unit_name].stats != undefined) {
+            if (this.prefabs[enemy_unit_name].stats !== undefined) {
                 this.prefabs[enemy_unit_name].stats.health = 30;
             }
         }
@@ -179,6 +177,7 @@ class GameScene extends JSONLevelScene {
 
         //Recomeça a batalha
         //firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.battle.bind(this));
+        this.battle();
     }
 
 

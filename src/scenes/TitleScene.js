@@ -1,5 +1,4 @@
 import Prefab from '../prefabs/Prefab';
-import TextPrefab from '../prefabs/TextPrefab';
 import JSONLevelScene from "./JSONLevelScene";
 
 class TitleScene extends JSONLevelScene {
@@ -32,26 +31,8 @@ class TitleScene extends JSONLevelScene {
     }
     
     login () {
-        retrieve_data();
-    }
-    
-    on_login (result) {
-        
-    }
-    
-    retrieve_data (snapshot) {
-        let user_data = snapshot.val();
-        if (!user_data) {
-            this.cache.game.player_data = this.default_data.player_data;
-            
-        } else {
-            this.cache.game.player_data = user_data.player_data || this.default_data.player_data;
-            /*let items = user_data.items || this.default_data.items;
-            for (let item_key in items) {
-                this.cache.game.inventory.collect_item(this, items[item_key], item_key);
-            }*/
+        this.cache.game.player_data = this.default_data.player_data;
             this.start_game();
-        }
     }
     
     handle_error(error) {
