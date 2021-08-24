@@ -1,9 +1,6 @@
 import Prefab from '../prefabs/Prefab';
 import TextPrefab from '../prefabs/TextPrefab';
 import JSONLevelScene from "./JSONLevelScene";
-import firebase from "firebase/app";
-import auth from "firebase/auth";
-import database from "firebase/database";
 
 class TitleScene extends JSONLevelScene {
 
@@ -35,25 +32,18 @@ class TitleScene extends JSONLevelScene {
     }
     
     login () {
-        if (!firebase.auth().currentUser) {
-            let provider = new firebase.auth.GoogleAuthProvider();
-            provider.addScope('https://www.googleapis.com/auth/userinfo.email');
-            
-            firebase.auth().signInWithPopup(provider).then(this.on_login.bind(this)).catch(this.handle_error.bind(this));
-        } else {
-            firebase.database().ref("/users/" + firebase.auth().currentUser.uid).once("value").then(this.retrieve_data.bind(this));
-        }
+        retrieve_data();
     }
     
     on_login (result) {
-        firebase.database().ref("/users/" + result.user.uid).once("value").then(this.retrieve_data.bind(this));
+        
     }
     
     retrieve_data (snapshot) {
         let user_data = snapshot.val();
         if (!user_data) {
             this.cache.game.player_data = this.default_data.player_data;
-            firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.start_game.bind(this));
+            
         } else {
             this.cache.game.player_data = user_data.player_data || this.default_data.player_data;
             /*let items = user_data.items || this.default_data.items;

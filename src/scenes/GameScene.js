@@ -14,8 +14,7 @@ import InventoryMenuItem from '../prefabs/HUD/InventoryMenuItem';
 import ShowPlayerUnit from '../prefabs/HUD/ShowPlayerUnit';
 import AutobattleMenuItem from '../prefabs/HUD/AutobattleMenuItem';
 import ItemMenuItem from '../prefabs/HUD/ItemMenuItem.js';
-import firebase from "firebase/app";
-import database from "firebase/database";
+
 import PlayerData from '../prefabs/playerData';
 import BackMenuItem from '../prefabs/HUD/backMenuItem';
 
@@ -179,7 +178,7 @@ class GameScene extends JSONLevelScene {
         }, this);
 
         //Recomeça a batalha
-        firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.battle.bind(this));
+        //firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.battle.bind(this));
     }
 
 
