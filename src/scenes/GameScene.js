@@ -1,12 +1,10 @@
 import Prefab from '../prefabs/Prefab';
 import JSONLevelScene from "./JSONLevelScene";
-import Unit from '../prefabs/Unit/Unit';
 import MenuItem from '../prefabs/HUD/MenuItem'
 import PhysicalAttackMenuItem from '../prefabs/HUD/PhysicalAttackMenuItem'
 import MagicalAttackMenuItem from '../prefabs/HUD/MagicalAttackMenuItem'
 import Menu from '../prefabs/HUD/Menu'
 
-import PriorityQueue from '../priority-queue.min.js';
 import PlayerUnit from '../prefabs/Unit/PlayerUnit';
 import EnemyUnit from '../prefabs/Unit/EnemyUnit';
 import EnemyMenuItem from '../prefabs/HUD/EnemyMenuItem';
@@ -15,10 +13,9 @@ import ShowPlayerUnit from '../prefabs/HUD/ShowPlayerUnit';
 import AutobattleMenuItem from '../prefabs/HUD/AutobattleMenuItem';
 import ItemMenuItem from '../prefabs/HUD/ItemMenuItem.js';
 import firebase from "firebase/app";
-import database from "firebase/database";
 import PlayerData from '../prefabs/playerData';
 import BackMenuItem from '../prefabs/HUD/backMenuItem';
-
+import PriorityQueue from 'js-priority-queue';
 class GameScene extends JSONLevelScene {
 
     constructor() {
