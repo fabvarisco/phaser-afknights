@@ -23,3 +23,4 @@ A multiplayer RPG Idle Game, build your team, figth against enemies.
 ## Credits
 
 - [Fabricio Varisco Oliveira](https://github.com/fabriciovo)
+- [André Pires](https://github.com/AndreBeckPires)
