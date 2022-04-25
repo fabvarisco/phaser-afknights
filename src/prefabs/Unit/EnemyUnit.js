@@ -19,6 +19,7 @@ class EnemyUnit extends Unit {
             if (unit.active) {
                 if (alive_player_unit_index === target_index) {
                     target = unit;
+                    
                 }
                 alive_player_unit_index += 1;
             }
@@ -27,7 +28,7 @@ class EnemyUnit extends Unit {
     }
  
     act () {
-        this.scene.prefabs.show_player_unit.show(false);
+        //this.scene.prefabs.show_player_unit.show(false);
 
         let target = this.choose_target();
     

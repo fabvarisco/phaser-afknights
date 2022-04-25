@@ -5,15 +5,15 @@
             "type": "enemy_unit",
             "position": {"x": 240, "y": 380},
             "properties": {
-                "texture": "archer_spritesheet",
+                "texture": "mage_spritesheet",
                 "group": "enemy_units",
                 "scale": {"x":1.2, "y": 1.2},
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
-                    "idle": {"frames":  [0,0,0], "fps": 2},
-                        "attack1": {"frames": [1,2,3], "fps": 2},
-                        "attack2": {"frames": [1,2,3], "fps": 2},
-                        "hit": {"frames":  [4,4,4], "fps": 2}
+                    "idle": {"frames":  [1,1,1], "fps": 2},
+                        "attack1": {"frames": [1,1,1], "fps": 2},
+                        "attack2": {"frames": [1,1,1], "fps": 2},
+                        "hit": {"frames":  [1,1,1], "fps": 2}
                 },
                 "stats": {
                     "attack": 20,
@@ -32,15 +32,15 @@
             "type": "enemy_unit",
             "position": {"x": 300, "y": 400},
             "properties": {
-                "texture": "bandit_spritesheet",
+                "texture": "mage_spritesheet",
                 "group": "enemy_units",
                 "scale": {"x":1.2, "y": 1.2},
                 "anchor": {"x": 0.5, "y": 0.5},
                 "animations": {
-                    "idle": {"frames":  [0,0,0], "fps": 2},
-                        "attack1": {"frames": [1,2,3], "fps": 2},
-                        "attack2": {"frames": [1,2,3], "fps": 2},
-                        "hit": {"frames":  [4,4,4], "fps": 2}
+                    "idle": {"frames":  [1,1,1], "fps": 2},
+                        "attack1": {"frames": [1,1,1], "fps": 2},
+                        "attack2": {"frames": [1,1,1], "fps": 2},
+                        "hit": {"frames":  [1,1,1], "fps": 2}
                 },
                 "stats": {
                     "attack": 20,

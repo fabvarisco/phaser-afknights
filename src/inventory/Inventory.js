@@ -2,9 +2,7 @@
 import Item from '../prefabs/items/Item'
 import Potion from '../Inventory/Potion';
 import ItemMenuItem from '../prefabs/HUD/ItemMenuItem';
-import firebase from 'firebase/app';
-import auth from 'firebase/auth';
-import database from 'firebase/database';
+
 
 class Inventory {
     constructor(){
@@ -60,7 +58,7 @@ class Inventory {
         this.items[item_type].amount -= 1;
 
         let item_database_key = this.items[item_type].database_keys.pop();
-        firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/items/' + item_database_key).remove();
+        //firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/items/' + item_database_key).remove();
     }
 }
 
