@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
   "dependencies": {
-    
+    "js-priority-queue": "^0.1.5",
     "phaser": "^3.50.0"
   },
   "devDependencies": {
@@ -26,7 +26,6 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
-    "webpack-merge": "^4.2.2",
-    "js-priority-queue": "^0.1.5",
+    "webpack-merge": "^4.2.2"
   }
 }
