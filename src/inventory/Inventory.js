@@ -1,7 +1,7 @@
 
 import Item from '../prefabs/items/Item'
-import Potion from '../Inventory/Potion';
 import ItemMenuItem from '../prefabs/HUD/ItemMenuItem';
+import Potion from './Potion';
 
 
 class Inventory {
