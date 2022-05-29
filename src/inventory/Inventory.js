@@ -1,5 +1,5 @@
 import ItemMenuItem from "../prefabs/HUD/ItemMenuItem";
-import Potion from "./Potion";
+import Potion from "./potion";
 
 class Inventory {
   constructor() {
