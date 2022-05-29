@@ -1,25 +1,18 @@
-import Prefab from '../Prefab';
-import MenuItem from './MenuItem';
+import MenuItem from "./MenuItem";
 
- 
 class AutobattleMenuItem extends MenuItem {
-    constructor(scene, name, position, properties) {
-        super(scene, name, position, properties);
-        
-        
-    }
-    
-    select () {
-        this.scene.AUTO = !this.scene.AUTO;
+  constructor(scene, name, position, properties) {
+    super(scene, name, position, properties);
+  }
 
-        this.scene.prefabs.actions_menu.autoBattleEnable();
-        this.scene.prefabs.enemy_units_menu.enable(false);
+  select() {
+    this.scene.AUTO = !this.scene.AUTO;
 
-        this.scene.current_unit.act();
-    }
+    this.scene.prefabs.actions_menu.autoBattleEnable();
+    this.scene.prefabs.enemy_units_menu.enable(false);
 
-
+    this.scene.current_unit.act();
+  }
 }
- 
+
 export default AutobattleMenuItem;
- 

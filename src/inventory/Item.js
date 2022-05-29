@@ -1,15 +1,15 @@
-import Prefab from '../prefabs/Prefab';
+import Prefab from "../prefabs/Prefab";
 
 class Item extends Prefab {
-    constructor(scene, name, position, properties) {
-        super(scene, name, position, properties);
-        
-        this.item_texture = properties.item_texture;
-    }
+  constructor(scene, name, position, properties) {
+    super(scene, name, position, properties);
 
-    use () {
-        console.log('using item');
-    }
+    this.item_texture = properties.item_texture;
+  }
+
+  use() {
+    console.log("using item");
+  }
 }
 
 export default Item;
