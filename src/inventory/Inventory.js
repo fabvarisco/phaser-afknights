@@ -71,7 +71,7 @@ class Inventory {
     this.items[item_type].prefab.use(target);
     this.items[item_type].amount -= 1;
 
-    let item_database_key = this.items[item_type].database_keys.pop();
+    //let item_database_key = this.items[item_type].database_keys.pop();
     //firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/items/' + item_database_key).remove();
   }
 }
