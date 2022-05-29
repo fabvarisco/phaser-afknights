@@ -1,4 +1,3 @@
-import Prefab from '../prefabs/Prefab';
 import Item from './Item';
 
 class Potion extends Item {
