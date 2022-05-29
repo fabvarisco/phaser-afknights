@@ -45,20 +45,20 @@ class GameScene extends JSONLevelScene {
     }
     preload() {
         //Carrega o json da tabela de xp 
-        this.load.json('experience_table', 'src/assets/levels/experience_table.json');
+        this.load.json('experience_table', 'assets/levels/experience_table.json');
 
         //Carrega o json dos inimigos
-        //this.enemy_stats = this.load.json('bandit', 'src/assets/enemy_encounters/bandit.json');
-        //this.enemy_stats = this.load.json('bandit', 'src/assets/enemy_encounters/bandit.json');
+        //this.enemy_stats = this.load.json('bandit', 'assets/enemy_encounters/bandit.json');
+        //this.enemy_stats = this.load.json('bandit', 'assets/enemy_encounters/bandit.json');
 
 
 
         //Carrega o json dos inimigos
-        //this.enemy_data_array_stats.push(this.load.json('bandit', 'src/assets/enemy_encounters/bandit.json'));
-        //this.enemy_data_array_stats.push(this.load.json('archer', 'src/assets/enemy_encounters/archer.json'));
+        //this.enemy_data_array_stats.push(this.load.json('bandit', 'assets/enemy_encounters/bandit.json'));
+        //this.enemy_data_array_stats.push(this.load.json('archer', 'assets/enemy_encounters/archer.json'));
 
 
-        this.enemy_stats = this.load.json('bandit', 'src/assets/enemy_encounters/bandit.json');
+        this.enemy_stats = this.load.json('bandit', 'assets/enemy_encounters/bandit.json');
 
 
         console.log(this.groups);

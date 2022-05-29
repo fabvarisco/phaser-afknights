@@ -2,71 +2,71 @@
     "assets": {
         "background_battle": {
             "type": "image",
-            "source": "src/assets/images/background/stage_1.png"
+            "source": "assets/images/background/stage_1.png"
         },
         "paladin_spritesheet": {
             "type": "spritesheet",
-            "source": "src/assets/images/players/paladin_spritesheet.png",
+            "source": "assets/images/players/paladin_spritesheet.png",
             "frame_width": 96,
             "frame_height": 64
         },
         "bandit_spritesheet": {
             "type": "spritesheet",
-            "source": "src/assets/images/enemies/bandit_spritesheet.png",
+            "source": "assets/images/enemies/bandit_spritesheet.png",
             "frame_width": 80,
             "frame_height": 80
         },
         "fireknight_spritesheet": {
             "type": "spritesheet",
-            "source": "src/assets/images/players/fireknight_spritesheet.png",
+            "source": "assets/images/players/fireknight_spritesheet.png",
             "frame_width": 96,
             "frame_height": 64
         },
         "executor_spritesheet": {
             "type": "spritesheet",
-            "source": "src/assets/images/players/executor_spritesheet.png",
+            "source": "assets/images/players/executor_spritesheet.png",
             "frame_width": 96,
             "frame_height": 64
         },
         "hitbox_enemy": {
             "type": "image",
-            "source": "src/assets/images/face/hitbox_enemy.png",
+            "source": "assets/images/face/hitbox_enemy.png",
             "frame_width": 80,
             "frame_height": 80
         },
         "icons_spritesheet": {
             "type": "spritesheet",
-            "source": "src/assets/images/hud/icon_sheet.png",
+            "source": "assets/images/hud/icon_sheet.png",
             "frame_width": 40,
             "frame_height": 40
         },
         "paladin_face_image": {
             "type": "image",
-            "source": "src/assets/images/face/paladin_face.png"
+            "source": "assets/images/face/paladin_face.png"
         },
         "fireknight_face_image": {
             "type": "image",
-            "source": "src/assets/images/face/fireknight_face.png"
+            "source": "assets/images/face/fireknight_face.png"
         },
         "executor_face_image": {
             "type": "image",
-            "source": "src/assets/images/face/executor_face.png"
+            "source": "assets/images/face/executor_face.png"
         },
         "healthbar_image": {
             "type": "image",
-            "source": "src/assets/images/hud/healthbar.png"
+            "source": "assets/images/hud/healthbar.png"
         },
         "manabar_image": {
             "type": "image",
-            "source": "src/assets/images/hud/manabar.png"
+            "source": "assets/images/hud/manabar.png"
         },
         "potion_image": {
             "type": "image",
-            "source": "src/assets/images/hud/health_potion.png"
+            "source": "assets/images/hud/health_potion.png"
         },
         "party_bar": {
             "type": "image",
-            "source": "src/assets/images/hud/party_bar.png"
+            "source": "assets/images/hud/party_bar.png"
         }
     },
     "groups": [

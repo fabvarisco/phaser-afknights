@@ -2,7 +2,7 @@
     "assets":{
         "background_image":{
             "type": "image",
-            "source": "src/assets/images/background/titleScreen.png"
+            "source": "assets/images/background/titleScreen.png"
         }
     },
     "groups": [
