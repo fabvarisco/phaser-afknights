@@ -1,5 +1,4 @@
 class BootScene extends Phaser.Scene {
-
     constructor(){
         super({key:'BootScene'});
 
@@ -22,8 +21,6 @@ class BootScene extends Phaser.Scene {
         this.scene.start('LoadingScene',{level_data:level_data, 
             scene: this.levels[data.scene].key,
             extra_parameters: data.extra_parameters});
-
-
     }
 
 } 

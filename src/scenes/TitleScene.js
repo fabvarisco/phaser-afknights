@@ -12,7 +12,6 @@ class TitleScene extends JSONLevelScene {
 
   preload() {
     this.load.json("default_data", "assets/default_data.json");
-    this.test = "asdkofaspok";
   }
 
   create() {

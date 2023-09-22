@@ -18,7 +18,6 @@ import BackMenuItem from '../prefabs/HUD/backMenuItem';
 import PriorityQueue from 'js-priority-queue';
 
 class GameScene extends JSONLevelScene {
-
     constructor() {
         super('GameScene');
         this.prefab_classes = {
@@ -36,7 +35,6 @@ class GameScene extends JSONLevelScene {
             item_menu_item: ItemMenuItem.prototype.constructor,
             player: PlayerData.prototype.constructor,
             back_menu_item: BackMenuItem.prototype.constructor
-
         }
         this.rnd = new Phaser.Math.RandomDataGenerator();
         this.AUTO = false;
@@ -69,42 +67,31 @@ class GameScene extends JSONLevelScene {
     create() {
         super.create();
 
-        //Carrega inimigos
         this.cache.game.encounters_data = this.cache.json.get('bandit');
 
         //this.GenerateEnemy();
 
-
-        //carrega tabela de xp
         this.experience_table = this.cache.json.get('experience_table');
 
-
-        //Carrega a pt do jogador
-        for (let player_unit_name in this.cache.game.player_data.party_data) {
-            let unit_data = this.cache.game.player_data.party_data[player_unit_name];
-            this.prefabs[player_unit_name].stats = {};
+        console.log(this.cache.game.player_data.party_data)
+        for (let player_unit in this.cache.game.player_data.party_data) {
+            const unit_data = this.cache.game.player_data.party_data[player_unit];
+            const name = unit_data.prefab_name;
 
             for (let stats_name in unit_data.stats) {
-                this.prefabs[player_unit_name].stats[stats_name] = unit_data.stats[stats_name];
+                this.prefabs[name].stats = unit_data.stats;
                 
             }
-            this.prefabs[player_unit_name].experience = unit_data.experience;
-            this.prefabs[player_unit_name].current_level = unit_data.current_level;
-
-
+            this.prefabs[name].experience = unit_data.experience;
+            this.prefabs[name].current_level = unit_data.current_level;
         }
         this.cache.game.inventory.collect_item(this, { "type": "potion", "properties": { "group": "items", "item_texture": "potion_image", "health_power": 50 } });
 
-        //Inicia combate
         this.battle();
-
-
     }
 
     next_turn() {
-
         if (this.groups.enemy_units.countActive() === 0) {
-
             return this.rewards();
         }
 
@@ -125,10 +112,8 @@ class GameScene extends JSONLevelScene {
     }
 
     create_new_enemy() {
-        debugger
         for (let enemy_unit_name in this.cache.game.encounters_data.enemy_data) {
             this.create_prefab(enemy_unit_name, this.cache.game.encounters_data.enemy_data[enemy_unit_name]);
-
             if (this.prefabs[enemy_unit_name].stats !== undefined) {
                 this.prefabs[enemy_unit_name].stats.health = 30;
             }
