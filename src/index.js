@@ -5,10 +5,10 @@ import GameScene from "./scenes/GameScene";
 import LoadingScene from "./scenes/LoadingScene";
 import Inventory from "./inventory/Inventory";
 
-let titleScene = new TitleScene();
-let bootScene = new BootScene();
-let gameScene = new GameScene();
-let loadingScene = new LoadingScene();
+const titleScene = new TitleScene();
+const bootScene = new BootScene();
+const gameScene = new GameScene();
+const loadingScene = new LoadingScene();
 
 let config = {
   type: Phaser.AUTO,

@@ -20,7 +20,6 @@ class PlayerUnit extends Unit {
   act() {
     // this.scene.prefabs.show_player_unit.show(true);
 
-    this.scene.prefabs.show_player_unit.change_current_unit(this);
     this.scene.prefabs.show_player_unit.update_stats();
 
     if (this.scene.AUTO) {
@@ -51,9 +50,10 @@ class PlayerUnit extends Unit {
 
   receive_experience(experience) {
     this.experience += experience;
-    console.log("received experience " + experience);
     const next_level_data = this.scene.experience_table[this.current_level];
+    console.log(next_level_data.required_exp)
     if (this.experience >= next_level_data.required_exp) {
+      console.log("aqui")
       this.current_level += 1;
       this.experience = 0;
       for (const stat in next_level_data.stats_increase) {
