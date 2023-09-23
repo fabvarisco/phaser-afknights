@@ -80,6 +80,21 @@ class GameScene extends JSONLevelScene {
             this.prefabs[name].experience = unit_data.experience;
             this.prefabs[name].current_level = unit_data.current_level;
             this.prefabs[name].party_key = player_unit;
+
+            console.log(player_unit)
+            if(player_unit === "party1"){
+                this.prefabs[name].x = 120;
+                this.prefabs[name].y = 150;
+            }
+            else if(player_unit === "party2"){
+                this.prefabs[name].x = 76;
+                this.prefabs[name].y = 90;
+            }
+            else if(player_unit === "party3"){
+                this.prefabs[name].x = 50;
+                this.prefabs[name].y = 200;
+            }
+
         }
         this.cache.game.inventory.collect_item(this, { "type": "potion", "properties": { "group": "items", "item_texture": "potion_image", "health_power": 50 } });
 
