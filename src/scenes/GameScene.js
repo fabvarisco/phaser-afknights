@@ -33,15 +33,15 @@ class GameScene extends JSONLevelScene {
             player_unit: PlayerUnit.prototype.constructor,
             show_player_unit: ShowPlayerUnit.prototype.constructor,
             item_menu_item: ItemMenuItem.prototype.constructor,
-            player: PlayerData.prototype.constructor,
             back_menu_item: BackMenuItem.prototype.constructor
         }
         this.rnd = new Phaser.Math.RandomDataGenerator();
         this.AUTO = false;
         this.enemy_data_array_stats = [];
-
     }
     preload() {
+        this.player_data = this.cache.game.player_data;
+
         //Carrega o json da tabela de xp 
         this.load.json('experience_table', 'assets/levels/experience_table.json');
 
@@ -57,25 +57,23 @@ class GameScene extends JSONLevelScene {
 
 
         this.enemy_stats = this.load.json('bandit', 'assets/enemy_encounters/bandit.json');
-
-
-
-
     }
 
     create() {
         super.create();
-
+        console.log(this.player_data)
+        this.player_data.playerCreate(this, this.prefabs.items_menu)
         this.cache.game.encounters_data = this.cache.json.get('bandit');
 
         //this.GenerateEnemy();
 
         this.experience_table = this.cache.json.get('experience_table');
-        for (let player_unit in this.cache.game.player_data.party_data) {
-            const unit_data = this.cache.game.player_data.party_data[player_unit];
+        for (let player_unit in this.player_data.party_data) {
+            const unit_data = this.player_data.party_data[player_unit];
             const name = unit_data.prefab_name;
             for (let stats_name in unit_data.stats) {
                 this.prefabs[name].stats = unit_data.stats;
+                console.log(this.prefabs[name].stats)
             }
             this.prefabs[name].experience = unit_data.experience;
             this.prefabs[name].current_level = unit_data.current_level;
@@ -94,9 +92,9 @@ class GameScene extends JSONLevelScene {
                 this.prefabs[name].x = 50;
                 this.prefabs[name].y = 200;
             }
-
         }
-        this.cache.game.inventory.collect_item(this, { "type": "potion", "properties": { "group": "items", "item_texture": "potion_image", "health_power": 50 } });
+        this.player_data.inventory.collect_item(this, { "type": "potion", "properties": { "group": "items", "item_texture": "potion_image", "health_power": 50 } });
+
 
         this.battle();
     }
@@ -140,15 +138,15 @@ class GameScene extends JSONLevelScene {
         let received_experience = this.cache.game.encounters_data.reward.experience;
         let recieved_gold = this.cache.game.encounters_data.reward.gold;
         let recieved_score = this.cache.game.encounters_data.reward.score;
-        let received_player_experience = this.cache.game.player_data.level;
+        let received_player_experience = this.player_data.level;
         received_player_experience++;
 
         this.groups.player_units.children.each(function (player_unit) {
             player_unit.receive_experience(received_experience / this.groups.player_units.children.size);
             const _key = player_unit.party_key;
-            this.cache.game.player_data.party_data[_key].stats = player_unit.stats;
-            this.cache.game.player_data.party_data[_key].experience = player_unit.experience;
-            this.cache.game.player_data.party_data[_key].current_level = player_unit.current_level;
+            this.player_data.party_data[_key].stats = player_unit.stats;
+            this.player_data.party_data[_key].experience = player_unit.experience;
+            this.player_data.party_data[_key].current_level = player_unit.current_level;
         }, this);
 
         this.groups.player_hud.children.each(function (hud) {
@@ -156,13 +154,13 @@ class GameScene extends JSONLevelScene {
         }, this);
 
         //gold
-        this.cache.game.player_data.gold += recieved_gold;
+        this.player_data.gold += recieved_gold;
 
         //score
-        this.cache.game.player_data.score += recieved_score;
+        this.player_data.score += recieved_score;
 
         //player Experience
-        this.cache.game.player_data.level = received_player_experience;
+        this.player_data.level = received_player_experience;
 
 
         //Items
@@ -173,7 +171,7 @@ class GameScene extends JSONLevelScene {
        this.prefabs.show_player_unit.update_stats();
 
         //Recomeça a batalha
-        //firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.cache.game.player_data).then(this.battle.bind(this));
+        //firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/player_data').set(this.player_data).then(this.battle.bind(this));
         this.battle();
     }
 
@@ -181,8 +179,6 @@ class GameScene extends JSONLevelScene {
 
 
     battle() {
-        this.cache.game.inventory.create_menu(this, this.prefabs.items_menu);
-
         //Cria novo inimigo
 
         this.create_new_enemy();

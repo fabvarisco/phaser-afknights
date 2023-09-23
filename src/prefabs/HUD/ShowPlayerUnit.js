@@ -52,8 +52,6 @@ class ShowPlayerUnit extends Prefab {
                 align: "center",
             });
 
-
-
             _index++;
         }
 

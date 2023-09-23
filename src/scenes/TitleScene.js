@@ -1,5 +1,6 @@
 import Prefab from "../prefabs/Prefab";
 import JSONLevelScene from "./JSONLevelScene";
+import PlayerData from "../prefabs/playerData";
 
 class TitleScene extends JSONLevelScene {
   constructor() {
@@ -33,7 +34,7 @@ class TitleScene extends JSONLevelScene {
   }
 
   login() {
-    this.cache.game.player_data = this.default_data.player_data;
+    this.cache.game.player_data = new PlayerData(this.default_data.player_data);
     this.start_game();
   }
 

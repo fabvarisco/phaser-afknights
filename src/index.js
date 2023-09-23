@@ -27,9 +27,8 @@ let config = {
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
 };
-let game = new Phaser.Game(config);
+const game = new Phaser.Game(config);
 
-game.inventory = new Inventory();
 game.scene.add("TitleScene", titleScene);
 game.scene.add("GameScene", gameScene);
 game.scene.add("BootScene", bootScene);

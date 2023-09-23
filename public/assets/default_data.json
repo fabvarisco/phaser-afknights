@@ -1,5 +1,6 @@
 {
     "player_data": {
+        "inventory": [],
         "party_data":{
             "party1": {
                 "prefab_name": "paladin",
@@ -34,6 +35,6 @@
         "level":1,
         "score":0,
         "user":"",
-        "friends":{}
+        "friends":[]
     }
 }
