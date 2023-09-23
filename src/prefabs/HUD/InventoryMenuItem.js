@@ -6,7 +6,7 @@ class InventoryMenuItem extends MenuItem {
   }
 
   select() {
-    if (this.scene.cache.game.inventory.has_items()) {
+    if (this.scene.cache.game.player_data.inventory.has_items()) {
       this.scene.prefabs.actions_menu.enable(false);
       this.scene.prefabs.items_menu.enable(true);
       this.scene.prefabs.actions_menu.enableBack(true);

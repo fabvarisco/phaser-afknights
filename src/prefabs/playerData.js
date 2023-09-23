@@ -14,8 +14,8 @@ class PlayerData {
 
 
   }
-  playerCreate(scene,items_menu){
-    this.inventory.create_menu(scene,items_menu)
+  playerCreate(scene){
+
     this.gold = scene.add.text(
         this.x + 100,
         this.y - (this.height - 30),
@@ -38,6 +38,12 @@ class PlayerData {
     );
 
   }
+
+  playerCreateInventory(scene, items_menu){
+      this.inventory.create_menu(scene,items_menu);
+  }
+
+
   updateText(recieved_score, recieved_gold, recieved_level) {
     //this.player_score = recieved_score;
     this.player_gold = recieved_gold;

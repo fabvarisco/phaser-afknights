@@ -103,13 +103,10 @@ class GameScene extends JSONLevelScene {
         if (this.groups.enemy_units.countActive() === 0) {
             return this.rewards();
         }
-
         if (this.groups.player_units.countActive() === 0) {
             this.game_over();
             return;
         }
-
-
         this.current_unit = this.units.dequeue();
         if (this.current_unit.active) {
             this.current_unit.act();
@@ -165,7 +162,7 @@ class GameScene extends JSONLevelScene {
 
         //Items
         this.cache.game.encounters_data.reward.items.forEach(function (item_object) {
-            this.cache.game.inventory.collect_item(this, item_object);
+            this.cache.game.player_data.inventory.collect_item(this, item_object);
         }, this);
 
        this.prefabs.show_player_unit.update_stats();
@@ -175,12 +172,8 @@ class GameScene extends JSONLevelScene {
         this.battle();
     }
 
-
-
-
     battle() {
-        //Cria novo inimigo
-
+        this.player_data.playerCreateInventory(this,this.prefabs.items_menu);
         this.create_new_enemy();
 
 

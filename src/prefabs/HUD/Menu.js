@@ -1,4 +1,5 @@
 import Prefab from '../Prefab';
+import menuItem from "./MenuItem";
  
 class Menu extends Prefab {
     constructor(scene, name, position, properties) {
@@ -14,13 +15,13 @@ class Menu extends Prefab {
     }
     
     enable (enable) {
-        
+        console.log(this.menu_items)
             this.menu_items.forEach(function(menu_item) {
                 if(menu_item.active){
                     menu_item.setInteractive(enable);
                     menu_item.setVisible(enable);
                 }
-                if(menu_item.name == "back"){
+                if(menu_item.name === "back"){
                     menu_item.setInteractive(false);
                     menu_item.setVisible(false);
                 }
@@ -31,7 +32,7 @@ class Menu extends Prefab {
 
     enableBack(show){
         this.menu_items.forEach(function(menu_item) {
-            if(menu_item.name == "back"){
+            if(menu_item.name === "back"){
                 menu_item.setInteractive(show);
                 menu_item.setVisible(show);
             }
@@ -41,7 +42,7 @@ class Menu extends Prefab {
 
     autoBattleEnable(){
         this.menu_items.forEach(function(menu_item) {
-            if(menu_item.name != "autobattle"){
+            if(menu_item.name !== "autobattle"){
                 menu_item.setInteractive(false);
                 menu_item.setVisible(false);
             }

@@ -9,13 +9,12 @@ class ItemMenuItem extends MenuItem {
     }
     
     select () {
-
-        if (this.scene.cache.game.inventory.has_item(this.item_name)) {
+        if (this.scene.cache.game.player_data.inventory.has_item(this.item_name)) {
             this.scene.prefabs.items_menu.enable(false);
 
-            this.scene.cache.game.inventory.use_item(this.item_name, this.scene.current_unit);
+            this.scene.cache.game.player_data.inventory.use_item(this.item_name, this.scene.current_unit);
             
-            if (!this.scene.cache.game.inventory.has_item(this.item_name)) {
+            if (!this.scene.cache.game.player_data.inventory.has_item(this.item_name)) {
                 let scene = this.scene;
                 this.destroy();
                 scene.next_turn();

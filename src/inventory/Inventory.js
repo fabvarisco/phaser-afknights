@@ -11,6 +11,7 @@ class Inventory {
   }
 
   collect_item(scene, item_object) {
+    debugger
     if (this.items[item_object.type]) {
       this.items[item_object.type].amount += 1;
     } else {
@@ -70,7 +71,6 @@ class Inventory {
   use_item(item_type, target) {
     this.items[item_type].prefab.use(target);
     this.items[item_type].amount -= 1;
-
     //let item_database_key = this.items[item_type].database_keys.pop();
     //firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/items/' + item_database_key).remove();
   }
