@@ -1,4 +1,6 @@
-class TextPrefab extends Phaser.GameObjects.Text {
+import {GameObjects} from "phaser";
+
+class TextPrefab extends GameObjects.Text {
 
     constructor(scene, name, position,properties){
         super(scene,position.x,position.y,properties.text,properties.style);

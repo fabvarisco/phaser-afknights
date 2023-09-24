@@ -18,6 +18,7 @@ class TitleScene extends JSONLevelScene {
   create() {
     super.create();
 
+
     this.default_data = this.cache.json.get("default_data");
 
     this.input.on(

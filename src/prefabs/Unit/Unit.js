@@ -1,5 +1,4 @@
 import Prefab from '../Prefab';
-
 class Unit extends Prefab {
     constructor(scene, name, position, properties) {
         super(scene, name, position, properties);

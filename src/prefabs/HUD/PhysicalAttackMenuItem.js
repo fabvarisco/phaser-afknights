@@ -1,4 +1,3 @@
-import Prefab from '../Prefab';
 import MenuItem from '../HUD/MenuItem';
 import PhysicalAttack from '../Attacks/PhysicalAttack';
  

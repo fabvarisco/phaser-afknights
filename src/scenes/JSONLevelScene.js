@@ -1,4 +1,6 @@
-class JSONLevelScene extends Phaser.Scene {
+import {Scene} from "phaser";
+
+class JSONLevelScene extends Scene {
     constructor(key) {
         super({key: key});
     }

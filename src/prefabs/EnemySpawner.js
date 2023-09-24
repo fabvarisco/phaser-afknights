@@ -1,5 +1,4 @@
 import Prefab from "./Prefab";
-
 class EnemySpawner extends Prefab {
   constructor(scene, name, position, properties) {
     super(scene, name, position, properties);

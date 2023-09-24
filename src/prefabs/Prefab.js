@@ -1,5 +1,5 @@
-import Phaser from "phaser";
-class Prefab extends Phaser.GameObjects.Sprite {
+import {GameObjects} from "phaser";
+class Prefab extends GameObjects.Sprite {
   constructor(scene, name, position, properties) {
     super(scene, position.x, position.y, properties.texture, properties.frame);
 

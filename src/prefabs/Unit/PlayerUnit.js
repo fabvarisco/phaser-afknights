@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import Unit from "./Unit";
 import PhysicalAttack from "../Attacks/PhysicalAttack";
 

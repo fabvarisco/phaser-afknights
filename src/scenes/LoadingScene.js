@@ -1,4 +1,6 @@
-class LoadingScene extends Phaser.Scene {
+import {Scene} from "phaser";
+
+class LoadingScene extends Scene {
     constructor() {
         super({key: 'LoadingScene'});
     }

@@ -1,4 +1,3 @@
-import Prefab from '../Prefab';
 import PhysicalAttack from '../Attacks/PhysicalAttack';
 import Unit from './Unit';
 
