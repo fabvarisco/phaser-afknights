@@ -115,14 +115,16 @@ class GameScene extends JSONLevelScene {
     }
 
     createNewEnemy() {
-        console.log(this.cache.game.encounters_data.enemy_data)
-        for (let enemy_unit_name in this.cache.game.encounters_data.enemy_data) {
-            this.create_prefab(enemy_unit_name, this.cache.game.encounters_data.enemy_data[enemy_unit_name]);
-            // console.log(this.prefabs[enemy_unit_name])
-            // console.log(this.cache.game.encounters_data.enemy_data[enemy_unit_name])
-            // this.prefabs[enemy_unit_name].properties = this.cache.game.encounters_data.enemy_data[enemy_unit_name].properties
-            // this.prefabs[enemy_unit_name].position = this.cache.game.encounters_data.enemy_data[enemy_unit_name].position
-            console.log(this.prefabs[enemy_unit_name])
+        const encounter = this.cache.game.encounters_data[0]
+        console.log(encounter)
+        for (let enemy_unit_name in encounter.enemy_data) {
+            this.create_prefab(enemy_unit_name, encounter.enemy_data[enemy_unit_name]);
+            console.log(enemy_unit_name)
+            // if (this.prefabs[enemy_unit_name] !== null){
+            //     this.create_prefab(enemy_unit_name, encounter.enemy_data[enemy_unit_name]);
+            // }else{ 
+            //     this.prefabs[enemy_unit_name] = encounter.enemy_data[enemy_unit_name]
+            // }
         }
     }
 
@@ -132,9 +134,10 @@ class GameScene extends JSONLevelScene {
 
     rewards() {
         //XP
-        let received_experience = this.cache.game.encounters_data.reward?.experience;
-        let recieved_gold = this.cache.game.encounters_data.reward.gold;
-        let recieved_score = this.cache.game.encounters_data.reward.score;
+        const encounter = this.cache.game.encounters_data[0]
+        let received_experience = encounter.reward?.experience;
+        let recieved_gold = encounter.reward.gold;
+        let recieved_score = encounter.reward.score;
         let received_player_experience = this.player_data.level;
         received_player_experience++;
 
@@ -161,7 +164,7 @@ class GameScene extends JSONLevelScene {
 
 
         //Items
-        this.cache.game.encounters_data.reward.items.forEach(function (item_object) {
+        encounter.reward.items.forEach(function (item_object) {
             this.cache.game.player_data.inventory.collect_item(this, item_object);
         }, this);
 
@@ -198,13 +201,20 @@ class GameScene extends JSONLevelScene {
     }
 
     GenerateEnemy() {
-        let enemy_data_array = [];
+        if (!this.cache.game.encounters_data){
+            let enemy_data_array = [];
+    
+            enemy_data_array.push(this.cache.json.get('archer'));
+            enemy_data_array.push(this.cache.json.get('bandit'));
+           
+            console.log("enemy_data_array1", enemy_data_array)
 
-        enemy_data_array.push(this.cache.json.get('archer'));
-        enemy_data_array.push(this.cache.json.get('bandit'));
-       
-        this.enemy_stats = this.enemy_data_array_stats[0];
-        this.cache.game.encounters_data = enemy_data_array[0];
+            this.cache.game.encounters_data = enemy_data_array;
+            console.log("enemy_data_array2", this.cache.game.encounters_data)
+        }else {
+            console.log("this.cache.game.encounters_data", this.cache.game.encounters_data)
+            this.cache.game.encounters_data.shift()
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 {
     "enemy_data":{
 
-        "enemy1": {
+        "archer_1": {
             "type": "enemy_unit",
             "position": {"x": 260, "y": 180},
             "properties": {
@@ -28,7 +28,7 @@
             }
             
         },
-        "enemy2": {
+        "archer_2": {
             "type": "enemy_unit",
             "position": {"x": 240, "y": 100},
             "properties": {
