@@ -11,7 +11,6 @@ class Inventory {
   }
 
   collect_item(scene, item_object) {
-    debugger
     if (this.items[item_object.type]) {
       this.items[item_object.type].amount += 1;
     } else {

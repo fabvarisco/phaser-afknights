@@ -4,9 +4,10 @@ import Unit from './Unit';
 class EnemyUnit extends Unit {
     constructor(scene, name, position, properties) {
         super(scene, name, position, properties);
- 
+        this.position = position;
+        this.properties = properties;
         this.target_units = properties.target_units;
- 
+        console.log("properties", this.properties)
         this.attack = new PhysicalAttack(this.scene, this.name + "_attack", {x: 0, y: 0}, {group: "attacks", owner: this});
     }
  

@@ -3,9 +3,9 @@
 
         "enemy1": {
             "type": "enemy_unit",
-            "position": {"x": 240, "y": 380},
+            "position": {"x": 260, "y": 180},
             "properties": {
-                "texture": "mage_spritesheet",
+                "texture": "archer_spritesheet",
                 "group": "enemy_units",
                 "scale": {"x":1.2, "y": 1.2},
                 "anchor": {"x": 0.5, "y": 0.5},
@@ -30,9 +30,9 @@
         },
         "enemy2": {
             "type": "enemy_unit",
-            "position": {"x": 300, "y": 400},
+            "position": {"x": 240, "y": 100},
             "properties": {
-                "texture": "mage_spritesheet",
+                "texture": "archer_spritesheet",
                 "group": "enemy_units",
                 "scale": {"x":1.2, "y": 1.2},
                 "anchor": {"x": 0.5, "y": 0.5},
@@ -61,7 +61,7 @@
                 "menu_items": {
                     "enemy1_item": {
                         "type": "enemy_menu_item",
-                        "position": {"x": 240, "y": 380},
+                        "position": {"x": 260, "y": 180},
                         "properties": {
                             "group": "hud",
                             "texture": "hitbox_enemy",
@@ -72,7 +72,7 @@
                     },
                     "enemy2_item": {
                         "type": "enemy_menu_item",
-                        "position": {"x": 300, "y": 400},
+                        "position": {"x": 240, "y": 100},
                         "properties": {
                             "group": "hud",
                             "texture": "hitbox_enemy",

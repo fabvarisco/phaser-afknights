@@ -39,14 +39,13 @@ class Unit extends Prefab {
         this.on('animationcomplete', this.back_to_idle.bind(this));
         
         this.anims.play(name + '_idle');
-        console.log(properties)
         this.stats = properties.stats;
     }
     
     back_to_idle (animation) {
         this.anims.play(this.name + '_idle');
         if (animation.key == this.name + '_attack1' || animation.key == this.name + '_attack2') {
-            this.scene.next_turn();
+            this.scene.nextTurn();
         }
     }
  
@@ -63,7 +62,6 @@ class Unit extends Prefab {
     }
  
     calculate_act_turn (current_turn) {
-        console.log(this.stats)
         this.act_turn = current_turn + Math.ceil(100 / this.stats.speed);
     };
  

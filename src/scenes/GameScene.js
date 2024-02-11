@@ -47,7 +47,8 @@ class GameScene extends JSONLevelScene {
 
         //Carrega o json da tabela de xp 
         this.load.json('experience_table', 'assets/levels/experience_table.json');
-
+        this.load.json('archer', 'assets/enemy_encounters/archer.json');
+        this.load.json('bandit', 'assets/enemy_encounters/bandit.json');
         //Carrega o json dos inimigos
         //this.enemy_stats = this.load.json('bandit', 'assets/enemy_encounters/bandit.json');
         //this.enemy_stats = this.load.json('bandit', 'assets/enemy_encounters/bandit.json');
@@ -56,32 +57,25 @@ class GameScene extends JSONLevelScene {
         //Carrega o json dos inimigos
         //this.enemy_data_array_stats.push(this.load.json('bandit', 'assets/enemy_encounters/bandit.json'));
         //this.enemy_data_array_stats.push(this.load.json('archer', 'assets/enemy_encounters/archer.json'));
-
-
-        this.enemy_stats = this.load.json('bandit', 'assets/enemy_encounters/bandit.json');
     }
 
     create() {
         super.create();
-        console.log(this.player_data)
         this.player_data.playerCreate(this, this.prefabs.items_menu)
-        this.cache.game.encounters_data = this.cache.json.get('bandit');
-
-        //this.GenerateEnemy();
 
         this.experience_table = this.cache.json.get('experience_table');
         for (let player_unit in this.player_data.party_data) {
             const unit_data = this.player_data.party_data[player_unit];
             const name = unit_data.prefab_name;
             for (let stats_name in unit_data.stats) {
+                //TODO - WTF oq e stats_name e pq nao ta sendo usado???
+                //Outro detalhe 'e q se essa linha for removida os prefabs do jogador ficam sem os seus stats???
                 this.prefabs[name].stats = unit_data.stats;
-                console.log(this.prefabs[name].stats)
             }
             this.prefabs[name].experience = unit_data.experience;
             this.prefabs[name].current_level = unit_data.current_level;
             this.prefabs[name].party_key = player_unit;
 
-            console.log(player_unit)
             if (player_unit === "party1") {
                 this.prefabs[name].x = 120;
                 this.prefabs[name].y = 150;
@@ -102,12 +96,12 @@ class GameScene extends JSONLevelScene {
         this.battle();
     }
 
-    next_turn() {
+    nextTurn() {
         if (this.groups.enemy_units.countActive() === 0) {
             return this.rewards();
         }
         if (this.groups.player_units.countActive() === 0) {
-            this.game_over();
+            this.gameOver();
             return;
         }
         this.current_unit = this.units.dequeue();
@@ -116,26 +110,29 @@ class GameScene extends JSONLevelScene {
             this.current_unit.calculate_act_turn(this.current_unit.act_turn);
             this.units.queue(this.current_unit);
         } else {
-            this.next_turn();
+            this.nextTurn();
         }
     }
 
-    create_new_enemy() {
+    createNewEnemy() {
+        console.log(this.cache.game.encounters_data.enemy_data)
         for (let enemy_unit_name in this.cache.game.encounters_data.enemy_data) {
             this.create_prefab(enemy_unit_name, this.cache.game.encounters_data.enemy_data[enemy_unit_name]);
-            if (this.prefabs[enemy_unit_name].stats !== undefined) {
-                this.prefabs[enemy_unit_name].stats.health = 30;
-            }
+            // console.log(this.prefabs[enemy_unit_name])
+            // console.log(this.cache.game.encounters_data.enemy_data[enemy_unit_name])
+            // this.prefabs[enemy_unit_name].properties = this.cache.game.encounters_data.enemy_data[enemy_unit_name].properties
+            // this.prefabs[enemy_unit_name].position = this.cache.game.encounters_data.enemy_data[enemy_unit_name].position
+            console.log(this.prefabs[enemy_unit_name])
         }
     }
 
-    game_over() {
+    gameOver() {
         this.scene.start('BootScene', {scene: 'title'});
     }
 
     rewards() {
         //XP
-        let received_experience = this.cache.game.encounters_data.reward.experience;
+        let received_experience = this.cache.game.encounters_data.reward?.experience;
         let recieved_gold = this.cache.game.encounters_data.reward.gold;
         let recieved_score = this.cache.game.encounters_data.reward.score;
         let received_player_experience = this.player_data.level;
@@ -176,8 +173,8 @@ class GameScene extends JSONLevelScene {
 
     battle() {
         this.player_data.playerCreateInventory(this, this.prefabs.items_menu);
-        this.create_new_enemy();
-
+        this.GenerateEnemy();
+        this.createNewEnemy();
 
         //Logica do combate
         this.units = new PriorityQueue({
@@ -197,22 +194,17 @@ class GameScene extends JSONLevelScene {
         }, this);
 
 
-        this.next_turn();
+        this.nextTurn();
     }
 
     GenerateEnemy() {
         let enemy_data_array = [];
 
-
-        enemy_data_array.push(this.cache.json.get('bandit'));
         enemy_data_array.push(this.cache.json.get('archer'));
-
-
+        enemy_data_array.push(this.cache.json.get('bandit'));
+       
         this.enemy_stats = this.enemy_data_array_stats[0];
-
-        this.cache.game.encounters_data = enemy_data_array;
-
-
+        this.cache.game.encounters_data = enemy_data_array[0];
     }
 }
 

@@ -50,9 +50,7 @@ class PlayerUnit extends Unit {
   receive_experience(experience) {
     this.experience += experience;
     const next_level_data = this.scene.experience_table[this.current_level];
-    console.log(next_level_data.required_exp)
     if (this.experience >= next_level_data.required_exp) {
-      console.log("aqui")
       this.current_level += 1;
       this.experience = 0;
       for (const stat in next_level_data.stats_increase) {

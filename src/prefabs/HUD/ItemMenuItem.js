@@ -17,9 +17,9 @@ class ItemMenuItem extends MenuItem {
             if (!this.scene.cache.game.player_data.inventory.has_item(this.item_name)) {
                 let scene = this.scene;
                 this.destroy();
-                scene.next_turn();
+                scene.nextTurn();
             } else {
-                this.scene.next_turn();
+                this.scene.nextTurn();
             }
         }
     }

@@ -15,7 +15,6 @@ class Menu extends Prefab {
     }
     
     enable (enable) {
-        console.log(this.menu_items)
             this.menu_items.forEach(function(menu_item) {
                 if(menu_item.active){
                     menu_item.setInteractive(enable);

@@ -16,6 +16,12 @@
             "frame_width": 80,
             "frame_height": 80
         },
+        "archer_spritesheet": {
+            "type": "spritesheet",
+            "source": "assets/images/enemies/archer_spritesheet.png",
+            "frame_width": 64,
+            "frame_height": 64
+        },
         "fireknight_spritesheet": {
             "type": "spritesheet",
             "source": "assets/images/players/fireknight_spritesheet.png",
