@@ -16,6 +16,9 @@
                 "current_level": 1,
                 "face":"paladin_face_image"
             },
+            "party2": {
+                "prefab_name": "empty"
+            },
             "party3": {
                 "prefab_name": "fireknight",
                 "stats": {

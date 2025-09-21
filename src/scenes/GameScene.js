@@ -67,11 +67,9 @@ class GameScene extends JSONLevelScene {
         for (let player_unit in this.player_data.party_data) {
             const unit_data = this.player_data.party_data[player_unit];
             const name = unit_data.prefab_name;
-            for (let stats_name in unit_data.stats) {
-                //TODO - WTF oq e stats_name e pq nao ta sendo usado???
-                //Outro detalhe 'e q se essa linha for removida os prefabs do jogador ficam sem os seus stats???
-                this.prefabs[name].stats = unit_data.stats;
-            }
+            if(name === "empty") continue;
+            
+            this.prefabs[name].stats = unit_data.stats;     
             this.prefabs[name].experience = unit_data.experience;
             this.prefabs[name].current_level = unit_data.current_level;
             this.prefabs[name].party_key = player_unit;

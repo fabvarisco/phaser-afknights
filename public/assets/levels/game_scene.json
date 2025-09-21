@@ -73,6 +73,10 @@
         "party_bar": {
             "type": "image",
             "source": "assets/images/hud/party_bar.png"
+        },
+        "menu_bkg": {
+            "type": "image",
+            "source": "assets/images/hud/menu_bkg.png"
         }
     },
     "groups": [
@@ -239,17 +243,23 @@
         "actions_menu": {
             "type": "menu",
             "position": {
-                "x": 202,
-                "y": 300
+                "x": 0,
+                "y": 500
             },
             "properties": {
                 "group": "hud",
+                "texture": "menu_bkg",
+                "frame": 10,
+                "anchor": {
+                    "x": 0,
+                    "y": 0
+                },
                 "menu_items": {
                     "attack": {
                         "type": "physical_attack_menu_item",
                         "position": {
-                            "x": 227,
-                            "y": 457
+                            "x": 4,
+                            "y": 583
                         },
                         "properties": {
                             "group": "hud",
@@ -267,8 +277,8 @@
                     "magic1": {
                         "type": "magical_attack_menu_item",
                         "position": {
-                            "x": 267,
-                            "y": 457
+                            "x": 48,
+                            "y": 583
                         },
                         "properties": {
                             "group": "hud",
@@ -286,8 +296,8 @@
                     "autobattle": {
                         "type": "autobattle_menu_item",
                         "position": {
-                            "x": 227,
-                            "y": 497
+                            "x": 93,
+                            "y": 583
                         },
                         "properties": {
                             "group": "hud",
@@ -305,8 +315,8 @@
                     "item": {
                         "type": "inventory_menu_item",
                         "position": {
-                            "x": 267,
-                            "y": 497
+                            "x": 137,
+                            "y": 583
                         },
                         "properties": {
                             "group": "hud",
