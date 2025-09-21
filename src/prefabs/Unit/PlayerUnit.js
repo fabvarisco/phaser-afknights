@@ -54,7 +54,6 @@ class PlayerUnit extends Unit {
       this.current_level += 1;
       this.experience = 0;
       for (const stat in next_level_data.stats_increase) {
-        // eslint-disable-next-line no-prototype-builtins
         if (next_level_data.stats_increase.hasOwnProperty(stat)) {
           this.stats[stat] += next_level_data.stats_increase[stat];
         }

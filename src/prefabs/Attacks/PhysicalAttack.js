@@ -7,6 +7,7 @@ class PhysicalAttack extends Prefab {
         this.owner = properties.owner;
     }
     hit (target) {
+        console.log(target)
         let attack_multiplier = this.scene.rnd.realInRange(0.8, 1.2);
         let defense_multiplier = this.scene.rnd.realInRange(0.8, 1.2);
         let damage = Math.max(0, Math.round((attack_multiplier * this.owner.stats.attack) - (defense_multiplier * target.stats.defense)));

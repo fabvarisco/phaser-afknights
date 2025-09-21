@@ -1,10 +1,10 @@
 {
     "enemy_data":{
-
         "bandit_1": {
             "type": "enemy_unit",
             "position": {"x": 260, "y": 180},
             "properties": {
+                "enemy_name": "enemy1",
                 "texture": "bandit_spritesheet",
                 "group": "enemy_units",
                 "scale": {"x":1.2, "y": 1.2},

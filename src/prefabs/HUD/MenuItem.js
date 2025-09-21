@@ -21,18 +21,18 @@ class MenuItem extends Prefab {
     }
 
     enterButtonHoverState() {
-        console.log(this.name + ' HoverState');
+        // console.log(this.name + ' HoverState');
         //this.properties.style = '#ff0';
       }
     
       enterButtonRestState() {
-        console.log(this.name + ' RestState');
+        // console.log(this.name + ' RestState');
 
         //this.properties.style = '#0f0';
       }
     
       enterButtonActiveState() {
-        console.log(this.name + ' ActiveState');
+        // console.log(this.name + ' ActiveState');
 
         //this.properties.style = '#0ff';
       }

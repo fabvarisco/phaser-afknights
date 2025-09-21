@@ -67,7 +67,7 @@
                             "texture": "hitbox_enemy",
                             "scale": {"x": 1.2, "y": 1.2},
                             "anchor": {"x": 0.5, "y":  0.5},
-                            "enemy_name": "enemy1"
+                            "enemy_name": "archer_1"
                         }
                     },
                     "enemy2_item": {
@@ -78,7 +78,7 @@
                             "texture": "hitbox_enemy",
                             "scale": {"x": 1.2, "y": 1.2},
                             "anchor": {"x": 0.5, "y":  0.5},
-                            "enemy_name": "enemy2"
+                            "enemy_name": "archer_2"
                         }
                     }
                 }
