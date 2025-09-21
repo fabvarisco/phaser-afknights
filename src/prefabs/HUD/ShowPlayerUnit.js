@@ -24,7 +24,8 @@ class ShowPlayerUnit extends Prefab {
 
         for (let player_unit_name in party_data) {
             const unit_data = party_data[player_unit_name];
-            this.scene.add.sprite(this.x + 130, this.y + (80 * _index), this.party_bar);
+            const party_bar_sprite = this.scene.add.sprite(this.x + 130, this.y + (80 * _index), this.party_bar);
+            
             if(unit_data.prefab_name === "empty") {
                 this.scene.add.text(this.x + 65, this.y - 30 + (_index * 80), "Empty", {
                 font: "12px Arial",
