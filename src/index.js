@@ -13,8 +13,6 @@ let config = {
   type: AUTO,
   width: 320,
   height: 630,
-  pixelArt: true,
-  roundPixels: true,
   physics: {
     default: "arcade",
     arcade: {
@@ -23,7 +21,6 @@ let config = {
   },
 
   scale: {
-    mode: Scale.FIT,
     autoCenter: Scale.CENTER_BOTH,
   },
 };

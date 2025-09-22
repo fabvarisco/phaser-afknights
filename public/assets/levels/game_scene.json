@@ -331,6 +331,63 @@
                             }
                         }
                     },
+                    "party": {
+                        "type": "inventory_menu_item",
+                        "position": {
+                            "x": 182,
+                            "y": 583
+                        },
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 12,
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "style": {
+                                "fill": "#000000"
+                            }
+                        }
+                    },
+                    "friends": {
+                        "type": "inventory_menu_item",
+                        "position": {
+                            "x": 227,
+                            "y": 583
+                        },
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 12,
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "style": {
+                                "fill": "#000000"
+                            }
+                        }
+                    },
+                    "config": {
+                        "type": "inventory_menu_item",
+                        "position": {
+                            "x": 274,
+                            "y": 583
+                        },
+                        "properties": {
+                            "group": "hud",
+                            "texture": "icons_spritesheet",
+                            "frame": 12,
+                            "anchor": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "style": {
+                                "fill": "#000000"
+                            }
+                        }
+                    },
                     "back": {
                         "type": "back_menu_item",
                         "position": {
