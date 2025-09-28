@@ -20,11 +20,6 @@ let config = {
       gravity: { y: 0 },
     },
   },
-
-  scale: {
-    mode: Scale.RESIZE,
-    autoCenter: Scale.CENTER_BOTH,
-  },
 };
 const game = new Game(config);
 
