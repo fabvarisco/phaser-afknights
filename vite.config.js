@@ -9,7 +9,12 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+    port: 5173,
     open: true,
+    host: true, 
+    hmr: {
+      host: process.env.GITHUB_CODESPACES ? `${process.env.GITHUB_CODESPACE_NAME}-5173.app.github.dev` : 'localhost',
+      protocol: 'wss',
+    },
   },
 });

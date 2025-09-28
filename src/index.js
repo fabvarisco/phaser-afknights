@@ -3,6 +3,7 @@ import TitleScene from "./scenes/TitleScene";
 import BootScene from "./scenes/BootScene";
 import GameScene from "./scenes/GameScene";
 import LoadingScene from "./scenes/LoadingScene";
+import "./index.css";
 
 const titleScene = new TitleScene();
 const bootScene = new BootScene();
@@ -21,6 +22,7 @@ let config = {
   },
 
   scale: {
+    mode: Scale.RESIZE,
     autoCenter: Scale.CENTER_BOTH,
   },
 };
