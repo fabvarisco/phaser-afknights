@@ -12,6 +12,7 @@ class EnemyUnit extends Unit {
         console.log("name", this.name)
         this.attack = new PhysicalAttack(this.scene, this.name + "_attack", {x: 0, y: 0}, {group: "attacks", owner: this});
         console.log("this", this)
+        this.type = "enemy_unit";
     }
  
     choose_target () {
@@ -40,8 +41,10 @@ class EnemyUnit extends Unit {
 
     destroy(){
         if(this.active){
+            //TODO - verificar pq crashou
             let menu_item = this.scene.prefabs[this.name + '_item'];
-            menu_item.destroy();
+            console.log("menu_item", menu_item);
+            //menu_item.destroy();
             super.destroy();
         }
     }

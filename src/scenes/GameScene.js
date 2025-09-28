@@ -103,9 +103,15 @@ class GameScene extends JSONLevelScene {
             return;
         }
         this.current_unit = this.units.dequeue();
+        console.log(this.current_unit.name + " is playing");
+        console.log(this.current_unit);
+        console.log("______________________________");
         if (this.current_unit.active) {
             this.current_unit.act();
             this.current_unit.calculate_act_turn(this.current_unit.act_turn);
+            if(this.current_unit.type === "player_unit"){
+                this.prefabs.show_player_unit.highlight_turn_unit(this.current_unit.party_key);
+            }
             this.units.queue(this.current_unit);
         } else {
             this.nextTurn();

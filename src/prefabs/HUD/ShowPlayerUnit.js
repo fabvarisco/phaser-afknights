@@ -5,27 +5,25 @@ class ShowPlayerUnit extends Prefab {
         this.party_bar = "party_bar";
         this.face_texture = [];
         this.face_sprite = [];
-        this.unit_data = [];
+        this.party_bar_sprite = [];
+        this.party_cache_data = scene.cache.game.player_data.party_data;
         this.update_stats();
+
     }
 
 
-    change_current_unit(new_prefab) {
-        //this.unit_data = new_prefab;
-        //this.player_unit_health[0].unit_data = this.unit_data;
-        //this.player_unit_mana.unit_data = this.unit_data;
-
-        // this.experience.setText(this.experienceValue);
+    highlight_turn_unit(_party_key) {
+        if(_party_key === "empty") return;
+        this.party_bar_sprite[_party_key].setTint(0x00FF00);
     }
+    
 
     update_stats() {
-        const party_data = this.scene.cache.game.player_data.party_data;
         let _index = 0
 
-        for (let player_unit_name in party_data) {
-            const unit_data = party_data[player_unit_name];
-            const party_bar_sprite = this.scene.add.sprite(this.x + 130, this.y + (80 * _index), this.party_bar);
-            
+        for (let player_unit_name in this.party_cache_data) {
+            const unit_data = this.party_cache_data[player_unit_name];
+            this.party_bar_sprite[player_unit_name] = this.scene.add.sprite(this.x + 130, this.y + (80 * _index), this.party_bar);
             if(unit_data.prefab_name === "empty") {
                 this.scene.add.text(this.x + 65, this.y - 30 + (_index * 80), "Empty", {
                 font: "12px Arial",
@@ -65,15 +63,12 @@ class ShowPlayerUnit extends Prefab {
 
             _index++;
         }
-
     }
-
 
     show(show) {
         this.player_unit_health.show(show);
         this.player_unit_mana.show(show);
         this.face_sprite.setVisible(show);
-
         this.level.setVisible(show);
         this.experience.setVisible(show);
     }

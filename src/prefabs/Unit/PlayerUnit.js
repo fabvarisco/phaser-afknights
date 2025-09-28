@@ -6,7 +6,7 @@ class PlayerUnit extends Unit {
     super(scene, name, position, properties);
 
     this.face_texture = properties.face_texture;
-
+    this.type = "player_unit";
     this.target_units = properties.target_units;
     this.attack = new PhysicalAttack(
       this.scene,
