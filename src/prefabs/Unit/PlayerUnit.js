@@ -17,10 +17,7 @@ class PlayerUnit extends Unit {
   }
 
   act() {
-    // this.scene.prefabs.show_player_unit.show(true);
-
-    this.scene.prefabs.show_player_unit.update_stats();
-
+    this.scene.prefabs.show_player_unit.unfocused();
     if (this.scene.AUTO) {
       const target = this.choose_target();
       this.attack.hit(target);

@@ -4,14 +4,12 @@ import Unit from './Unit';
 class EnemyUnit extends Unit {
     constructor(scene, name, position, properties) {
         super(scene, name, position, properties);
-        this.name = name;
         this.position = position;
         this.properties = properties;
         this.target_units = properties.target_units;
         this.setTexture(this.properties.texture)
         console.log("name", this.name)
         this.attack = new PhysicalAttack(this.scene, this.name + "_attack", {x: 0, y: 0}, {group: "attacks", owner: this});
-        console.log("this", this)
         this.type = "enemy_unit";
     }
  
@@ -23,7 +21,10 @@ class EnemyUnit extends Unit {
             if (unit.active) {
                 if (alive_player_unit_index === target_index) {
                     target = unit;
-                    
+                    console.log("Target");
+                    console.log(unit)
+                    console.log( this.scene.prefabs.show_player_unit)
+                    this.scene.prefabs.show_player_unit.highlight_target_unit(unit.party_key);
                 }
                 alive_player_unit_index += 1;
             }
@@ -32,11 +33,9 @@ class EnemyUnit extends Unit {
     }
  
     act () {
-        //this.scene.prefabs.show_player_unit.show(false);
-
         let target = this.choose_target();
-    
         this.attack.hit(target);
+        this.scene.prefabs.show_player_unit.update_stats();
     }
 
     destroy(){

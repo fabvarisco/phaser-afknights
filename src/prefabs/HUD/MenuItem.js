@@ -36,6 +36,13 @@ class MenuItem extends Prefab {
 
         //this.properties.style = '#0ff';
       }
+
+  hide (){
+    this.setVisible(false);
+  }
+  show(){
+    this.setVisible(true);
+  }
     
 }
  
