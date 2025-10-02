@@ -15,6 +15,11 @@ class EnemyMenuItem extends MenuItem {
     this.scene.current_attack.hit(this.enemy);
   }
 
+  hide(){
+    if(this.enemy.stats.health <= 0){
+      this.scene.prefabs.enemy_units_menu.enable(false);
+    }
+  }
 
 }
 

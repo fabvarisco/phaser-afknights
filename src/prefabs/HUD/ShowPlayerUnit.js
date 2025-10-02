@@ -7,7 +7,9 @@ class ShowPlayerUnit extends Prefab {
         this.face_sprite = [];
         this.party_bar_sprite = [];
         this.party_cache_data = scene.cache.game.player_data.party_data;
-        this.update_stats();
+        this.create_stats();
+        console.log(scene)
+        this.magicNumber = 0
     }
 
     highlight_turn_unit(_party_key) {
@@ -32,8 +34,8 @@ class ShowPlayerUnit extends Prefab {
                 align: "center",
             }
     }
-
-    update_stats() {
+    
+    create_stats() {
         let _index = 0
 
         for (let player_unit_name in this.party_cache_data) {
@@ -45,15 +47,34 @@ class ShowPlayerUnit extends Prefab {
                 continue
             };
 
-            this.scene.add.sprite(this.x + 35, this.y + (80 * _index), unit_data.face);
+            this.party_bar_sprite[player_unit_name].face_sprite = this.scene.add.sprite(this.x + 35, this.y + (80 * _index), unit_data.face);
 
-            this.scene.add.text(this.x + 65, this.y - 30 + (_index * 80), "HP: " + unit_data.stats.health, this.defaultBarStyle());
+            this.party_bar_sprite[player_unit_name].hp_text = this.scene.add.text(this.x + 65, this.y - 30 + (_index * 80), "HP: " + unit_data.stats.health, this.defaultBarStyle());
+            this.party_bar_sprite[player_unit_name].mp_text = this.scene.add.text(this.x + 65, this.y - 16 + (_index * 80), "MP: " + unit_data.stats.mana, this.defaultBarStyle());
 
-            this.scene.add.text(this.x + 65, this.y - 16 + (_index * 80), "MP: " + unit_data.stats.mana, this.defaultBarStyle());
+            this.party_bar_sprite[player_unit_name].xp_text = this.scene.add.text(this.x + 65, this.y - 2 + (_index * 80), "XP: " + unit_data.experience, this.defaultBarStyle());
 
-            this.scene.add.text(this.x + 65, this.y - 2 + (_index * 80), "XP: " + unit_data.experience, this.defaultBarStyle());
+            this.party_bar_sprite[player_unit_name].lvl_text = this.scene.add.text(this.x + 65, this.y + 12 + (_index * 80), "Lvl: " + unit_data.current_level, this.defaultBarStyle());
+            _index++;
+        }
+    }
 
-            this.scene.add.text(this.x + 65, this.y + 12 + (_index * 80), "Lvl: " + unit_data.current_level, this.defaultBarStyle());
+    update_stats() {
+        let _index = 0
+
+        for (let player_unit_name in this.party_cache_data) {
+            const unit_data = this.party_cache_data[player_unit_name];
+            if(unit_data.prefab_name === "empty") {
+                _index++;
+                continue
+            };
+            console.log(this.party_bar_sprite[player_unit_name])
+            this.party_bar_sprite[player_unit_name].hp_text.setText(`HP:${unit_data.stats.health}`);
+            this.party_bar_sprite[player_unit_name].mp_text.setText("MP: " + unit_data.stats.mana);
+
+            this.party_bar_sprite[player_unit_name].xp_text.setText("XP: " + unit_data.experience);
+
+            this.party_bar_sprite[player_unit_name].lvl_text.setText("Lvl: " + unit_data.current_level);
 
             _index++;
         }

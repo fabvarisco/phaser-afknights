@@ -17,13 +17,14 @@ class PlayerUnit extends Unit {
   }
 
   act() {
-    this.scene.prefabs.show_player_unit.unfocused();
     if (this.scene.AUTO) {
       const target = this.choose_target();
       this.attack.hit(target);
     } else {
       this.scene.prefabs.actions_menu.enable(true);
     }
+    this.scene.prefabs.show_player_unit.unfocused();
+
   }
 
   choose_target() {

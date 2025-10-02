@@ -95,6 +95,7 @@ class GameScene extends JSONLevelScene {
     }
 
     nextTurn() {
+        
         if (this.groups.enemy_units.countActive() === 0) {
             return this.rewards();
         }
@@ -103,6 +104,7 @@ class GameScene extends JSONLevelScene {
             return;
         }
         this.current_unit = this.units.dequeue();
+        
         console.log(this.current_unit.name + " is playing");
         console.log(this.current_unit);
         console.log("______________________________");
@@ -211,10 +213,7 @@ class GameScene extends JSONLevelScene {
             enemy_data_array.push(this.cache.json.get('archer'));
             enemy_data_array.push(this.cache.json.get('bandit'));
            
-            console.log("enemy_data_array1", enemy_data_array)
-
             this.cache.game.encounters_data = enemy_data_array;
-            console.log("enemy_data_array2", this.cache.game.encounters_data)
         }else {
             console.log("this.cache.game.encounters_data", this.cache.game.encounters_data)
             this.cache.game.encounters_data.shift()

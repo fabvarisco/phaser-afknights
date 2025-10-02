@@ -21,9 +21,6 @@ class EnemyUnit extends Unit {
             if (unit.active) {
                 if (alive_player_unit_index === target_index) {
                     target = unit;
-                    console.log("Target");
-                    console.log(unit)
-                    console.log( this.scene.prefabs.show_player_unit)
                     this.scene.prefabs.show_player_unit.highlight_target_unit(unit.party_key);
                 }
                 alive_player_unit_index += 1;
