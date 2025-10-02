@@ -95,7 +95,8 @@ class GameScene extends JSONLevelScene {
     }
 
     nextTurn() {
-        
+        this.prefabs.show_player_unit.unfocused();
+
         if (this.groups.enemy_units.countActive() === 0) {
             return this.rewards();
         }

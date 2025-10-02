@@ -23,7 +23,6 @@ class PlayerUnit extends Unit {
     } else {
       this.scene.prefabs.actions_menu.enable(true);
     }
-    this.scene.prefabs.show_player_unit.unfocused();
 
   }
 

@@ -23,8 +23,8 @@
                     "mana": 100,
                     "speed": 15
                 },
-                "target_units": "player_units"
-                
+                "target_units": "player_units",
+                "menu_name": "enemy1_item"
             }
             
         },
@@ -50,7 +50,8 @@
                     "mana": 100,
                     "speed": 15
                 },
-                "target_units": "player_units"   
+                "target_units": "player_units",
+                "menu_name": "enemy2_item"
             }   
         },
         "enemy_units_menu": {
