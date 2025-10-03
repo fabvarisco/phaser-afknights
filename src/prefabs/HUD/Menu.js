@@ -1,5 +1,4 @@
 import Prefab from '../Prefab';
-import menuItem from "./MenuItem";
  
 class Menu extends Prefab {
     constructor(scene, name, position, properties) {
@@ -30,8 +29,10 @@ class Menu extends Prefab {
     }
     enableSpecific (enable,_value) {
         console.log("Enabling menu item:",_value,enable);
+        this.menu_items[_value].active = false;
         this.menu_items[_value].setInteractive(enable);
         this.menu_items[_value].setVisible(enable);
+        console.log("menu item:",this.menu_items);
     }
 
     enableBack(show){
