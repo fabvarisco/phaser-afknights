@@ -3,6 +3,7 @@ import Prefab from '../Prefab';
 class MenuItem extends Prefab {
     constructor(scene, name, position, properties) {
         super(scene, name, position, properties);
+        this.active = true;
         
         this.setInteractive();
         this.on('pointerdown', () => this.enterButtonActiveState() );
@@ -21,20 +22,30 @@ class MenuItem extends Prefab {
     }
 
     enterButtonHoverState() {
-        // console.log(this.name + ' HoverState');
-        //this.properties.style = '#ff0';
+      if (this.text) {
+        this.text.setStyle({ fill: '#ff0' });
+      }
+      if (this.setFillStyle) {
+        this.setFillStyle(0xffff00);
+      }
       }
     
       enterButtonRestState() {
-        // console.log(this.name + ' RestState');
-
-        //this.properties.style = '#0f0';
+      if (this.text) {
+        this.text.setStyle({ fill: '#0f0' });
+      }
+      if (this.setFillStyle) {
+        this.setFillStyle(0x00ff00);
+      }
       }
     
       enterButtonActiveState() {
-        // console.log(this.name + ' ActiveState');
-
-        //this.properties.style = '#0ff';
+      if (this.text) {
+        this.text.setStyle({ fill: '#0ff' });
+      }
+      if (this.setFillStyle) {
+        this.setFillStyle(0x00ffff);
+      }
       }
 
 

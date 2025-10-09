@@ -57,19 +57,16 @@ class ShowPlayerUnit extends Prefab {
 
     update_stats() {
         let _index = 0
-
         for (let player_unit_name in this.party_cache_data) {
             const unit_data = this.party_cache_data[player_unit_name];
             if(unit_data.prefab_name === "empty") {
                 _index++;
                 continue
             };
-            console.log(this.party_bar[player_unit_name])
             this.party_bar[player_unit_name].hp_text.setText(`HP:${unit_data.stats.health}`);
             this.party_bar[player_unit_name].mp_text.setText("MP: " + unit_data.stats.mana);
             this.party_bar[player_unit_name].xp_text.setText("XP: " + unit_data.experience);
             this.party_bar[player_unit_name].lvl_text.setText("Lvl: " + unit_data.current_level);
-
             _index++;
         }
     }

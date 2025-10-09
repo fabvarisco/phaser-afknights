@@ -13,7 +13,8 @@ class ItemMenuItem extends MenuItem {
             this.scene.prefabs.items_menu.enable(false);
 
             this.scene.cache.game.player_data.inventory.use_item(this.item_name, this.scene.current_unit);
-            
+            this.scene.prefabs.show_player_unit.update_stats();
+
             if (!this.scene.cache.game.player_data.inventory.has_item(this.item_name)) {
                 let scene = this.scene;
                 this.destroy();

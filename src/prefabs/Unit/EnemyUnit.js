@@ -9,7 +9,6 @@ class EnemyUnit extends Unit {
         this.target_units = properties.target_units;
         this.menu_name = properties.menu_name;
         this.setTexture(this.properties.texture)
-        console.log("name", this.name)
         this.attack = new PhysicalAttack(this.scene, this.name + "_attack", {x: 0, y: 0}, {group: "attacks", owner: this});
         this.type = "enemy_unit";
     }
@@ -37,10 +36,7 @@ class EnemyUnit extends Unit {
     }
 
     destroy(){
-   
-        this.scene.prefabs.enemy_units_menu.enableSpecific(false,1);
-
-        
+        this.scene.prefabs.enemy_units_menu.menu_items[this.menu_name].hide();
         if(this.active){
             //TODO - verificar pq crashou
             let menu_item = this.scene.prefabs[this.name + '_item'];

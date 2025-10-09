@@ -8,7 +8,7 @@ class Item extends Prefab {
   }
 
   use() {
-    console.log("using item");
+    console.log("Using item:", this.name);
   }
 }
 

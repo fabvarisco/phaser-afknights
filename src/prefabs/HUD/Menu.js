@@ -5,17 +5,16 @@ class Menu extends Prefab {
         super(scene, name, position, properties);
         console.log("Creating menu:", name);
         console.log("Menu properties:", properties);
-        this.menu_items = [];
+        this.menu_items = {};
         for (let menu_item_name in properties.menu_items) {
-            var new_item = this.scene.create_prefab(menu_item_name, properties.menu_items[menu_item_name]);
-            this.menu_items.push(new_item);
+            this.menu_items[menu_item_name] = this.scene.create_prefab(menu_item_name, properties.menu_items[menu_item_name]);
         }
-
+        console.log("Menu items:", this.menu_items);
         this.enable(false);
     }
     
     enable (enable) {
-        this.menu_items.forEach(function(menu_item) {
+        Object.values(this.menu_items).forEach(function(menu_item) {
             if(menu_item.active){
                 menu_item.setInteractive(enable);
                 menu_item.setVisible(enable);
@@ -28,15 +27,15 @@ class Menu extends Prefab {
         }, this);
     }
     enableSpecific (enable,_value) {
-        console.log("Enabling menu item:",_value,enable);
-        this.menu_items[_value].active = false;
-        this.menu_items[_value].setInteractive(enable);
-        this.menu_items[_value].setVisible(enable);
-        console.log("menu item:",this.menu_items);
+        // console.log("Enabling menu item:",_value,enable);
+        // this.menu_items[_value].active = enable;
+        // this.menu_items[_value].setInteractive(enable);
+        // this.menu_items[_value].setVisible(enable);
+        // console.log("menu item:",this.menu_items);
     }
 
     enableBack(show){
-        this.menu_items.forEach(function(menu_item) {
+         Object.values(this.menu_items).forEach(function(menu_item) {
             if(menu_item.name === "back"){
                 menu_item.setInteractive(show);
                 menu_item.setVisible(show);

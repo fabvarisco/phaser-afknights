@@ -48,7 +48,7 @@ class Inventory {
       );
       menu_item.setOrigin(0);
 
-      items_menu.menu_items.push(menu_item);
+      items_menu.menu_items[item_type] = menu_item;
     }
 
     items_menu.enable(false);
