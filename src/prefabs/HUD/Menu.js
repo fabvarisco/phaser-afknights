@@ -42,10 +42,13 @@ class Menu extends Prefab {
     
 
     autoBattleEnable(){
-        this.menu_items.forEach(function(menu_item) {
-            if(menu_item.name !== "autobattle"){
-                menu_item.setInteractive(false);
-                menu_item.setVisible(false);
+        console.log(this.menu_items)
+        Object.keys(this.menu_items).forEach(function(menu_key) {
+            const item = this.menu_items[menu_key]
+            console.log(item)
+            if(item.name !== "autobattle"){
+                item.setInteractive(false);
+                item.setVisible(false);
             }
         }, this);
     }
