@@ -3,13 +3,10 @@ import Prefab from '../Prefab';
 class Menu extends Prefab {
     constructor(scene, name, position, properties) {
         super(scene, name, position, properties);
-        console.log("Creating menu:", name);
-        console.log("Menu properties:", properties);
         this.menu_items = {};
         for (let menu_item_name in properties.menu_items) {
             this.menu_items[menu_item_name] = this.scene.create_prefab(menu_item_name, properties.menu_items[menu_item_name]);
         }
-        console.log("Menu items:", this.menu_items);
         this.enable(false);
     }
     

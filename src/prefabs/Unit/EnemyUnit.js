@@ -36,7 +36,7 @@ class EnemyUnit extends Unit {
     }
 
     destroy(){
-        this.scene.prefabs.enemy_units_menu.menu_items[this.menu_name].hide();
+        this.scene.prefabs.enemy_units_menu.menu_items[this.menu_name].destroy();
         if(this.active){
             //TODO - verificar pq crashou
             let menu_item = this.scene.prefabs[this.name + '_item'];

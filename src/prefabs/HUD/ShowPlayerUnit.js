@@ -7,7 +7,6 @@ class ShowPlayerUnit extends Prefab {
         this.party_bar = [];
         this.party_cache_data = scene.cache.game.player_data.party_data;
         this.create_stats();
-        console.log(scene)
         this.magicNumber = 0
     }
 

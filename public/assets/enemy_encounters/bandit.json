@@ -4,7 +4,7 @@
             "type": "enemy_unit",
             "position": {"x": 260, "y": 180},
             "properties": {
-                "enemy_name": "enemy1",
+                "enemy_name": "bandit_1",
                 "texture": "bandit_spritesheet",
                 "group": "enemy_units",
                 "scale": {"x":1.2, "y": 1.2},
@@ -23,8 +23,8 @@
                     "mana": 100,
                     "speed": 15
                 },
-                "target_units": "player_units"
-                
+                "target_units": "player_units",
+                "menu_name": "enemy1_item"  
             }
             
         },
@@ -32,6 +32,7 @@
             "type": "enemy_unit",
             "position": {"x": 240, "y": 100},
             "properties": {
+                "enemy_name": "bandit_2",
                 "texture": "bandit_spritesheet",
                 "group": "enemy_units",
                 "scale": {"x":1.2, "y": 1.2},
@@ -50,7 +51,8 @@
                     "mana": 100,
                     "speed": 15
                 },
-                "target_units": "player_units"   
+                "target_units": "player_units",
+                "menu_name": "enemy2_item"  
             }   
         },
         "enemy_units_menu": {
@@ -67,7 +69,7 @@
                             "texture": "hitbox_enemy",
                             "scale": {"x": 1.2, "y": 1.2},
                             "anchor": {"x": 0.5, "y":  0.5},
-                            "enemy_name": "enemy1"
+                            "enemy_name": "bandit_1"
                         }
                     },
                     "enemy2_item": {
