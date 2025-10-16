@@ -42,10 +42,8 @@ class Menu extends Prefab {
     
 
     autoBattleEnable(){
-        console.log(this.menu_items)
         Object.keys(this.menu_items).forEach(function(menu_key) {
             const item = this.menu_items[menu_key]
-            console.log(item)
             if(item.name !== "autobattle"){
                 item.setInteractive(false);
                 item.setVisible(false);
