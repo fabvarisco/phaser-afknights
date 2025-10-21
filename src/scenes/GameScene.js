@@ -1,4 +1,4 @@
-import {Math} from "phaser";
+import { Math } from "phaser";
 import Prefab from '../prefabs/Prefab';
 import JSONLevelScene from "./JSONLevelScene";
 import MenuItem from '../prefabs/HUD/MenuItem'
@@ -69,9 +69,9 @@ class GameScene extends JSONLevelScene {
         for (let player_unit in this.player_data.party_data) {
             const unit_data = this.player_data.party_data[player_unit];
             const name = unit_data.prefab_name;
-            if(name === "empty") continue;
-            
-            this.prefabs[name].stats = unit_data.stats;     
+            if (name === "empty") continue;
+
+            this.prefabs[name].stats = unit_data.stats;
             this.prefabs[name].experience = unit_data.experience;
             this.prefabs[name].current_level = unit_data.current_level;
             this.prefabs[name].party_key = player_unit;
@@ -89,7 +89,7 @@ class GameScene extends JSONLevelScene {
         }
         this.player_data.inventory.collect_item(this, {
             "type": "potion",
-            "properties": {"group": "items", "item_texture": "potion_image", "health_power": 50}
+            "properties": { "group": "items", "item_texture": "potion_image", "health_power": 50 }
         });
 
 
@@ -107,11 +107,11 @@ class GameScene extends JSONLevelScene {
             return;
         }
         this.current_unit = this.units.dequeue();
-        
+
         if (this.current_unit.active) {
             this.current_unit.act();
             this.current_unit.calculate_act_turn(this.current_unit.act_turn);
-            if(this.current_unit.type === "player_unit"){
+            if (this.current_unit.type === "player_unit") {
                 this.prefabs.show_player_unit.highlight_turn_unit(this.current_unit.party_key);
             }
             this.units.queue(this.current_unit);
@@ -126,13 +126,16 @@ class GameScene extends JSONLevelScene {
         //TODO - Validar se o prefab existe, e reutiliza-lo
         for (let enemy_unit_name in encounter.enemy_data) {
             const enemy_data = encounter.enemy_data[enemy_unit_name];
-            this.create_prefab(enemy_unit_name, enemy_data);
+            console.log(Object.keys(this.prefabs).includes(enemy_unit_name))
+            if (Object.keys(this.prefabs).includes(enemy_unit_name)) {
+                this.create_prefab(enemy_unit_name, enemy_data);
+            }
         }
         console.log(this.prefabs)
     }
 
     gameOver() {
-        this.scene.start('BootScene', {scene: 'title'});
+        this.scene.start('BootScene', { scene: 'title' });
     }
 
     rewards() {
@@ -179,7 +182,7 @@ class GameScene extends JSONLevelScene {
 
     battle() {
         this.player_data.playerCreateInventory(this, this.prefabs.items_menu);
-        
+
         this.createNewEnemy();
 
         //Logica do combate
@@ -204,13 +207,13 @@ class GameScene extends JSONLevelScene {
     }
 
     load_enemy_data() {
-        if (!this.cache.game.encounters_data){
+        if (!this.cache.game.encounters_data) {
             let enemy_data_array = [];
             enemy_data_array.push(this.cache.json.get('archer'));
             enemy_data_array.push(this.cache.json.get('bandit'));
-            
+
             this.cache.game.encounters_data = enemy_data_array;
-        }else {
+        } else {
             this.cache.game.encounters_data.shift()
         }
     }
