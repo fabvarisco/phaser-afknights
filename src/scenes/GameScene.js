@@ -126,7 +126,11 @@ class GameScene extends JSONLevelScene {
         //TODO - Validar se o prefab existe, e reutiliza-lo
         for (let enemy_unit_name in encounter.enemy_data) {
             const enemy_data = encounter.enemy_data[enemy_unit_name];
-            this.create_prefab(enemy_unit_name, enemy_data);
+            if(this.prefabs[enemy_data] === undefined){
+                this.create_prefab(enemy_unit_name, enemy_data);
+            }else{
+                this.prefabs[enemy_unit_name].resetEnemyUnit();
+            }
         }
         console.log(this.prefabs)
     }

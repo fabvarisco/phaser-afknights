@@ -35,6 +35,10 @@ class EnemyUnit extends Unit {
         this.scene.prefabs.show_player_unit.update_stats();
     }
 
+    resetEnemyUnit(){
+        this.current_health = this.max_health;
+    }
+
     destroy(){
         this.scene.prefabs.enemy_units_menu.menu_items[this.menu_name].destroy();
         if(this.active){
