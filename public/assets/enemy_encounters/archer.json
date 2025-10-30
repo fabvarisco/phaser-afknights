@@ -20,7 +20,8 @@
           "defense": 5,
           "health": 50,
           "mana": 100,
-          "speed": 15
+          "speed": 15,
+          "max_health": 50
         },
         "target_units": "player_units",
         "menu_name": "enemy1_item"
@@ -46,7 +47,8 @@
           "defense": 5,
           "health": 50,
           "mana": 100,
-          "speed": 15
+          "speed": 15,
+          "max_health": 50
         },
         "target_units": "player_units",
         "menu_name": "enemy2_item"

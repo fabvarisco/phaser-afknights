@@ -1,96 +1,106 @@
 {
-    "enemy_data":{
-        "bandit_1": {
-            "type": "enemy_unit",
-            "position": {"x": 260, "y": 180},
-            "properties": {
-                "enemy_name": "bandit_1",
-                "texture": "bandit_spritesheet",
-                "group": "enemy_units",
-                "scale": {"x":1.2, "y": 1.2},
-                "anchor": {"x": 0.5, "y": 0.5},
-                "animations": {
-                    "idle": {"frames":  [0,0,0], "fps": 12},
-                        "attack1": {"frames": [1,2,3], "fps": 12},
-                        "attack2": {"frames": [1,2,3], "fps": 12},
-                        "hit": {"frames":  [4,4,4], "fps": 12}
-                },
-                "stats": {
-                    "attack": 20,
-                    "magic_attack": 5,
-                    "defense": 5,
-                    "health": 50,
-                    "mana": 100,
-                    "speed": 15
-                },
-                "target_units": "player_units",
-                "menu_name": "enemy1_item"  
-            }
-            
+  "enemy_data": {
+    "bandit_1": {
+      "type": "enemy_unit",
+      "position": { "x": 260, "y": 180 },
+      "properties": {
+        "enemy_name": "bandit_1",
+        "texture": "bandit_spritesheet",
+        "group": "enemy_units",
+        "scale": { "x": 1.2, "y": 1.2 },
+        "anchor": { "x": 0.5, "y": 0.5 },
+        "animations": {
+          "idle": { "frames": [0, 0, 0], "fps": 12 },
+          "attack1": { "frames": [1, 2, 3], "fps": 12 },
+          "attack2": { "frames": [1, 2, 3], "fps": 12 },
+          "hit": { "frames": [4, 4, 4], "fps": 12 }
         },
-        "bandit_2": {
-            "type": "enemy_unit",
-            "position": {"x": 240, "y": 100},
-            "properties": {
-                "enemy_name": "bandit_2",
-                "texture": "bandit_spritesheet",
-                "group": "enemy_units",
-                "scale": {"x":1.2, "y": 1.2},
-                "anchor": {"x": 0.5, "y": 0.5},
-                "animations": {
-                    "idle": {"frames":  [0,0,0], "fps": 12},
-                        "attack1": {"frames": [1,2,3], "fps": 12},
-                        "attack2": {"frames": [1,2,3], "fps": 12},
-                        "hit": {"frames":  [4,4,4], "fps":12}
-                },
-                "stats": {
-                    "attack": 20,
-                    "magic_attack": 5,
-                    "defense": 5,
-                    "health": 50,
-                    "mana": 100,
-                    "speed": 15
-                },
-                "target_units": "player_units",
-                "menu_name": "enemy2_item"  
-            }   
+        "stats": {
+          "attack": 20,
+          "magic_attack": 5,
+          "defense": 5,
+          "health": 50,
+          "mana": 100,
+          "speed": 15,
+          "max_health": 50
         },
-        "enemy_units_menu": {
-            "type": "menu",
-            "position": {"x": 10, "y": 350},
-            "properties": {
-                "group": "hud",
-                "menu_items": {
-                    "enemy1_item": {
-                        "type": "enemy_menu_item",
-                        "position": {"x": 260, "y": 180},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "hitbox_enemy",
-                            "scale": {"x": 1.2, "y": 1.2},
-                            "anchor": {"x": 0.5, "y":  0.5},
-                            "enemy_name": "bandit_1"
-                        }
-                    },
-                    "enemy2_item": {
-                        "type": "enemy_menu_item",
-                        "position": {"x": 240, "y": 100},
-                        "properties": {
-                            "group": "hud",
-                            "texture": "hitbox_enemy",
-                            "scale": {"x": 1.2, "y": 1.2},
-                            "anchor": {"x": 0.5, "y":  0.5},
-                            "enemy_name": "bandit_2"
-                        }
-                    }
-                }
-            }
-        }
+        "target_units": "player_units",
+        "menu_name": "enemy1_item"
+      }
     },
-    "reward": {
-        "experience": 20,
-        "items": [{"type": "potion", "properties": {"group": "items", "item_texture": "potion_image", "health_power": 50}}],
-        "gold":1.4,
-        "score":3
+    "bandit_2": {
+      "type": "enemy_unit",
+      "position": { "x": 240, "y": 100 },
+      "properties": {
+        "enemy_name": "bandit_2",
+        "texture": "bandit_spritesheet",
+        "group": "enemy_units",
+        "scale": { "x": 1.2, "y": 1.2 },
+        "anchor": { "x": 0.5, "y": 0.5 },
+        "animations": {
+          "idle": { "frames": [0, 0, 0], "fps": 12 },
+          "attack1": { "frames": [1, 2, 3], "fps": 12 },
+          "attack2": { "frames": [1, 2, 3], "fps": 12 },
+          "hit": { "frames": [4, 4, 4], "fps": 12 }
+        },
+        "stats": {
+          "attack": 20,
+          "magic_attack": 5,
+          "defense": 5,
+          "health": 50,
+          "mana": 100,
+          "speed": 15,
+          "max_health": 50
+        },
+        "target_units": "player_units",
+        "menu_name": "enemy2_item"
+      }
+    },
+    "enemy_units_menu": {
+      "type": "menu",
+      "position": { "x": 10, "y": 350 },
+      "properties": {
+        "group": "hud",
+        "menu_items": {
+          "enemy1_item": {
+            "type": "enemy_menu_item",
+            "position": { "x": 260, "y": 180 },
+            "properties": {
+              "group": "hud",
+              "texture": "hitbox_enemy",
+              "scale": { "x": 1.2, "y": 1.2 },
+              "anchor": { "x": 0.5, "y": 0.5 },
+              "enemy_name": "bandit_1"
+            }
+          },
+          "enemy2_item": {
+            "type": "enemy_menu_item",
+            "position": { "x": 240, "y": 100 },
+            "properties": {
+              "group": "hud",
+              "texture": "hitbox_enemy",
+              "scale": { "x": 1.2, "y": 1.2 },
+              "anchor": { "x": 0.5, "y": 0.5 },
+              "enemy_name": "bandit_2"
+            }
+          }
+        }
+      }
     }
+  },
+  "reward": {
+    "experience": 20,
+    "items": [
+      {
+        "type": "potion",
+        "properties": {
+          "group": "items",
+          "item_texture": "potion_image",
+          "health_power": 50
+        }
+      }
+    ],
+    "gold": 1.4,
+    "score": 3
+  }
 }

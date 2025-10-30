@@ -65,6 +65,9 @@ class Unit extends Prefab {
         this.act_turn = current_turn + Math.ceil(100 / this.stats.speed);
     };
  
+    reset_unit_health(){
+        this.stats.health = this.stats.max_health;
+    }
 }
 
 export default Unit;

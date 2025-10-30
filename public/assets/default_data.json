@@ -1,43 +1,45 @@
 {
-    "player_data": {
-        "inventory": [],
-        "party_data":{
-            "party1": {
-                "prefab_name": "paladin",
-                "stats": {
-                    "attack": 20,
-                    "magic_attack": 5,
-                    "defense": 5,
-                    "health": 100,
-                    "mana": 100,
-                    "speed": 15
-                },
-                "experience": 0,
-                "current_level": 1,
-                "face":"paladin_face_image"
-            },
-            "party2": {
-                "prefab_name": "empty"
-            },
-            "party3": {
-                "prefab_name": "fireknight",
-                "stats": {
-                    "attack": 20,
-                    "magic_attack": 5,
-                    "defense": 5,
-                    "health": 100,
-                    "mana": 100,
-                    "speed": 15
-                },
-                "experience": 0,
-                "current_level": 1,
-                "face":"fireknight_face_image"
-            }
+  "player_data": {
+    "inventory": [],
+    "party_data": {
+      "party1": {
+        "prefab_name": "paladin",
+        "stats": {
+          "attack": 20,
+          "magic_attack": 5,
+          "defense": 5,
+          "health": 100,
+          "mana": 100,
+          "speed": 15,
+          "max_health": 100
         },
-        "gold":0,
-        "level":1,
-        "score":0,
-        "user":"",
-        "friends":[]
-    }
+        "experience": 0,
+        "current_level": 1,
+        "face": "paladin_face_image"
+      },
+      "party2": {
+        "prefab_name": "empty"
+      },
+      "party3": {
+        "prefab_name": "fireknight",
+        "stats": {
+          "attack": 20,
+          "magic_attack": 5,
+          "defense": 5,
+          "health": 100,
+          "mana": 100,
+          "speed": 15,
+          "max_health": 100
+        },
+        "experience": 0,
+        "current_level": 1,
+        "face": "fireknight_face_image"
+      }
+    },
+    "gold": 0,
+    "level": 1,
+    "score": 0,
+    "user": "",
+    "friends": []
+  }
 }
