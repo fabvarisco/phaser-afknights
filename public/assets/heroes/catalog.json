@@ -1,0 +1,47 @@
+{
+  "paladin": {
+    "name": "Paladin",
+    "texture": "paladin_spritesheet",
+    "face": "paladin_face_image",
+    "stats_base": {
+      "attack": 20, "magic_attack": 5, "defense": 5,
+      "health": 100, "mana": 100, "speed": 15, "max_health": 100
+    },
+    "animations": {
+      "idle":    { "frames": [4],     "fps": 12 },
+      "attack1": { "frames": [0,1,2], "fps": 12 },
+      "attack2": { "frames": [0,1,2], "fps": 12 },
+      "hit":     { "frames": [3,3,3], "fps": 12 }
+    }
+  },
+  "fireknight": {
+    "name": "Fireknight",
+    "texture": "fireknight_spritesheet",
+    "face": "fireknight_face_image",
+    "stats_base": {
+      "attack": 20, "magic_attack": 5, "defense": 5,
+      "health": 100, "mana": 100, "speed": 15, "max_health": 100
+    },
+    "animations": {
+      "idle":    { "frames": [0],     "fps": 2 },
+      "attack1": { "frames": [3,4,5], "fps": 6 },
+      "attack2": { "frames": [3,4,5], "fps": 6 },
+      "hit":     { "frames": [6],     "fps": 6 }
+    }
+  },
+  "executor": {
+    "name": "Executor",
+    "texture": "executor_spritesheet",
+    "face": "executor_face_image",
+    "stats_base": {
+      "attack": 25, "magic_attack": 3, "defense": 3,
+      "health": 80, "mana": 60, "speed": 20, "max_health": 80
+    },
+    "animations": {
+      "idle":    { "frames": [4],     "fps": 12 },
+      "attack1": { "frames": [0,1,2], "fps": 12 },
+      "attack2": { "frames": [0,1,2], "fps": 12 },
+      "hit":     { "frames": [3,3,3], "fps": 12 }
+    }
+  }
+}

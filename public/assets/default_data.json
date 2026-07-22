@@ -1,35 +1,48 @@
 {
   "player_data": {
     "inventory": [],
+    "owned_heroes": [
+      {
+        "hero_id": "paladin",
+        "stats": {
+          "attack": 20, "magic_attack": 5, "defense": 5,
+          "health": 100, "mana": 100, "speed": 15, "max_health": 100
+        },
+        "experience": 0,
+        "current_level": 1
+      },
+      {
+        "hero_id": "fireknight",
+        "stats": {
+          "attack": 20, "magic_attack": 5, "defense": 5,
+          "health": 100, "mana": 100, "speed": 15, "max_health": 100
+        },
+        "experience": 0,
+        "current_level": 1
+      }
+    ],
     "party_data": {
       "party1": {
+        "hero_id": "paladin",
         "prefab_name": "paladin",
         "stats": {
-          "attack": 20,
-          "magic_attack": 5,
-          "defense": 5,
-          "health": 100,
-          "mana": 100,
-          "speed": 15,
-          "max_health": 100
+          "attack": 20, "magic_attack": 5, "defense": 5,
+          "health": 100, "mana": 100, "speed": 15, "max_health": 100
         },
         "experience": 0,
         "current_level": 1,
         "face": "paladin_face_image"
       },
       "party2": {
+        "hero_id": null,
         "prefab_name": "empty"
       },
       "party3": {
+        "hero_id": "fireknight",
         "prefab_name": "fireknight",
         "stats": {
-          "attack": 20,
-          "magic_attack": 5,
-          "defense": 5,
-          "health": 100,
-          "mana": 100,
-          "speed": 15,
-          "max_health": 100
+          "attack": 20, "magic_attack": 5, "defense": 5,
+          "health": 100, "mana": 100, "speed": 15, "max_health": 100
         },
         "experience": 0,
         "current_level": 1,
