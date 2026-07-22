@@ -1,38 +1,26 @@
-import Prefab from "../Prefab";
 
-class Equipment extends Prefab {
-  constructor(scene, name, position, properties) {
-    super(scene, name, position, properties);
-
-    this.setScale(0.3, 0.3);
-
-    this.unit_name = properties.unit_name;
-    this.body_part = properties.body_part;
-    this.stat = properties.stat;
-    this.bonus = +properties.bonus;
-
-    this.scene.physics.add.existing(this);
-    this.body.immovable = true;
-    this.body.setSize(this.width * this.scaleX, this.height * this.scaleY);
-
-    this.scene.physics.add.collider(
-      this,
-      this.scene.groups.players,
-      this.collect,
-      null,
-      this
-    );
-  }
-
-  collect() {
-    let unit_data = this.scene.cache.game.party_data[this.unit_name];
-
-    if (unit_data.equipment[this.body_part].name !== this.name) {
-      unit_data.equipment[this.body_part] = { name: this.name };
-      unit_data.stats_bonus[this.stat] = this.bonus;
-      this.destroy();
+export function apply_to(hero_entry, item_def) {
+  for (const stat in item_def.stats_bonus) {
+    if (hero_entry.stats[stat] !== undefined) {
+      hero_entry.stats[stat] += item_def.stats_bonus[stat];
     }
   }
 }
 
-export default Equipment;
+export function remove_from(hero_entry, item_def) {
+  for (const stat in item_def.stats_bonus) {
+    if (hero_entry.stats[stat] !== undefined) {
+      hero_entry.stats[stat] -= item_def.stats_bonus[stat];
+    }
+  }
+}
+
+
+export function recalculate_stats(hero_entry, items_catalog) {
+  hero_entry.stats = { ...hero_entry.stats_base };
+  hero_entry.equipment.forEach(item_id => {
+    if (item_id && items_catalog[item_id]) {
+      apply_to(hero_entry, items_catalog[item_id]);
+    }
+  });
+}

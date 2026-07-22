@@ -1,0 +1,21 @@
+{
+  "slots": ["Arma", "Armadura", "Capacete", "Botas", "Anel", "Amuleto"],
+
+  "iron_sword":      { "name": "Espada de Ferro",    "slot": 0, "frame": 13, "stats_bonus": { "attack": 8 } },
+  "steel_sword":     { "name": "Espada de Aço",      "slot": 0, "frame": 13, "stats_bonus": { "attack": 16 } },
+  "magic_staff":     { "name": "Cajado Arcano",      "slot": 0, "frame": 10, "stats_bonus": { "magic_attack": 12 } },
+  "executors_blade": { "name": "Lâmina do Executor", "slot": 0, "frame": 13, "stats_bonus": { "attack": 20, "speed": 3 } },
+
+  "leather_armor":   { "name": "Armadura de Couro",  "slot": 1, "frame": 12, "stats_bonus": { "defense": 6, "health": 20, "max_health": 20 } },
+  "chain_mail":      { "name": "Cota de Malha",      "slot": 1, "frame": 12, "stats_bonus": { "defense": 12, "health": 30, "max_health": 30 } },
+  "plate_armor":     { "name": "Armadura de Placas", "slot": 1, "frame": 12, "stats_bonus": { "defense": 20, "health": 50, "max_health": 50 } },
+
+  "iron_helmet":     { "name": "Capacete de Ferro",  "slot": 2, "frame": 12, "stats_bonus": { "defense": 4, "health": 10, "max_health": 10 } },
+  "magic_hood":      { "name": "Capuz Arcano",       "slot": 2, "frame": 10, "stats_bonus": { "magic_attack": 6, "mana": 20 } },
+
+  "speed_boots":     { "name": "Botas Velozes",      "slot": 3, "frame": 12, "stats_bonus": { "speed": 8 } },
+  "iron_boots":      { "name": "Botas de Ferro",     "slot": 3, "frame": 12, "stats_bonus": { "defense": 3, "speed": 2 } },
+
+  "attack_ring":     { "name": "Anel de Força",      "slot": 4, "frame": 10, "stats_bonus": { "attack": 5, "magic_attack": 5 } },
+  "life_amulet":     { "name": "Amuleto da Vida",    "slot": 5, "frame": 10, "stats_bonus": { "health": 30, "max_health": 30, "defense": 3 } }
+}

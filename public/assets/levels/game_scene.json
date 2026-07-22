@@ -320,7 +320,7 @@
                         }
                     },
                     "friends": {
-                        "type": "inventory_menu_item",
+                        "type": "equipment_menu_item",
                         "position": {
                             "x": 227,
                             "y": 583

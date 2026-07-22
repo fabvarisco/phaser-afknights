@@ -8,8 +8,13 @@
           "attack": 20, "magic_attack": 5, "defense": 5,
           "health": 100, "mana": 100, "speed": 15, "max_health": 100
         },
+        "stats_base": {
+          "attack": 20, "magic_attack": 5, "defense": 5,
+          "health": 100, "mana": 100, "speed": 15, "max_health": 100
+        },
         "experience": 0,
-        "current_level": 1
+        "current_level": 1,
+        "equipment": [null, null, null, null, null, null]
       },
       {
         "hero_id": "fireknight",
@@ -17,8 +22,13 @@
           "attack": 20, "magic_attack": 5, "defense": 5,
           "health": 100, "mana": 100, "speed": 15, "max_health": 100
         },
+        "stats_base": {
+          "attack": 20, "magic_attack": 5, "defense": 5,
+          "health": 100, "mana": 100, "speed": 15, "max_health": 100
+        },
         "experience": 0,
-        "current_level": 1
+        "current_level": 1,
+        "equipment": [null, null, null, null, null, null]
       }
     ],
     "party_data": {

@@ -4,6 +4,7 @@ import BootScene from "./scenes/BootScene";
 import GameScene from "./scenes/GameScene";
 import LoadingScene from "./scenes/LoadingScene";
 import HeroRosterScene from "./scenes/HeroRosterScene";
+import EquipmentScene from "./scenes/EquipmentScene";
 import "./index.css";
 
 const config = {
@@ -22,4 +23,5 @@ game.scene.add("GameScene",       new GameScene());
 game.scene.add("BootScene",       new BootScene());
 game.scene.add("LoadingScene",    new LoadingScene());
 game.scene.add("HeroRosterScene", new HeroRosterScene());
+game.scene.add("EquipmentScene",  new EquipmentScene());
 game.scene.start("BootScene", { scene: "title" });

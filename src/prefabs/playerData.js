@@ -3,7 +3,11 @@ import Inventory from "../inventory/Inventory";
 class PlayerData {
   constructor(player_json) {
     this.party_data = player_json.party_data;
-    this.owned_heroes = player_json.owned_heroes || [];
+    this.owned_heroes = (player_json.owned_heroes || []).map(h => ({
+      equipment: [null, null, null, null, null, null],
+      ...h,
+      stats_base: h.stats_base ? { ...h.stats_base } : { ...h.stats },
+    }));
     this.gold = parseInt(player_json.gold) || 0;
     this.level = player_json.level || 1;
     this.score = player_json.score || 0;

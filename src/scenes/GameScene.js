@@ -12,6 +12,7 @@ import InventoryMenuItem from "../prefabs/HUD/InventoryMenuItem";
 import ShowPlayerUnit from "../prefabs/HUD/ShowPlayerUnit";
 import AutobattleMenuItem from "../prefabs/HUD/AutobattleMenuItem";
 import PartyMenuItem from "../prefabs/HUD/PartyMenuItem";
+import EquipmentMenuItem from "../prefabs/HUD/EquipmentMenuItem";
 import ItemMenuItem from "../prefabs/HUD/ItemMenuItem.js";
 import PlayerData from "../prefabs/playerData";
 import BackMenuItem from "../prefabs/HUD/backMenuItem";
@@ -29,6 +30,7 @@ class GameScene extends JSONLevelScene {
       inventory_menu_item: InventoryMenuItem.prototype.constructor,
       autobattle_menu_item: AutobattleMenuItem.prototype.constructor,
       party_menu_item: PartyMenuItem.prototype.constructor,
+      equipment_menu_item: EquipmentMenuItem.prototype.constructor,
       enemy_menu_item: EnemyMenuItem.prototype.constructor,
       menu: Menu.prototype.constructor,
       player_unit: PlayerUnit.prototype.constructor,
@@ -46,6 +48,7 @@ class GameScene extends JSONLevelScene {
     this.player_data = this.cache.game.player_data;
     this.load.json("experience_table", "assets/levels/experience_table.json");
     this.load.json("heroes_catalog", "assets/heroes/catalog.json");
+    this.load.json("items_catalog", "assets/items/catalog.json");
     this.load.json("archer", "assets/enemy_encounters/archer.json");
     this.load.json("bandit", "assets/enemy_encounters/bandit.json");
   }

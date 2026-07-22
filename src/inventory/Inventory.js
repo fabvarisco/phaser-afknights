@@ -29,16 +29,18 @@ class Inventory {
   }
 
   create_menu(scene, items_menu) {
-    let item_position = { x: items_menu.x, y: items_menu.y };
+    const CARD = 44, GAP = 4;
+    let x = items_menu.x;
+    const y = items_menu.y;
 
     for (let item_type in this.items) {
-      let item_prefab = this.items[item_type].prefab;
-      let item_amount = this.items[item_type].amount;
+      const item_prefab = this.items[item_type].prefab;
+      const item_amount = this.items[item_type].amount;
 
-      let menu_item = new ItemMenuItem(
+      const menu_item = new ItemMenuItem(
         scene,
         item_type + "_menu_item",
-        { x: item_position.x, y: item_position.y },
+        { x, y },
         {
           group: "hud",
           texture: item_prefab.item_texture,
@@ -47,8 +49,8 @@ class Inventory {
         }
       );
       menu_item.setOrigin(0);
-
       items_menu.menu_items[item_type] = menu_item;
+      x += CARD + GAP;
     }
 
     items_menu.enable(false);
