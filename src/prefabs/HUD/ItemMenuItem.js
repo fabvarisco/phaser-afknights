@@ -20,7 +20,7 @@ class ItemMenuItem extends MenuItem {
     this.amount_text = scene.add.text(
       this._card_x + CARD - 2, this._card_y + CARD - 2,
       `x${this.amount}`,
-      { font: "bold 9px Arial", fill: "#ffffff", stroke: "#000000", strokeThickness: 2 }
+      { font: "bold 9px Nunito", fill: "#ffffff", stroke: "#000000", strokeThickness: 2 }
     ).setOrigin(1, 1);
   }
 

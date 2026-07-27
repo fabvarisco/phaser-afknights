@@ -28,11 +28,11 @@ class HeroRosterScene extends Scene {
     this.add.rectangle(160, 315, 320, 630, 0x000000, 0.88);
 
     this.add.text(160, 12, "GESTÃO DE PARTY", {
-      font: "bold 15px Arial", fill: "#ffffff",
+      font: "bold 15px Nunito", fill: "#ffffff",
     }).setOrigin(0.5, 0);
 
     this.add.text(160, 158, "── Heróis disponíveis ──", {
-      font: "11px Arial", fill: "#888888",
+      font: "11px Nunito", fill: "#888888",
     }).setOrigin(0.5, 0);
 
     this.slot_container = this.add.container(0, 0);
@@ -68,7 +68,7 @@ class HeroRosterScene extends Scene {
     box.strokeRect(cx - W/2, cy - H/2, W, H);
 
     const label = this.add.text(cx, cy - H/2 - 2, `Slot ${slot_num}`, {
-      font: "9px Arial", fill: "#777777",
+      font: "9px Nunito", fill: "#777777",
     }).setOrigin(0.5, 1);
 
     let face = null, name_text = null;
@@ -76,11 +76,11 @@ class HeroRosterScene extends Scene {
       const def = this.catalog[hero_id];
       face = this.add.image(cx, cy - 18, def.face).setDisplaySize(44, 44);
       name_text = this.add.text(cx, cy + 14, def.name, {
-        font: "bold 10px Arial", fill: "#ffffff",
+        font: "bold 10px Nunito", fill: "#ffffff",
       }).setOrigin(0.5, 0);
     } else {
       name_text = this.add.text(cx, cy, "Vazio", {
-        font: "10px Arial", fill: "#555555",
+        font: "10px Nunito", fill: "#555555",
       }).setOrigin(0.5, 0.5);
     }
 
@@ -128,11 +128,11 @@ class HeroRosterScene extends Scene {
         .setAlpha(alpha);
 
       const name_t = this.add.text(cx, cy + 16, def.name, {
-        font: "10px Arial", fill: is_in_party && !is_selected ? "#555555" : "#ffffff",
+        font: "10px Nunito", fill: is_in_party && !is_selected ? "#555555" : "#ffffff",
       }).setOrigin(0.5, 0);
 
       const lvl_t = this.add.text(cx, cy + 29, `Lv.${hero_entry.current_level}`, {
-        font: "9px Arial", fill: "#aaaaaa",
+        font: "9px Nunito", fill: "#aaaaaa",
       }).setOrigin(0.5, 0);
 
       const zone = this.add.zone(cx, cy, CARD_W, CARD_H).setInteractive();
@@ -181,7 +181,7 @@ class HeroRosterScene extends Scene {
     _redraw(color);
 
     this.add.text(cx, cy, label, {
-      font: "bold 13px Arial", fill: "#ffffff",
+      font: "bold 13px Nunito", fill: "#ffffff",
     }).setOrigin(0.5);
 
     const zone = this.add.zone(cx, cy, W, H).setInteractive();

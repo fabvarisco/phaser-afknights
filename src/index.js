@@ -1,5 +1,6 @@
 import { AUTO, Game } from "phaser";
 import TitleScene from "./scenes/TitleScene";
+import LoginScene from "./scenes/LoginScene";
 import BootScene from "./scenes/BootScene";
 import GameScene from "./scenes/GameScene";
 import LoadingScene from "./scenes/LoadingScene";
@@ -11,6 +12,8 @@ const config = {
   type: AUTO,
   width: 320,
   height: 630,
+  parent: "game",
+  dom: { createContainer: true },
   physics: {
     default: "arcade",
     arcade: { gravity: { y: 0 } },
@@ -19,6 +22,7 @@ const config = {
 const game = new Game(config);
 
 game.scene.add("TitleScene",      new TitleScene());
+game.scene.add("LoginScene",      new LoginScene());
 game.scene.add("GameScene",       new GameScene());
 game.scene.add("BootScene",       new BootScene());
 game.scene.add("LoadingScene",    new LoadingScene());

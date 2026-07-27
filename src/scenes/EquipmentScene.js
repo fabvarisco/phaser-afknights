@@ -35,7 +35,7 @@ class EquipmentScene extends Scene {
     this.add.rectangle(160, 315, 320, 630, 0x000000, 0.90);
 
     this.add.text(160, 10, "EQUIPAMENTOS", {
-      font: "bold 15px Arial", fill: "#ffffff",
+      font: "bold 15px Nunito", fill: "#ffffff",
     }).setOrigin(0.5, 0);
 
     this.tabs_container   = this.add.container(0, 0);
@@ -69,7 +69,7 @@ class EquipmentScene extends Scene {
       if (is_sel) { bg.lineStyle(2, 0x4488ff, 1); bg.strokeRoundedRect(cx - tab_w/2, cy - 18, tab_w, 36, 4); }
 
       const label = this.add.text(cx, cy, def ? def.name : hero.hero_id, {
-        font: "10px Arial", fill: is_sel ? "#ffffff" : "#888888",
+        font: "10px Nunito", fill: is_sel ? "#ffffff" : "#888888",
       }).setOrigin(0.5);
 
       const zone = this.add.zone(cx, cy, tab_w, 36).setInteractive();
@@ -100,18 +100,18 @@ class EquipmentScene extends Scene {
     const def = heroes_cat[hero.hero_id];
 
     const face = this.add.image(35, 113, def.face).setDisplaySize(44, 44);
-    const name_t = this.add.text(66, 90, def.name, { font: "bold 12px Arial", fill: "#ffffff" });
+    const name_t = this.add.text(66, 90, def.name, { font: "bold 12px Nunito", fill: "#ffffff" });
     const stats_t = this.add.text(66, 108,
       `ATK ${hero.stats.attack}  DEF ${hero.stats.defense}  SPD ${hero.stats.speed}`,
-      { font: "10px Arial", fill: "#aaaaaa" }
+      { font: "10px Nunito", fill: "#aaaaaa" }
     );
     const hp_t = this.add.text(66, 122,
       `HP ${hero.stats.health}/${hero.stats.max_health}  MANA ${hero.stats.mana}`,
-      { font: "10px Arial", fill: "#aaaaaa" }
+      { font: "10px Nunito", fill: "#aaaaaa" }
     );
     const lvl_t = this.add.text(66, 136,
       `Lv.${hero.current_level}  XP ${hero.experience}`,
-      { font: "9px Arial", fill: "#777777" }
+      { font: "9px Nunito", fill: "#777777" }
     );
 
     [face, name_t, stats_t, hp_t, lvl_t].forEach(o => this.hero_info_container.add(o));
@@ -124,7 +124,7 @@ class EquipmentScene extends Scene {
     const hero = this._current_hero();
 
     this.add.text(16, 157, "Slots de equipamento:", {
-      font: "10px Arial", fill: "#888888",
+      font: "10px Nunito", fill: "#888888",
     });
 
     for (let i = 0; i < 6; i++) {
@@ -143,7 +143,7 @@ class EquipmentScene extends Scene {
       bg.strokeRect(cx - SLOT_W/2, cy - SLOT_H/2, SLOT_W, SLOT_H);
 
       const slot_label = this.add.text(cx, cy - SLOT_H/2 + 6, SLOT_NAMES[i], {
-        font: "9px Arial", fill: "#666666",
+        font: "9px Nunito", fill: "#666666",
       }).setOrigin(0.5, 0);
 
       let slot_content;
@@ -154,7 +154,7 @@ class EquipmentScene extends Scene {
           .setTint(0x88ddff);
       } else {
         slot_content = this.add.text(cx, cy + 8, "—", {
-          font: "11px Arial", fill: "#333333",
+          font: "11px Nunito", fill: "#333333",
         }).setOrigin(0.5);
       }
 
@@ -177,14 +177,14 @@ class EquipmentScene extends Scene {
 
     if (this.selected_slot === null) {
       this.item_list_label = this.add.text(16, label_y, "← Selecione um slot para ver itens", {
-        font: "10px Arial", fill: "#555555",
+        font: "10px Nunito", fill: "#555555",
       });
       return;
     }
 
     const slot_name = SLOT_NAMES[this.selected_slot];
     this.item_list_label = this.add.text(16, label_y, `Itens para: ${slot_name}`, {
-      font: "10px Arial", fill: "#888888",
+      font: "10px Nunito", fill: "#888888",
     });
 
     // Itens do catálogo para este slot
@@ -212,14 +212,14 @@ class EquipmentScene extends Scene {
         .setTint(is_equipped ? 0xffaa00 : 0xffffff);
 
       const name_t = this.add.text(cx, cy + 10, item_def.name, {
-        font: "9px Arial", fill: is_equipped ? "#ffaa00" : "#cccccc",
+        font: "9px Nunito", fill: is_equipped ? "#ffaa00" : "#cccccc",
         wordWrap: { width: ITEM_W - 8 }, align: "center",
       }).setOrigin(0.5, 0);
 
       const bonus_str = Object.entries(item_def.stats_bonus)
         .map(([s, v]) => `+${v} ${s}`).join("  ");
       const bonus_t = this.add.text(cx, cy + 28, bonus_str, {
-        font: "8px Arial", fill: "#44aa88",
+        font: "8px Nunito", fill: "#44aa88",
         wordWrap: { width: ITEM_W - 4 }, align: "center",
       }).setOrigin(0.5, 0);
 
@@ -313,7 +313,7 @@ class EquipmentScene extends Scene {
     const bg = this.add.graphics();
     const _r = (fill) => { bg.clear(); bg.fillStyle(fill, 1); bg.fillRoundedRect(cx - W/2, cy - H/2, W, H, 6); };
     _r(color);
-    this.add.text(cx, cy, label, { font: "bold 13px Arial", fill: "#ffffff" }).setOrigin(0.5);
+    this.add.text(cx, cy, label, { font: "bold 13px Nunito", fill: "#ffffff" }).setOrigin(0.5);
     const zone = this.add.zone(cx, cy, W, H).setInteractive();
     zone.on("pointerdown", callback);
     zone.on("pointerover",  () => _r(0x4444aa));

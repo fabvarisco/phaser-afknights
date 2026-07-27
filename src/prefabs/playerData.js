@@ -21,11 +21,11 @@ class PlayerData {
 
   playerCreate(scene) {
     this.gold_text = scene.add.text(200, 10, "Gold: " + this.gold, {
-      font: "22px Arial",
+      font: "22px Nunito",
       align: "center",
     });
     this.level_text = scene.add.text(10, 10, "Level: " + this.level, {
-      font: "22px Arial",
+      font: "22px Nunito",
       fill: "#ff0044",
       align: "center",
     });

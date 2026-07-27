@@ -27,7 +27,7 @@ class ShowPlayerUnit extends Prefab {
     }
 
     defaultBarStyle() {
-        return { font: "12px Arial", fill: "#000000", align: "center" };
+        return { font: "12px Nunito", fill: "#000000", align: "center" };
     }
 
     create_stats() {
