@@ -145,101 +145,68 @@
         },
         "paladin": {
             "type": "player_unit",
-            "position": {
-                "x": 0,
-                "y": 0
-            },
+            "position": { "x": 0, "y": 0 },
             "properties": {
                 "texture": "paladin_spritesheet",
                 "group": "player_units",
-                "scale": {
-                    "x": -1,
-                    "y": 1
-                },
-                "anchor": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
+                "scale": { "x": -1, "y": 1 },
+                "anchor": { "x": 0.5, "y": 0.5 },
                 "animations": {
-                    "idle": {
-                        "frames": [
-                            4
-                        ],
-                        "fps": 12
-                    },
-                    "attack1": {
-                        "frames": [
-                            0,
-                            1,
-                            2
-                        ],
-                        "fps": 12
-                    },
-                    "attack2": {
-                        "frames": [
-                            0,
-                            1,
-                            2
-                        ],
-                        "fps": 12
-                    },
-                    "hit": {
-                        "frames": [
-                            3,
-                            3,
-                            3
-                        ],
-                        "fps": 12
-                    }
+                    "idle":    { "frames": [4],     "fps": 12 },
+                    "attack1": { "frames": [0,1,2], "fps": 12 },
+                    "attack2": { "frames": [0,1,2], "fps": 12 },
+                    "hit":     { "frames": [3,3,3], "fps": 12 }
                 },
                 "target_units": "enemy_units",
-                "face_texture": "paladin_face_image"
-            },
-            "stats": {
-                "attack": 20,
-                "magic_attack": 5,
-                "defense": 5,
-                "health": 100,
-                "mana": 100,
-                "speed": 15,
-                "max_health": 100
+                "face_texture": "paladin_face_image",
+                "stats": {
+                    "attack": 20, "magic_attack": 5, "defense": 5,
+                    "health": 100, "mana": 100, "speed": 15, "max_health": 100
+                }
             }
         },
         "fireknight": {
             "type": "player_unit",
-            "position": {
-                "x": 0,
-                "y": 0
-            },
+            "position": { "x": 0, "y": 0 },
             "properties": {
                 "texture": "fireknight_spritesheet",
                 "group": "player_units",
-                "scale": {
-                    "x": -1,
-                    "y": 1
-                },
-                "anchor": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
+                "scale": { "x": -1, "y": 1 },
+                "anchor": { "x": 0.5, "y": 0.5 },
                 "animations": {
-                    "idle": {"frames": [0], "fps": 2},
-                    "attack1": {"frames": [3,4,5], "fps": 6},
-                    "attack2": {"frames": [3,4,5], "fps": 6},
-                    "hit": {"frames": [6], "fps": 6}
+                    "idle":    { "frames": [0],     "fps": 2 },
+                    "attack1": { "frames": [3,4,5], "fps": 6 },
+                    "attack2": { "frames": [3,4,5], "fps": 6 },
+                    "hit":     { "frames": [6],     "fps": 6 }
                 },
-
                 "target_units": "enemy_units",
-                "face_texture": "fireknight_face_image"
-            },
-            "stats": {
-                "attack": 20,
-                "magic_attack": 5,
-                "defense": 5,
-                "health": 100,
-                "mana": 100,
-                "speed": 15,
-                "max_health": 100
+                "face_texture": "fireknight_face_image",
+                "stats": {
+                    "attack": 20, "magic_attack": 5, "defense": 5,
+                    "health": 100, "mana": 100, "speed": 15, "max_health": 100
+                }
+            }
+        },
+        "executor": {
+            "type": "player_unit",
+            "position": { "x": 0, "y": 0 },
+            "properties": {
+                "texture": "executor_spritesheet",
+                "group": "player_units",
+                "scale": { "x": -1, "y": 1 },
+                "anchor": { "x": 0.5, "y": 0.5 },
+                "animations": {
+                    "idle":    { "frames": [4],     "fps": 12 },
+                    "attack1": { "frames": [0,1,2], "fps": 12 },
+                    "attack2": { "frames": [0,1,2], "fps": 12 },
+                    "hit":     { "frames": [3,3,3], "fps": 12 }
+                },
+                "target_units": "enemy_units",
+                "face_texture": "executor_face_image",
+                "stats": {
+                    "attack": 25, "magic_attack": 3, "defense": 3,
+                    "health": 80, "mana": 60, "speed": 20, "max_health": 80
+                }
             }
         },
         "actions_menu": {
@@ -334,7 +301,7 @@
                         }
                     },
                     "party": {
-                        "type": "inventory_menu_item",
+                        "type": "party_menu_item",
                         "position": {
                             "x": 182,
                             "y": 583
@@ -353,7 +320,7 @@
                         }
                     },
                     "friends": {
-                        "type": "inventory_menu_item",
+                        "type": "equipment_menu_item",
                         "position": {
                             "x": 227,
                             "y": 583

@@ -24,7 +24,7 @@ class TitleScene extends JSONLevelScene {
     this.input.on(
       "pointerdown",
       function () {
-        this.login();
+        this.scene.start("LoginScene");
       },
       this
     );
